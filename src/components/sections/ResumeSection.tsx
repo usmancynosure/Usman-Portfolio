@@ -34,7 +34,7 @@ export function ResumeSection() {
           {/* Ornate frame */}
           <div className="border-2 border-gold-500 rounded-2xl overflow-hidden relative bg-[linear-gradient(135deg,rgba(245,240,232,0.03),rgba(245,240,232,0.01))]"
             style={{
-              backgroundImage: "linear-gradient(135deg, #d4af37 6px, transparent 6px), linear-gradient(225deg, #d4af37 6px, transparent 6px), linear-gradient(315deg, #d4af37 6px, transparent 6px), linear-gradient(45deg, #d4af37 6px, transparent 6px)",
+              backgroundImage: "linear-gradient(135deg, #CE1126 6px, transparent 6px), linear-gradient(225deg, #CE1126 6px, transparent 6px), linear-gradient(315deg, #CE1126 6px, transparent 6px), linear-gradient(45deg, #CE1126 6px, transparent 6px)",
               backgroundSize: "20px 20px",
               backgroundPosition: "top left, top right, bottom right, bottom left",
               backgroundRepeat: "no-repeat",

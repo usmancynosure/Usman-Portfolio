@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio website for Usman Waris (AI Engineer) called "The Digital Majlis". Single-page Next.js app with an Arabic-Modern fusion design theme (deep navy + gold color palette).
+Personal portfolio website for Usman Waris (AI Engineer) called "The Digital Majlis". Single-page Next.js app with a UAE-inspired design theme (deep black + Emirates red & green color palette).
 
 ## Commands
 
@@ -35,7 +35,7 @@ Single-page app — all sections render from `src/app/page.tsx` (a client compon
 
 ### Design system (defined in `src/app/globals.css` `@theme` block)
 
-- Colors: `navy-{950..400}`, `gold-{700..100}`, `parchment`, `text-{primary,secondary,muted}`
+- Colors: `navy-{950..400}` (deep blacks/charcoals), `gold-{700..100}` (UAE reds), `emerald-{700..300}` (UAE greens), `parchment`, `text-{primary,secondary,muted}`
 - Fonts: `--font-heading` (Playfair Display), `--font-body` (Inter), `--font-arabic` (Amiri), `--font-mono` (Fira Code)
 
 ### Path alias
@@ -57,7 +57,7 @@ Reusable classes beyond Tailwind: `.glass-card` (glassmorphism), `.gold-shimmer`
 
 ### SEO / Metadata
 
-`src/app/layout.tsx` configures OpenGraph, Twitter cards, and JSON-LD structured data (Person schema). Theme color is `#0a1628`.
+`src/app/layout.tsx` configures OpenGraph, Twitter cards, and JSON-LD structured data (Person schema). Theme color is `#0d1117`.
 
 ## Notes
 

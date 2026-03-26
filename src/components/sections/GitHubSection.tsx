@@ -30,7 +30,7 @@ function AnimatedNumber({ target, label }: { target: number; label: string }) {
   }, [inView, target]);
 
   return (
-    <div ref={ref} className="glass-card rounded-2xl p-4 sm:p-6 text-center hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] hover:-translate-y-1 transition-all duration-500">
+    <div ref={ref} className="glass-card rounded-2xl p-4 sm:p-6 text-center hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] hover:-translate-y-1 transition-all duration-500">
       <span className="font-heading text-3xl md:text-4xl font-bold text-gold-500 block mb-1">{count}</span>
       <span className="text-sm text-text-secondary">{label}</span>
     </div>

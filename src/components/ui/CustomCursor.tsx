@@ -67,7 +67,7 @@ export function CustomCursor() {
       className={`fixed top-0 left-0 pointer-events-none z-[10000] rounded-full mix-blend-screen transition-[width,height,background,border] duration-200 ${
         isHovering
           ? "w-6 h-6 bg-gold-500/20 border-[1.5px] border-gold-500"
-          : "w-2 h-2 bg-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
+          : "w-2 h-2 bg-gold-500 shadow-[0_0_10px_rgba(206,17,38,0.5)]"
       }`}
       style={{ cursor: "none" }}
     />

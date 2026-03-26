@@ -55,7 +55,7 @@ function CertCard({ cert, delay }: { cert: typeof certifications[0]; delay: numb
       >
         {/* Front */}
         <div
-          className="absolute inset-0 glass-card rounded-2xl overflow-hidden hover:border-gold-500 hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] transition-all duration-500"
+          className="absolute inset-0 glass-card rounded-2xl overflow-hidden hover:border-gold-500 hover:shadow-[0_8px_30px_rgba(206,17,38,0.15)] transition-all duration-500"
           style={{ backfaceVisibility: "hidden" }}
         >
           {cert.image ? (
@@ -101,7 +101,7 @@ function CertCard({ cert, delay }: { cert: typeof certifications[0]; delay: numb
           style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            background: "linear-gradient(145deg, rgba(36, 51, 86, 0.9) 0%, rgba(26, 39, 68, 0.95) 100%)",
+            background: "linear-gradient(145deg, rgba(33, 38, 45, 0.9) 0%, rgba(22, 27, 34, 0.95) 100%)",
             border: "1px solid var(--color-gold-500)",
           }}
         >
@@ -109,7 +109,7 @@ function CertCard({ cert, delay }: { cert: typeof certifications[0]; delay: numb
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
 
           <div className="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-4">
-            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#d4af37" strokeWidth="2">
+            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="#CE1126" strokeWidth="2">
               <path d="M12 15l-3-3m0 0l3-3m-3 3h12M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2z" />
             </svg>
           </div>

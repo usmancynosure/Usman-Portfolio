@@ -100,16 +100,16 @@ export function Chatbot() {
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-navy-800 border-2 border-gold-500 flex items-center justify-center hover:scale-110 hover:shadow-[0_8px_40px_rgba(212,175,55,0.3)] transition-all duration-300"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-navy-800 border-2 border-gold-500 flex items-center justify-center hover:scale-110 hover:shadow-[0_8px_40px_rgba(206,17,38,0.3)] transition-all duration-300"
           style={{ animation: "lanternGlow 3s ease-in-out infinite" }}
           whileHover={{ scale: 1.1 }}
           aria-label="Open AI Assistant"
         >
           <svg viewBox="0 0 40 40" width="26" height="26">
-            <path d="M20 4 L26 12 L26 28 Q26 34 20 36 Q14 34 14 28 L14 12 Z" fill="none" stroke="#d4af37" strokeWidth="2" />
-            <circle cx="20" cy="20" r="4" fill="#d4af37" opacity="0.6" />
-            <line x1="17" y1="4" x2="23" y2="4" stroke="#d4af37" strokeWidth="2" />
-            <line x1="20" y1="1" x2="20" y2="4" stroke="#d4af37" strokeWidth="1.5" />
+            <path d="M20 4 L26 12 L26 28 Q26 34 20 36 Q14 34 14 28 L14 12 Z" fill="none" stroke="#CE1126" strokeWidth="2" />
+            <circle cx="20" cy="20" r="4" fill="#CE1126" opacity="0.6" />
+            <line x1="17" y1="4" x2="23" y2="4" stroke="#CE1126" strokeWidth="2" />
+            <line x1="20" y1="1" x2="20" y2="4" stroke="#CE1126" strokeWidth="1.5" />
           </svg>
         </motion.button>
       )}
@@ -118,7 +118,7 @@ export function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[380px] sm:max-w-[calc(100vw-32px)] sm:h-[550px] sm:max-h-[calc(100vh-120px)] bg-navy-900 border-0 sm:border border-gold-500 sm:rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(212,175,55,0.15)]"
+            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[380px] sm:max-w-[calc(100vw-32px)] sm:h-[550px] sm:max-h-[calc(100vh-120px)] bg-navy-900 border-0 sm:border border-gold-500 sm:rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(206,17,38,0.15)]"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}

@@ -39,19 +39,19 @@ export function Preloader() {
               <motion.polygon
                 points="100,10 120,80 190,80 135,120 155,190 100,150 45,190 65,120 10,80 80,80"
                 fill="none"
-                stroke="#d4af37"
+                stroke="#CE1126"
                 strokeWidth="1.5"
                 initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, fill: "rgba(212,175,55,0.2)" }}
+                animate={{ pathLength: 1, fill: "rgba(206,17,38,0.2)" }}
                 transition={{ duration: 2, ease: "easeInOut" }}
               />
               <motion.polygon
                 points="100,30 115,80 170,80 125,110 140,170 100,140 60,170 75,110 30,80 85,80"
                 fill="none"
-                stroke="#f0c75e"
+                stroke="#F05060"
                 strokeWidth="1"
                 initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, fill: "rgba(240,199,94,0.15)" }}
+                animate={{ pathLength: 1, fill: "rgba(240,80,96,0.15)" }}
                 transition={{ duration: 2, delay: 0.3, ease: "easeInOut" }}
               />
             </motion.svg>

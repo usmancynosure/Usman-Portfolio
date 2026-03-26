@@ -55,13 +55,13 @@ export function Navigation() {
       {/* Astrolabe button with progress ring */}
       <div className="relative w-[50px] h-[50px]">
         <svg className="absolute top-0 left-0 w-full h-full -rotate-90" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="22" fill="none" stroke="#243356" strokeWidth="2" />
+          <circle cx="25" cy="25" r="22" fill="none" stroke="#21262d" strokeWidth="2" />
           <circle
             cx="25"
             cy="25"
             r="22"
             fill="none"
-            stroke="#d4af37"
+            stroke="#CE1126"
             strokeWidth="2"
             strokeLinecap="round"
             strokeDasharray={circumference}
@@ -72,7 +72,7 @@ export function Navigation() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-800 border-[1.5px] border-gold-500 flex items-center justify-center z-10 hover:bg-navy-700 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-800 border-[1.5px] border-gold-500 flex items-center justify-center z-10 hover:bg-navy-700 hover:shadow-[0_0_20px_rgba(206,17,38,0.3)] transition-all duration-300"
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
         >

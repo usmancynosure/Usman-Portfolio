@@ -3,30 +3,36 @@
 
 /* ============================================
    THE DIGITAL MAJLIS - Global Styles
-   Arabic-Modern Fusion | Deep Navy + Gold
+   UAE-Inspired | Emirates Red & Green
    ============================================ */
 
 @theme {
-  --color-navy-950: #050d18;
-  --color-navy-900: #0a1628;
-  --color-navy-800: #1a2744;
-  --color-navy-700: #243356;
-  --color-navy-600: #2e4068;
-  --color-navy-500: #3d5585;
-  --color-navy-400: #5a7ab5;
+  --color-navy-950: #07090c;
+  --color-navy-900: #0d1117;
+  --color-navy-800: #161b22;
+  --color-navy-700: #21262d;
+  --color-navy-600: #30363d;
+  --color-navy-500: #3d444d;
+  --color-navy-400: #575f69;
 
-  --color-gold-700: #8a6d14;
-  --color-gold-600: #b8941e;
-  --color-gold-500: #d4af37;
-  --color-gold-400: #e0c35a;
-  --color-gold-300: #f0c75e;
-  --color-gold-200: #f5dfa0;
-  --color-gold-100: #faf0d0;
+  --color-gold-700: #8B1020;
+  --color-gold-600: #A81525;
+  --color-gold-500: #CE1126;
+  --color-gold-400: #E8384F;
+  --color-gold-300: #F05060;
+  --color-gold-200: #F5A0A8;
+  --color-gold-100: #FDE8EC;
 
-  --color-parchment: #f5f0e8;
-  --color-text-primary: #e8e0d0;
-  --color-text-secondary: #a09880;
-  --color-text-muted: #6a6050;
+  --color-emerald-700: #006B2D;
+  --color-emerald-600: #007D34;
+  --color-emerald-500: #009639;
+  --color-emerald-400: #00B344;
+  --color-emerald-300: #33CC66;
+
+  --color-parchment: #F0F2F5;
+  --color-text-primary: #E6EDF3;
+  --color-text-secondary: #8B949E;
+  --color-text-muted: #484F58;
 
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -48,7 +54,7 @@ body {
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.3);
+  background: rgba(206, 17, 38, 0.3);
   color: white;
 }
 
@@ -58,9 +64,9 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--color-navy-600); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-gold-500); }
 
-/* Gold shimmer text */
+/* Red shimmer text (UAE Red) */
 .gold-shimmer {
-  background: linear-gradient(135deg, #b8941e, #d4af37, #f0c75e, #d4af37, #b8941e);
+  background: linear-gradient(135deg, #9B0D1E, #CE1126, #F05060, #CE1126, #9B0D1E);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -73,9 +79,9 @@ body {
   50% { background-position: -200% center; }
 }
 
-/* Gold gradient text */
+/* Red gradient text (UAE) */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #d4af37 0%, #f0c75e 40%, #d4af37 60%, #b8941e 100%);
+  background: linear-gradient(135deg, #CE1126 0%, #F05060 40%, #CE1126 60%, #9B0D1E 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -107,23 +113,23 @@ body {
 
 /* Card glass effect */
 .glass-card {
-  background: linear-gradient(145deg, rgba(36, 51, 86, 0.5) 0%, rgba(26, 39, 68, 0.7) 100%);
+  background: linear-gradient(145deg, rgba(33, 38, 45, 0.5) 0%, rgba(22, 27, 34, 0.7) 100%);
   border: 1px solid var(--color-navy-600);
   backdrop-filter: blur(12px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Geometric pattern background */
 .geo-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23243356' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%2321262d' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E");
   background-size: 60px 60px;
 }
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #b8941e, #d4af37, #f0c75e, #d4af37, #b8941e);
+  background: linear-gradient(135deg, #9B0D1E, #CE1126, #F05060, #CE1126, #9B0D1E);
   background-size: 200% 100%;
-  color: var(--color-navy-950);
+  color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -131,7 +137,7 @@ body {
 }
 .btn-primary:hover {
   background-position: 100% 0;
-  box-shadow: 0 8px 40px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 40px rgba(206, 17, 38, 0.3);
   transform: translateY(-2px);
 }
 
@@ -144,8 +150,8 @@ body {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-outline:hover {
-  background: rgba(212, 175, 55, 0.1);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+  background: rgba(206, 17, 38, 0.1);
+  box-shadow: 0 4px 20px rgba(206, 17, 38, 0.2);
   transform: translateY(-2px);
 }
 
@@ -157,14 +163,14 @@ body {
 
 /* Lantern glow */
 @keyframes lanternGlow {
-  0%, 100% { filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4)); }
-  50% { filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.7)); }
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(206, 17, 38, 0.4)); }
+  50% { filter: drop-shadow(0 0 16px rgba(206, 17, 38, 0.7)); }
 }
 
 /* Diamond pulse */
 @keyframes diamondPulse {
-  0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
-  50% { transform: rotate(45deg) scale(1.2); box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+  0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 rgba(206, 17, 38, 0); }
+  50% { transform: rotate(45deg) scale(1.2); box-shadow: 0 0 15px rgba(206, 17, 38, 0.6); }
 }
 
 /* Typing dots */

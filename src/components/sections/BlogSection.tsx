@@ -29,7 +29,7 @@ export function BlogSection() {
           {blogPosts.map((post, i) => (
             <motion.article
               key={post.id}
-              className="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] hover:-translate-y-1.5 transition-all duration-500"
+              className="glass-card rounded-2xl overflow-hidden group cursor-pointer hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] hover:-translate-y-1.5 transition-all duration-500"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -48,7 +48,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Programming",
     icon: "💻",
-    color: "#d4af37",
+    color: "#CE1126",
     skills: [
       { name: "Python", level: 95 },
       { name: "FastAPI", level: 90 },
@@ -61,7 +61,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "AI & Data Science",
     icon: "🧠",
-    color: "#f0c75e",
+    color: "#F05060",
     skills: [
       { name: "LangChain / LangGraph", level: 92 },
       { name: "RAG Pipelines", level: 88 },
@@ -75,7 +75,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Databases & Cloud",
     icon: "☁️",
-    color: "#e0c35a",
+    color: "#E8384F",
     skills: [
       { name: "MongoDB", level: 88 },
       { name: "PostgreSQL", level: 82 },
@@ -88,7 +88,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "DevOps & Tools",
     icon: "🔧",
-    color: "#b8941e",
+    color: "#9B0D1E",
     skills: [
       { name: "Docker", level: 85 },
       { name: "Kubernetes", level: 65 },

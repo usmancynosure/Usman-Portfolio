@@ -18,7 +18,7 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
         <motion.div
           className="h-full rounded-full relative"
           style={{
-            background: "linear-gradient(135deg, #b8941e, #d4af37, #f0c75e, #d4af37, #b8941e)",
+            background: "linear-gradient(135deg, #9B0D1E, #CE1126, #F05060, #CE1126, #9B0D1E)",
             backgroundSize: "200% 100%",
           }}
           initial={{ width: 0 }}
@@ -56,7 +56,7 @@ export function SkillsSection() {
           {skillCategories.map((cat, catIdx) => (
             <motion.div
               key={cat.name}
-              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] transition-all duration-500 hover:-translate-y-1"
+              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] transition-all duration-500 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -74,9 +74,9 @@ export function AboutSection() {
               <svg className="absolute inset-0 w-full h-full z-10" viewBox="0 0 300 400" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="archGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#b8941e" />
-                    <stop offset="50%" stopColor="#f0c75e" />
-                    <stop offset="100%" stopColor="#d4af37" />
+                    <stop offset="0%" stopColor="#9B0D1E" />
+                    <stop offset="50%" stopColor="#F05060" />
+                    <stop offset="100%" stopColor="#CE1126" />
                   </linearGradient>
                 </defs>
                 <motion.path

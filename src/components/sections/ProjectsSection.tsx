@@ -76,11 +76,11 @@ export function ProjectsSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 onClick={() => setSelectedProject(project)}
-                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_8px_40px_rgba(212,175,55,0.2)] hover:-translate-y-2 transition-all duration-500 relative"
+                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_8px_40px_rgba(206,17,38,0.2)] hover:-translate-y-2 transition-all duration-500 relative"
               >
                 {/* Geo pattern overlay on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23d4af37' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23CE1126' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
                 }} />
 
                 {/* Project image */}

@@ -72,7 +72,7 @@ export function TestimonialsSection() {
               onClick={() => setActive(i)}
               className={`w-3 h-3 sm:w-2.5 sm:h-2.5 rotate-45 transition-all duration-300 touch-manipulation ${
                 i === active
-                  ? "bg-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
+                  ? "bg-gold-500 shadow-[0_0_10px_rgba(206,17,38,0.5)]"
                   : "bg-navy-600 hover:bg-gold-400"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}

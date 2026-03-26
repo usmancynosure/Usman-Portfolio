@@ -38,14 +38,14 @@ export async function POST(req: NextRequest) {
       replyTo: email,
       subject: `[Portfolio] ${subject || "New Contact"} - from ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0a1628; color: #e8e0d0; border-radius: 12px; border: 1px solid #d4af37;">
-          <h2 style="color: #d4af37; margin-bottom: 16px;">New Portfolio Message</h2>
-          <p><strong style="color: #f0c75e;">From:</strong> ${name} (${email})</p>
-          <p><strong style="color: #f0c75e;">Subject:</strong> ${subject || "No subject"}</p>
-          <hr style="border-color: #243356; margin: 16px 0;" />
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0d1117; color: #E6EDF3; border-radius: 12px; border: 1px solid #CE1126;">
+          <h2 style="color: #CE1126; margin-bottom: 16px;">New Portfolio Message</h2>
+          <p><strong style="color: #F05060;">From:</strong> ${name} (${email})</p>
+          <p><strong style="color: #F05060;">Subject:</strong> ${subject || "No subject"}</p>
+          <hr style="border-color: #21262d; margin: 16px 0;" />
           <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
-          <hr style="border-color: #243356; margin: 16px 0;" />
-          <p style="font-size: 12px; color: #6a6050;">Sent from The Digital Majlis Portfolio</p>
+          <hr style="border-color: #21262d; margin: 16px 0;" />
+          <p style="font-size: 12px; color: #484F58;">Sent from The Digital Majlis Portfolio</p>
         </div>
       `,
     });
@@ -56,15 +56,15 @@ export async function POST(req: NextRequest) {
       to: email,
       subject: `Thank you for reaching out, ${name}!`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0a1628; color: #e8e0d0; border-radius: 12px; border: 1px solid #d4af37;">
-          <h2 style="color: #d4af37;">Assalamu Alaikum, ${name}!</h2>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #0d1117; color: #E6EDF3; border-radius: 12px; border: 1px solid #CE1126;">
+          <h2 style="color: #CE1126;">Assalamu Alaikum, ${name}!</h2>
           <p>Thank you for visiting my portfolio and reaching out. I've received your message and will get back to you as soon as possible.</p>
           <p>In the meantime, feel free to check out my work:</p>
           <ul>
-            <li><a href="https://github.com/usmancynosure" style="color: #f0c75e;">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/usman-waris-0a9b8c7d/" style="color: #f0c75e;">LinkedIn</a></li>
+            <li><a href="https://github.com/usmancynosure" style="color: #F05060;">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/usman-waris-0a9b8c7d/" style="color: #F05060;">LinkedIn</a></li>
           </ul>
-          <p>Best regards,<br/><strong style="color: #d4af37;">Usman Waris</strong><br/>AI Engineer</p>
+          <p>Best regards,<br/><strong style="color: #CE1126;">Usman Waris</strong><br/>AI Engineer</p>
         </div>
       `,
     });
