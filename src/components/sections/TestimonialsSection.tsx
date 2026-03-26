@@ -15,10 +15,10 @@ export function TestimonialsSection() {
   }, []);
 
   return (
-    <section id="testimonials" className="py-20 md:py-28 geo-pattern">
+    <section id="testimonials" className="py-14 md:py-20 lg:py-28 geo-pattern">
       <div className="max-w-3xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -26,7 +26,7 @@ export function TestimonialsSection() {
           Testimonials
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -36,20 +36,20 @@ export function TestimonialsSection() {
         </motion.p>
 
         {/* Testimonial card */}
-        <div className="relative min-h-[300px]">
+        <div className="relative min-h-[250px] sm:min-h-[300px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              className="glass-card rounded-3xl p-8 md:p-10 text-center relative"
+              className="glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 text-center relative"
               initial={{ opacity: 0, y: 20, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.97 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Quotation mark */}
-              <span className="absolute top-4 left-6 font-arabic text-[80px] text-gold-500/20 leading-none select-none">&ldquo;</span>
+              <span className="absolute top-2 left-4 sm:top-4 sm:left-6 font-arabic text-[50px] sm:text-[80px] text-gold-500/20 leading-none select-none">&ldquo;</span>
 
-              <p className="text-lg md:text-xl text-text-primary italic leading-relaxed mb-8 relative z-10 pt-6">
+              <p className="text-base sm:text-lg md:text-xl text-text-primary italic leading-relaxed mb-6 sm:mb-8 relative z-10 pt-4 sm:pt-6">
                 {testimonials[active].text}
               </p>
 
@@ -65,12 +65,12 @@ export function TestimonialsSection() {
         </div>
 
         {/* Diamond dots */}
-        <div className="flex justify-center gap-4 mt-6">
+        <div className="flex justify-center gap-3 sm:gap-4 mt-6">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`w-2.5 h-2.5 rotate-45 transition-all duration-300 ${
+              className={`w-3 h-3 sm:w-2.5 sm:h-2.5 rotate-45 transition-all duration-300 touch-manipulation ${
                 i === active
                   ? "bg-gold-500 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
                   : "bg-navy-600 hover:bg-gold-400"

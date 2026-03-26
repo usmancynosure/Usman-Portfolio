@@ -39,10 +39,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-14 md:py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,7 +50,7 @@ export function ContactSection() {
           Get In Touch
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -59,7 +59,7 @@ export function ContactSection() {
           Let&apos;s build something extraordinary together
         </motion.p>
 
-        <div className="grid md:grid-cols-[1.2fr_1fr] gap-12">
+        <div className="grid md:grid-cols-[1.2fr_1fr] gap-8 md:gap-12">
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}

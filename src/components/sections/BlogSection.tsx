@@ -5,10 +5,10 @@ import { blogPosts } from "@/data/portfolio";
 
 export function BlogSection() {
   return (
-    <section id="blog" className="py-20 md:py-28">
+    <section id="blog" className="py-14 md:py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -16,7 +16,7 @@ export function BlogSection() {
           Blog & Articles
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -25,7 +25,7 @@ export function BlogSection() {
           Thoughts on AI & Engineering
         </motion.p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {blogPosts.map((post, i) => (
             <motion.article
               key={post.id}

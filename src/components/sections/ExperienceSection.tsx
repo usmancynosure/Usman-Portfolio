@@ -13,10 +13,12 @@ export function ExperienceSection() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="experience" className="py-20 md:py-28">
+    <section id="experience" className="py-14 md:py-20 lg:py-28 relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-gold-500/[0.02] rounded-full blur-[100px] pointer-events-none" />
       <div className="max-w-5xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -24,7 +26,7 @@ export function ExperienceSection() {
           Experience
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -77,12 +79,12 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
 
       {/* Card */}
       <motion.div
-        className="glass-card rounded-2xl p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-all duration-500"
+        className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-all duration-500"
         initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
       >
-        <h3 className="font-heading text-xl font-bold text-white mb-1">{exp.role}</h3>
+        <h3 className="font-heading text-lg sm:text-xl font-bold text-white mb-1">{exp.role}</h3>
         <span className="text-base font-semibold text-gold-500 block mb-1">{exp.company}</span>
         <span className="text-sm text-text-muted block mb-1">{exp.period}</span>
         {exp.badge && (

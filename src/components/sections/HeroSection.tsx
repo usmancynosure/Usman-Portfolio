@@ -1,134 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { personalInfo, heroTypingPhrases } from "@/data/portfolio";
 
 export function HeroSection() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [typedText, setTypedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-
-  // Canvas constellation
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animId: number;
-    let mouse = { x: -1000, y: -1000 };
-    const isMobile = window.innerWidth < 768;
-    const STAR_COUNT = isMobile ? 50 : 120;
-    const CONNECTION_DIST = 150;
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-
-    interface Star {
-      x: number; y: number; vx: number; vy: number;
-      size: number; brightness: number; pulse: number; isGeo: boolean;
-    }
-    const stars: Star[] = [];
-    for (let i = 0; i < STAR_COUNT; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2.5 + 0.5,
-        brightness: Math.random() * 0.5 + 0.3,
-        pulse: Math.random() * Math.PI * 2,
-        isGeo: Math.random() > 0.88,
-      });
-    }
-
-    const drawGeoStar = (x: number, y: number, size: number, alpha: number) => {
-      const r = size * 3;
-      const ir = size * 1.5;
-      ctx.beginPath();
-      for (let i = 0; i < 16; i++) {
-        const radius = i % 2 === 0 ? r : ir;
-        const angle = (i * Math.PI) / 8 - Math.PI / 2;
-        const px = x + radius * Math.cos(angle);
-        const py = y + radius * Math.sin(angle);
-        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
-      }
-      ctx.closePath();
-      ctx.fillStyle = `rgba(212,175,55,${alpha * 0.4})`;
-      ctx.fill();
-      ctx.strokeStyle = `rgba(212,175,55,${alpha})`;
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
-    };
-
-    const loop = () => {
-      if (document.hidden) { animId = requestAnimationFrame(loop); return; }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Connections
-      for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-          const dx = stars[i].x - stars[j].x;
-          const dy = stars[i].y - stars[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECTION_DIST) {
-            ctx.beginPath();
-            ctx.moveTo(stars[i].x, stars[i].y);
-            ctx.lineTo(stars[j].x, stars[j].y);
-            ctx.strokeStyle = `rgba(212,175,55,${(1 - dist / CONNECTION_DIST) * 0.12})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Stars
-      stars.forEach((s) => {
-        s.x += s.vx; s.y += s.vy; s.pulse += 0.02;
-        if (s.x < -10) s.x = canvas.width + 10;
-        if (s.x > canvas.width + 10) s.x = -10;
-        if (s.y < -10) s.y = canvas.height + 10;
-        if (s.y > canvas.height + 10) s.y = -10;
-
-        const dx = mouse.x - s.x, dy = mouse.y - s.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 200) {
-          s.vx += dx * 0.0002; s.vy += dy * 0.0002;
-        }
-        s.vx *= 0.99; s.vy *= 0.99;
-
-        const alpha = Math.min(1, s.brightness + Math.sin(s.pulse) * 0.2 + (dist < 200 ? (1 - dist / 200) * 0.4 : 0));
-        if (s.isGeo) {
-          drawGeoStar(s.x, s.y, s.size, alpha);
-        } else {
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.size * (1 + (dist < 200 ? (1 - dist / 200) * 0.3 : 0)), 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(212,175,55,${alpha})`;
-          ctx.fill();
-        }
-      });
-
-      animId = requestAnimationFrame(loop);
-    };
-
-    const onMove = (e: MouseEvent) => { mouse = { x: e.clientX, y: e.clientY }; };
-    const onResize = () => { resize(); };
-
-    window.addEventListener("resize", onResize);
-    document.addEventListener("mousemove", onMove);
-    animId = requestAnimationFrame(loop);
-
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", onResize);
-      document.removeEventListener("mousemove", onMove);
-    };
-  }, []);
 
   // Typewriter
   useEffect(() => {
@@ -164,11 +43,25 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        poster="/images/hero section video/Herovideo.mp4"
+      >
+        <source src="/images/hero section video/Herovideo.mp4" type="video/mp4" />
+      </video>
 
-      {/* Radial overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(5,13,24,0.5)_70%)]" />
+      {/* Dark overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-navy-950/60" />
+
+      {/* Radial overlay + ambient glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(5,13,24,0.7)_70%)]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold-500/[0.03] blur-[120px] pointer-events-none" />
 
       {/* Faint 8-point star watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
@@ -183,15 +76,14 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl">
+      <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl w-full">
         {/* Profile picture */}
         <motion.div
-          className="mx-auto mb-6 w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.2)]"
+          className="mx-auto mb-4 sm:mb-6 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-2 border-gold-500 overflow-hidden shadow-[0_0_60px_rgba(212,175,55,0.25),0_0_120px_rgba(212,175,55,0.1)]"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Replace with your actual image once uploaded */}
           <Image
             src={personalInfo.profileImage}
             alt={personalInfo.name}
@@ -200,7 +92,6 @@ export function HeroSection() {
             className="w-full h-full object-cover"
             priority
             onError={(e) => {
-              // Fallback to initials if image not found
               const target = e.target as HTMLImageElement;
               target.style.display = "none";
               target.parentElement!.innerHTML =
@@ -211,7 +102,7 @@ export function HeroSection() {
 
         {/* Arabic greeting */}
         <motion.p
-          className="font-arabic text-gold-400 text-xl md:text-2xl mb-4 tracking-wide"
+          className="font-arabic text-gold-400 text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4 tracking-wide"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
@@ -221,7 +112,7 @@ export function HeroSection() {
 
         {/* Name */}
         <motion.h1
-          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-wider leading-none mb-6"
+          className="font-heading text-[2.5rem] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-wider leading-none mb-4 sm:mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -231,22 +122,22 @@ export function HeroSection() {
 
         {/* Typewriter title */}
         <motion.div
-          className="flex items-center justify-center gap-4 mb-6"
+          className="flex items-center justify-center gap-2 sm:gap-4 mb-4 sm:mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
-          <span className="w-12 md:w-16 h-px bg-gold-500/50" />
-          <p className="text-sm md:text-base tracking-[0.2em] uppercase text-text-primary">
+          <span className="w-6 sm:w-12 md:w-16 h-px bg-gold-500/50" />
+          <p className="text-xs sm:text-sm md:text-base tracking-[0.15em] sm:tracking-[0.2em] uppercase text-text-primary min-h-[1.5em]">
             <span className="text-gold-300">{typedText}</span>
             <span className={`text-gold-500 font-light ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
           </p>
-          <span className="w-12 md:w-16 h-px bg-gold-500/50" />
+          <span className="w-6 sm:w-12 md:w-16 h-px bg-gold-500/50" />
         </motion.div>
 
         {/* Subtitle */}
         <motion.p
-          className="text-text-secondary text-base md:text-lg italic max-w-md mx-auto mb-8"
+          className="text-text-secondary text-sm sm:text-base md:text-lg italic max-w-md mx-auto mb-6 sm:mb-8 px-2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8 }}
@@ -261,10 +152,10 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.8, duration: 0.8 }}
         >
-          <a href="#projects" className="btn-primary px-8 py-3.5 rounded-lg text-sm inline-block">
+          <a href="#projects" className="btn-primary px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-block">
             View My Work
           </a>
-          <a href="#contact" className="btn-outline px-8 py-3.5 rounded-lg text-sm inline-block">
+          <a href="#contact" className="btn-outline px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg text-xs sm:text-sm inline-block">
             Get In Touch
           </a>
         </motion.div>
@@ -272,7 +163,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 0.8 }}

@@ -11,7 +11,7 @@ export const personalInfo = {
   githubUsername: "usmancynosure",
   linkedin: "https://www.linkedin.com/in/usman-waris-0a9b8c7d/",
   location: "Pakistan — Open to GULF relocation",
-  profileImage: "/images/profile/usman.jpg",
+  profileImage: "/images/profile/usmanphoto.jpeg",
   bio: `AI Engineer specializing in LLM systems, agentic workflows, and scalable backend architectures. Experienced in designing production-grade AI systems using LangGraph, FastAPI, and microservices. Strong background in RAG pipelines, AI automation platforms, computer vision, and ML classification systems.`,
   bioParagraph2: `Proven ability to design memory-efficient AI agents, anti-automation systems, and human-in-the-loop workflows. Passionate about system design, scalable architectures, and AI-powered product development.`,
   availability: "Available for full-time positions in GULF countries (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman). Open to remote and on-site roles.",
@@ -26,9 +26,9 @@ export const heroTypingPhrases = [
 ];
 
 export const stats = [
-  { number: 3, suffix: "+", label: "Projects Delivered" },
+  { number: 5, suffix: "+", label: "Projects Delivered" },
   { number: 2, suffix: "+", label: "Companies" },
-  { number: 3, suffix: "", label: "Certifications" },
+  { number: 5, suffix: "", label: "Certifications" },
   { number: 3.06, suffix: "", label: "GPA", isDecimal: true },
 ];
 
@@ -105,15 +105,60 @@ export interface Project {
   subtitle: string;
   description: string;
   tags: string[];
-  category: "ai" | "ml" | "backend";
+  category: "ai" | "ml" | "backend" | "mobile";
   highlights: string[];
   icon: string;
   image: string;
+  images?: string[];
   liveUrl?: string;
   githubUrl?: string;
 }
 
 export const projects: Project[] = [
+  {
+    id: "spaceai",
+    title: "SpaceAI",
+    subtitle: "AI-Powered Interior Design Mobile App",
+    description:
+      "An intelligent interior design application that uses AI to analyze rooms, generate design suggestions, and provide before/after visualizations. Users can upload room photos, get AI-powered redesign recommendations across styles (Modern, Natural, Art Deco), and manage multiple design projects with a full profile and settings system.",
+    tags: ["AI/ML", "Computer Vision", "Mobile App", "Interior Design", "Image Generation"],
+    category: "ai",
+    highlights: [
+      "AI-powered room analysis and redesign suggestions",
+      "Before/after visualization with multiple design styles",
+      "Project management with design history tracking",
+      "Dark and light mode with full user profile system",
+    ],
+    icon: "🏠",
+    image: "/images/projects/SpaceAi/1.png",
+    images: [
+      "/images/projects/SpaceAi/1.png",
+      "/images/projects/SpaceAi/2.png",
+      "/images/projects/SpaceAi/3.png",
+    ],
+  },
+  {
+    id: "optify",
+    title: "Optify",
+    subtitle: "AI Photo Enhancement & Virtual Try-On Platform",
+    description:
+      "A comprehensive AI-powered photo enhancement and virtual try-on mobile application. Features professional photo editing with AI-driven enhancements, virtual clothing try-on using advanced image processing, identity-protected face transformations, and a magic studio for creative photo manipulation. Designed with privacy-first architecture ensuring photos are encrypted and used only for processing.",
+    tags: ["AI/ML", "Computer Vision", "Virtual Try-On", "Image Processing", "Mobile App"],
+    category: "ai",
+    highlights: [
+      "AI-powered virtual clothing try-on with realistic results",
+      "Professional photo enhancement beyond standard filters",
+      "Privacy-first design with encrypted photo processing",
+      "Magic studio for creative AI-driven transformations",
+    ],
+    icon: "📸",
+    image: "/images/projects/Optify/4.png",
+    images: [
+      "/images/projects/Optify/4.png",
+      "/images/projects/Optify/5.png",
+      "/images/projects/Optify/6.png",
+    ],
+  },
   {
     id: "health-passport",
     title: "Health Passport",
@@ -227,32 +272,54 @@ export interface Certification {
   logo: string;
   topic: string;
   skills: string;
+  image?: string;
 }
 
 export const certifications: Certification[] = [
   {
-    id: "google-genai",
-    title: "Introduction to Generative AI",
+    id: "google-digital-marketing",
+    title: "Attract and Engage Customers with Digital Marketing",
+    issuer: "Google",
+    logo: "G",
+    topic: "Digital Marketing Strategy",
+    skills: "SEO, Content Marketing, Customer Engagement",
+    image: "/images/certifications/1.PNG",
+  },
+  {
+    id: "google-ecommerce",
+    title: "Foundations of Digital Marketing and E-commerce",
+    issuer: "Google",
+    logo: "G",
+    topic: "Digital Marketing & E-commerce Fundamentals",
+    skills: "E-commerce, Digital Marketing, Analytics",
+    image: "/images/certifications/2.PNG",
+  },
+  {
+    id: "meta-frontend",
+    title: "Introduction to Front-End Development",
+    issuer: "Meta",
+    logo: "M",
+    topic: "Front-End Web Development",
+    skills: "HTML, CSS, JavaScript, React Basics",
+    image: "/images/certifications/3.PNG",
+  },
+  {
+    id: "google-cloud-flutter",
+    title: "Material Components for Flutter Basics",
     issuer: "Google Cloud",
     logo: "G",
-    topic: "Generative AI Fundamentals",
-    skills: "LLMs, Generative Models, AI Applications",
+    topic: "Flutter UI Development",
+    skills: "Flutter, Material Design, Dart",
+    image: "/images/certifications/4.PNG",
   },
   {
-    id: "udemy-ai",
-    title: "AI Engineering Bootcamp",
-    issuer: "Udemy",
-    logo: "U",
-    topic: "AI Algorithms, Models & Real-World Projects",
-    skills: "ML Algorithms, Model Training, Deployment",
-  },
-  {
-    id: "udemy-agentic",
-    title: "Agentic AI Bootcamp",
-    issuer: "Udemy",
-    logo: "A",
-    topic: "Agentic AI Systems & Workflows",
-    skills: "AI Agents, Tool Use, Memory, Orchestration",
+    id: "hackerrank-problem-solving",
+    title: "Problem Solving (Basic)",
+    issuer: "HackerRank",
+    logo: "H",
+    topic: "Algorithms & Data Structures",
+    skills: "Problem Solving, Algorithms, Data Structures",
+    image: "/images/certifications/5.PNG",
   },
 ];
 
@@ -343,13 +410,15 @@ Experience:
 - Backend & Security Contributor at SNSKIES Ltd (2025): Implemented ZTNA frameworks, authentication APIs.
 
 Projects:
+- SpaceAI - AI-Powered Interior Design Mobile App (Computer Vision, Image Generation)
+- Optify - AI Photo Enhancement & Virtual Try-On Platform (Computer Vision, Image Processing)
 - Health Passport - AI-Powered Healthcare SaaS for UAE Clinics (FastAPI, MongoDB, Flutter, LangChain)
 - Sophia - AI-Powered Twitter/X Automation Platform (FastAPI, LangGraph, Microservices)
 - MedCon AI Systems - ECG Intelligence & Doctor Verification (OpenCV, Scikit-Learn, Docker)
 
 Key Skills: Python, FastAPI, LangChain, LangGraph, RAG Pipelines, Agentic Workflows, Docker, MongoDB, PostgreSQL, Redis, AWS, OpenCV, PyTorch, Transformers
 
-Certifications: Introduction to Generative AI (Google), AI Engineering Bootcamp (Udemy), Agentic AI Bootcamp (Udemy)
+Certifications: Attract and Engage Customers with Digital Marketing (Google), Foundations of Digital Marketing and E-commerce (Google), Introduction to Front-End Development (Meta), Material Components for Flutter Basics (Google Cloud), Problem Solving Basic (HackerRank)
 
 Availability: ${personalInfo.availability}
 

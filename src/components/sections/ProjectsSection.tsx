@@ -18,10 +18,12 @@ export function ProjectsSection() {
   const filtered = activeFilter === "all" ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 md:py-28">
+    <section id="projects" className="py-14 md:py-20 lg:py-28 relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-gold-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,7 +31,7 @@ export function ProjectsSection() {
           Projects
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-10 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-10 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -40,7 +42,7 @@ export function ProjectsSection() {
 
         {/* Filters */}
         <motion.div
-          className="flex justify-center gap-3 mb-10 flex-wrap"
+          className="flex justify-center gap-2 sm:gap-3 mb-8 md:mb-10 flex-wrap px-2"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,7 +52,7 @@ export function ProjectsSection() {
             <button
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
                 activeFilter === f.value
                   ? "bg-gold-500 text-navy-950 font-semibold"
                   : "border border-navy-600 text-text-secondary hover:border-gold-500 hover:text-gold-400"
@@ -62,7 +64,7 @@ export function ProjectsSection() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.div
@@ -125,7 +127,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selectedProject && (
           <motion.div
-            className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[1000] flex items-end sm:items-center justify-center p-0 sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -135,10 +137,10 @@ export function ProjectsSection() {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              className="relative bg-navy-800 border border-gold-500 rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8"
-              initial={{ scale: 0.9, y: 30 }}
+              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[80vh] overflow-y-auto p-5 sm:p-8"
+              initial={{ scale: 0.95, y: 30 }}
               animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 30 }}
+              exit={{ scale: 0.95, y: 30 }}
               transition={{ type: "spring", damping: 25 }}
             >
               <button
@@ -148,10 +150,26 @@ export function ProjectsSection() {
                 &times;
               </button>
 
-              <span className="text-4xl mb-3 block">{selectedProject.icon}</span>
-              <h3 className="font-heading text-2xl font-bold text-gold-500 mb-1">{selectedProject.title}</h3>
-              <p className="text-sm text-text-secondary mb-4">{selectedProject.subtitle}</p>
-              <p className="text-text-secondary leading-relaxed mb-6">{selectedProject.description}</p>
+              {selectedProject.images && selectedProject.images.length > 0 && (
+                <div className="flex gap-2 sm:gap-3 mb-4 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory">
+                  {selectedProject.images.map((img, idx) => (
+                    <Image
+                      key={idx}
+                      src={img}
+                      alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                      width={300}
+                      height={170}
+                      className="rounded-lg object-cover flex-shrink-0 border border-navy-600 w-[200px] sm:w-[300px] h-auto snap-center"
+                    />
+                  ))}
+                </div>
+              )}
+              {(!selectedProject.images || selectedProject.images.length === 0) && (
+                <span className="text-4xl mb-3 block">{selectedProject.icon}</span>
+              )}
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gold-500 mb-1">{selectedProject.title}</h3>
+              <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">{selectedProject.subtitle}</p>
+              <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-4 sm:mb-6">{selectedProject.description}</p>
 
               <h4 className="text-gold-400 font-semibold mb-3">Key Highlights</h4>
               <ul className="space-y-2 mb-6">

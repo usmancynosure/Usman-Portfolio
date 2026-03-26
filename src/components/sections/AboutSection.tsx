@@ -37,10 +37,10 @@ export function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-20 md:py-28" ref={ref}>
+    <section id="about" className="py-14 md:py-20 lg:py-28" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -49,7 +49,7 @@ export function AboutSection() {
           About Me
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -58,7 +58,7 @@ export function AboutSection() {
           The mind behind the machine
         </motion.p>
 
-        <div className="grid md:grid-cols-[1fr_1.5fr] gap-12 items-center">
+        <div className="grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-center">
           {/* Photo with Islamic arch */}
           <motion.div
             className="flex justify-center"
@@ -67,7 +67,9 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative w-[260px] h-[350px] md:w-[280px] md:h-[380px]">
+            <div className="relative w-[220px] h-[300px] sm:w-[260px] sm:h-[350px] md:w-[280px] md:h-[380px]">
+              {/* Ambient glow behind photo */}
+              <div className="absolute -inset-8 bg-gold-500/[0.06] rounded-full blur-[60px] pointer-events-none" />
               {/* Arch SVG frame */}
               <svg className="absolute inset-0 w-full h-full z-10" viewBox="0 0 300 400" preserveAspectRatio="none">
                 <defs>
@@ -109,9 +111,9 @@ export function AboutSection() {
           {/* Bio text */}
           <div>
             <motion.h3
-              className="font-heading text-2xl md:text-3xl font-bold mb-4"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="font-heading text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-center md:text-left"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
@@ -119,9 +121,9 @@ export function AboutSection() {
             </motion.h3>
 
             <motion.p
-              className="text-text-secondary leading-relaxed mb-4"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="text-sm sm:text-base text-text-secondary leading-relaxed mb-3 md:mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
@@ -129,9 +131,9 @@ export function AboutSection() {
             </motion.p>
 
             <motion.p
-              className="text-text-secondary leading-relaxed mb-8"
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="text-sm sm:text-base text-text-secondary leading-relaxed mb-6 md:mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
@@ -140,7 +142,7 @@ export function AboutSection() {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-y border-navy-600 mb-6"
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 py-5 sm:py-6 border-y border-navy-600 mb-5 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

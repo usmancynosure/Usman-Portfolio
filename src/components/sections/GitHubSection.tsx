@@ -30,7 +30,7 @@ function AnimatedNumber({ target, label }: { target: number; label: string }) {
   }, [inView, target]);
 
   return (
-    <div ref={ref} className="glass-card rounded-2xl p-6 text-center hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] hover:-translate-y-1 transition-all duration-500">
+    <div ref={ref} className="glass-card rounded-2xl p-4 sm:p-6 text-center hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] hover:-translate-y-1 transition-all duration-500">
       <span className="font-heading text-3xl md:text-4xl font-bold text-gold-500 block mb-1">{count}</span>
       <span className="text-sm text-text-secondary">{label}</span>
     </div>
@@ -64,10 +64,10 @@ export function GitHubSection() {
   }, []);
 
   return (
-    <section id="github" className="py-20 md:py-28 geo-pattern">
+    <section id="github" className="py-14 md:py-20 lg:py-28 geo-pattern">
       <div className="max-w-5xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -75,7 +75,7 @@ export function GitHubSection() {
           GitHub Activity
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

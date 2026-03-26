@@ -47,8 +47,22 @@ Single-page app — all sections render from `src/app/page.tsx` (a client compon
 - `EMAIL_USER` — Gmail address for contact form SMTP
 - `EMAIL_PASS` — Gmail app password for SMTP
 
+### Custom CSS utilities (in `globals.css`)
+
+Reusable classes beyond Tailwind: `.glass-card` (glassmorphism), `.gold-shimmer` (animated gradient text), `.btn-primary`, `.btn-outline`, `.geo-pattern` (SVG background), `.section-divider`.
+
+### Chatbot widget
+
+`src/components/ui/Chatbot.tsx` is a floating chat widget. The OpenAI API key is provided by the end-user in the browser and passed to `src/app/api/chat/route.ts`, which proxies it to OpenAI (gpt-3.5-turbo). The system prompt is generated from `chatbotSystemPrompt` in `portfolio.ts`.
+
+### SEO / Metadata
+
+`src/app/layout.tsx` configures OpenGraph, Twitter cards, and JSON-LD structured data (Person schema). Theme color is `#0a1628`.
+
 ## Notes
 
 - Tailwind v4 uses `@theme` directive in CSS (not `tailwind.config.js`) for custom tokens.
 - `next.config.ts` allows images from `avatars.githubusercontent.com` (for GitHub section).
 - All portfolio content is centralized in `src/data/portfolio.ts` — edit there to update site content.
+- No test framework is configured — there are no test files in this project.
+- Fonts are loaded via `@import url()` in `globals.css` (Playfair Display, Inter, Amiri, Fira Code) and referenced as CSS variables in the `@theme` block.

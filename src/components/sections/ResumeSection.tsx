@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 export function ResumeSection() {
   return (
-    <section id="resume" className="py-20 md:py-28">
+    <section id="resume" className="py-14 md:py-20 lg:py-28">
       <div className="max-w-3xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -15,7 +15,7 @@ export function ResumeSection() {
           Resume
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -40,12 +40,12 @@ export function ResumeSection() {
               backgroundRepeat: "no-repeat",
             }}
           >
-            <div className="p-8 md:p-10">
+            <div className="p-4 sm:p-6 md:p-10">
               {/* Header */}
               <div className="text-center mb-6 pb-4 border-b-2 border-gold-500">
-                <h2 className="font-heading text-2xl md:text-3xl font-bold text-gold-500 tracking-wider mb-1">USMAN WARIS</h2>
-                <p className="text-text-secondary mb-1">AI Engineer | LLM Systems | Backend & Agentic Architect</p>
-                <p className="text-sm text-text-muted">
+                <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-gold-500 tracking-wider mb-1">USMAN WARIS</h2>
+                <p className="text-xs sm:text-sm text-text-secondary mb-1">AI Engineer | LLM Systems | Backend & Agentic Architect</p>
+                <p className="text-[11px] sm:text-sm text-text-muted break-all sm:break-normal">
                   imosmanwaris.tech@gmail.com | +923200787777 |{" "}
                   <a href="https://github.com/usmancynosure" target="_blank" className="text-gold-400 hover:underline">GitHub</a> |{" "}
                   <a href="https://www.linkedin.com/in/usman-waris-0a9b8c7d/" target="_blank" className="text-gold-400 hover:underline">LinkedIn</a>

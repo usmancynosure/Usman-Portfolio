@@ -95,12 +95,12 @@ export function Chatbot() {
   };
 
   return (
-    <div className="chatbot-wrapper fixed bottom-6 right-6 z-[900]">
+    <div className="chatbot-wrapper fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[900]">
       {/* Toggle */}
       {!isOpen && (
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-navy-800 border-2 border-gold-500 flex items-center justify-center hover:scale-110 hover:shadow-[0_8px_40px_rgba(212,175,55,0.3)] transition-all duration-300"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-navy-800 border-2 border-gold-500 flex items-center justify-center hover:scale-110 hover:shadow-[0_8px_40px_rgba(212,175,55,0.3)] transition-all duration-300"
           style={{ animation: "lanternGlow 3s ease-in-out infinite" }}
           whileHover={{ scale: 1.1 }}
           aria-label="Open AI Assistant"
@@ -118,14 +118,14 @@ export function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed bottom-6 right-6 w-[380px] max-w-[calc(100vw-32px)] h-[550px] max-h-[calc(100vh-120px)] bg-navy-900 border border-gold-500 rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(212,175,55,0.15)]"
+            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[380px] sm:max-w-[calc(100vw-32px)] sm:h-[550px] sm:max-h-[calc(100vh-120px)] bg-navy-900 border-0 sm:border border-gold-500 sm:rounded-3xl flex flex-col overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_30px_rgba(212,175,55,0.15)]"
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", damping: 25 }}
           >
             {/* Header */}
-            <div className="relative bg-navy-800 px-4 py-3 border-b border-navy-600">
+            <div className="relative bg-navy-800 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:pt-3 border-b border-navy-600">
               <h3 className="font-heading text-lg text-gold-500">Digital Majlis</h3>
               <p className="text-xs text-text-muted">Ask me anything about Usman</p>
               <div className="absolute top-2 right-2 flex gap-1">
@@ -204,7 +204,7 @@ export function Chatbot() {
             </div>
 
             {/* Input */}
-            <div className="flex gap-2 p-3 pt-2 border-t border-navy-600 bg-navy-800">
+            <div className="flex gap-2 p-3 pt-2 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:pb-3 border-t border-navy-600 bg-navy-800">
               <input
                 type="text"
                 value={input}

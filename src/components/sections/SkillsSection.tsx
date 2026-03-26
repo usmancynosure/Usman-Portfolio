@@ -32,10 +32,10 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 md:py-28 geo-pattern">
+    <section id="skills" className="py-14 md:py-20 lg:py-28 geo-pattern">
       <div className="max-w-6xl mx-auto px-6">
         <motion.h2
-          className="font-heading text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
+          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -43,7 +43,7 @@ export function SkillsSection() {
           Skills & Expertise
         </motion.h2>
         <motion.p
-          className="text-text-secondary text-center text-lg mb-12 tracking-wide"
+          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -52,11 +52,11 @@ export function SkillsSection() {
           The Scholar&apos;s Library
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
           {skillCategories.map((cat, catIdx) => (
             <motion.div
               key={cat.name}
-              className="glass-card rounded-2xl p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] transition-all duration-500 hover:-translate-y-1"
+              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(212,175,55,0.2)] transition-all duration-500 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

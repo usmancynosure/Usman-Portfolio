@@ -109,7 +109,8 @@ body {
 .glass-card {
   background: linear-gradient(145deg, rgba(36, 51, 86, 0.5) 0%, rgba(26, 39, 68, 0.7) 100%);
   border: 1px solid var(--color-navy-600);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 /* Geometric pattern background */
@@ -183,6 +184,18 @@ body {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
   40% { transform: translateY(-8px); }
   60% { transform: translateY(-4px); }
+}
+
+/* Mobile touch-friendly inputs */
+@media (max-width: 768px) {
+  input, textarea, select, button {
+    font-size: 16px; /* Prevent iOS zoom on focus */
+  }
+}
+
+/* Mobile-safe viewport height */
+@supports (height: 100dvh) {
+  .min-h-screen { min-height: 100dvh; }
 }
 
 /* Print styles */

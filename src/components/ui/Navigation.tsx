@@ -51,7 +51,7 @@ export function Navigation() {
   const offset = circumference - scrollProgress * circumference;
 
   return (
-    <nav className="fixed top-6 right-6 z-[500]">
+    <nav className="fixed top-4 right-4 md:top-6 md:right-6 z-[500]">
       {/* Astrolabe button with progress ring */}
       <div className="relative w-[50px] h-[50px]">
         <svg className="absolute top-0 left-0 w-full h-full -rotate-90" viewBox="0 0 50 50">
@@ -110,7 +110,7 @@ export function Navigation() {
               className="absolute inset-0 bg-navy-950/95 backdrop-blur-xl"
               onClick={() => setIsOpen(false)}
             />
-            <ul className="relative z-10 text-center space-y-2">
+            <ul className="relative z-10 text-center space-y-1 sm:space-y-2 max-h-[80vh] overflow-y-auto py-4">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.id}
@@ -121,7 +121,7 @@ export function Navigation() {
                 >
                   <button
                     onClick={() => scrollTo(link.id)}
-                    className={`font-heading text-3xl md:text-4xl font-medium tracking-wide transition-all duration-300 relative px-4 py-2 ${
+                    className={`font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-wide transition-all duration-300 relative px-4 py-1.5 sm:py-2 ${
                       activeSection === link.id
                         ? "text-gold-500"
                         : "text-text-secondary hover:text-gold-400"
