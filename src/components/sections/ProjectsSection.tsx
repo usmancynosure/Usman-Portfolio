@@ -9,6 +9,7 @@ const filters = [
   { label: "All", value: "all" },
   { label: "AI / LLM", value: "ai" },
   { label: "ML / CV", value: "ml" },
+  { label: "Mobile", value: "mobile" },
 ];
 
 export function ProjectsSection() {

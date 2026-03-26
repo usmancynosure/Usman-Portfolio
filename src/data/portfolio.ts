@@ -26,7 +26,7 @@ export const heroTypingPhrases = [
 ];
 
 export const stats = [
-  { number: 5, suffix: "+", label: "Projects Delivered" },
+  { number: 6, suffix: "+", label: "Projects Delivered" },
   { number: 2, suffix: "+", label: "Companies" },
   { number: 5, suffix: "", label: "Certifications" },
   { number: 3.06, suffix: "", label: "GPA", isDecimal: true },
@@ -135,6 +135,7 @@ export const projects: Project[] = [
       "/images/projects/SpaceAi/1.png",
       "/images/projects/SpaceAi/2.png",
       "/images/projects/SpaceAi/3.png",
+      "/images/projects/project review.jpeg",
     ],
   },
   {
@@ -174,7 +175,10 @@ export const projects: Project[] = [
       "Secure JWT-based architecture with OAuth 2.0",
     ],
     icon: "🏥",
-    image: "/images/projects/health-passport.png",
+    image: "/images/projects/Healthpassport/Clean and Modern App Portfolio Mockup Presentation.png",
+    images: [
+      "/images/projects/Healthpassport/Clean and Modern App Portfolio Mockup Presentation.png",
+    ],
   },
   {
     id: "sophia",
@@ -209,6 +213,29 @@ export const projects: Project[] = [
     ],
     icon: "🫀",
     image: "/images/projects/medcon.png",
+  },
+  {
+    id: "teacup",
+    title: "Teacup",
+    subtitle: "Anonymous Relationship Advice & Community Verdict Platform",
+    description:
+      "Teacup solves the problem of having no safe, anonymous place to get honest relationship advice. People in messy relationship situations — cheating, red flags, breakups, situationships — often can't talk openly to friends or family without judgment, gossip, or bias. Teacup lets users share their situation anonymously, get a community verdict from unbiased strangers (Red Flag, Green Flag, Dump Them, Work It Out), and feel safe doing it with built-in rules against callouts, name-dropping, and screenshots. A crowdsourced relationship reality check without social consequences.",
+    tags: ["Mobile App", "Community", "Anonymous", "Social Platform", "UI/UX"],
+    category: "mobile",
+    highlights: [
+      "Fully anonymous posting — no real names, photos, or identity",
+      "Community verdict system (Red Flag, Green Flag, Dump Them, Work It Out)",
+      "Built-in safety rules against callouts and screenshots",
+      "Crowdsourced unbiased relationship advice from strangers",
+    ],
+    icon: "🍵",
+    image: "/images/projects/teacup/8.png",
+    images: [
+      "/images/projects/teacup/8.png",
+      "/images/projects/teacup/9.png",
+      "/images/projects/teacup/10.png",
+      "/images/projects/teacup/11.png",
+    ],
   },
 ];
 
