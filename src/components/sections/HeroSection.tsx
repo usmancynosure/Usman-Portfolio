@@ -106,125 +106,118 @@ export function HeroSection() {
       </motion.div>
 
       {/* === Content === */}
-      <div className="relative z-10 min-h-[100dvh] grid grid-rows-[1fr_auto_1fr] items-center px-5 sm:px-8 md:px-16 lg:px-24 py-16">
+      <div className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-center text-center px-5 sm:px-8 py-20">
 
-        {/* Top area — Arabic greeting + profile scattered */}
-        <div className="self-end flex items-end justify-between pb-4 sm:pb-6">
-          <motion.p
-            className="font-arabic text-gold-400 text-base sm:text-lg md:text-2xl tracking-wide"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            السلام عليكم
-          </motion.p>
+        {/* Arabic greeting */}
+        <motion.p
+          className="font-arabic text-gold-400 text-base sm:text-lg md:text-2xl tracking-wide mb-4 sm:mb-5"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          السلام عليكم
+        </motion.p>
 
-          <motion.div
-            className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full border-2 border-gold-500/50 overflow-hidden shadow-[0_0_40px_rgba(206,17,38,0.2)] flex-shrink-0"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Image
-              src={personalInfo.profileImage}
-              alt={personalInfo.name}
-              width={160}
-              height={160}
-              className="w-full h-full object-cover"
-              priority
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-                target.parentElement!.innerHTML =
-                  '<div class="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center"><span class="font-heading text-2xl sm:text-3xl font-bold gold-shimmer">UW</span></div>';
-              }}
-            />
-          </motion.div>
-        </div>
+        {/* Profile photo */}
+        <motion.div
+          className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full border-2 border-gold-500/50 overflow-hidden shadow-[0_0_50px_rgba(206,17,38,0.2)] mb-6 sm:mb-8"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Image
+            src={personalInfo.profileImage}
+            alt={personalInfo.name}
+            width={160}
+            height={160}
+            className="w-full h-full object-cover"
+            priority
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = "none";
+              target.parentElement!.innerHTML =
+                '<div class="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center"><span class="font-heading text-2xl sm:text-3xl font-bold gold-shimmer">UW</span></div>';
+            }}
+          />
+        </motion.div>
 
-        {/* Middle area — main content */}
-        <div>
-          {/* Name — large, staggered lines */}
-          <motion.h1
-            className="font-heading text-[2.6rem] leading-[0.9] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold tracking-wider mb-5 sm:mb-6"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="gold-shimmer block">USMAN</span>
-            <span className="gold-shimmer block mt-1 sm:mt-2 ml-[10%] sm:ml-[12%]">WARIS</span>
-          </motion.h1>
+        {/* Name */}
+        <motion.h1
+          className="font-heading text-[2.8rem] leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold tracking-wider mb-5 sm:mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="gold-shimmer">USMAN WARIS</span>
+        </motion.h1>
 
-          {/* Typewriter */}
-          <motion.div
-            className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
-            <span className="w-6 sm:w-10 h-px bg-gold-500/40 flex-shrink-0" />
-            <p className="text-xs sm:text-sm md:text-base tracking-[0.12em] sm:tracking-[0.2em] uppercase text-text-primary min-h-[1.5em]">
-              <span className="text-gold-300">{typedText}</span>
-              <span className={`text-gold-500 font-light ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
-            </p>
-          </motion.div>
+        {/* Typewriter */}
+        <motion.div
+          className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+        >
+          <span className="w-6 sm:w-12 md:w-16 h-px bg-gold-500/40 flex-shrink-0" />
+          <p className="text-xs sm:text-sm md:text-base tracking-[0.12em] sm:tracking-[0.2em] uppercase text-text-primary min-h-[1.5em]">
+            <span className="text-gold-300">{typedText}</span>
+            <span className={`text-gold-500 font-light ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
+          </p>
+          <span className="w-6 sm:w-12 md:w-16 h-px bg-gold-500/40 flex-shrink-0" />
+        </motion.div>
 
-          {/* Subtitle */}
-          <motion.p
-            className="text-text-secondary text-sm sm:text-base md:text-lg italic max-w-xs sm:max-w-sm md:max-w-md ml-[5%] sm:ml-[8%] mb-7 sm:mb-8"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-          >
-            Building the future with AI — from the legacy of innovation
-          </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          className="text-text-secondary text-sm sm:text-base md:text-lg italic max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-7 sm:mb-8"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+        >
+          Building the future with AI — from the legacy of innovation
+        </motion.p>
 
-          {/* CTA buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
-          >
-            <a href="#projects" className="btn-primary px-7 sm:px-8 py-3.5 rounded-lg text-xs sm:text-sm text-center">
-              View My Work
-            </a>
-            <a href="#contact" className="btn-outline px-7 sm:px-8 py-3.5 rounded-lg text-xs sm:text-sm text-center">
-              Get In Touch
-            </a>
-          </motion.div>
-        </div>
+        {/* CTA buttons */}
+        <motion.div
+          className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-8 sm:mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.8 }}
+        >
+          <a href="#projects" className="btn-primary px-7 sm:px-8 py-3.5 rounded-lg text-xs sm:text-sm text-center">
+            View My Work
+          </a>
+          <a href="#contact" className="btn-outline px-7 sm:px-8 py-3.5 rounded-lg text-xs sm:text-sm text-center">
+            Get In Touch
+          </a>
+        </motion.div>
 
-        {/* Bottom area — badges + scroll */}
-        <div className="self-end flex items-end justify-between">
-          {/* Status badges */}
-          <motion.div
-            className="flex flex-wrap gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.2, duration: 0.8 }}
-          >
-            <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-gold-500/20 text-gold-400 bg-gold-500/5 backdrop-blur-sm">
-              AI Engineer
-            </span>
-            <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-emerald-500/20 text-emerald-400 bg-emerald-500/5 backdrop-blur-sm">
-              UAE Based
-            </span>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            className="flex flex-col items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.5, duration: 0.8 }}
-            style={{ animation: "scrollBounce 2s ease-in-out infinite" }}
-          >
-            <span className="text-[10px] text-gold-500 tracking-[0.2em] uppercase">Scroll</span>
-            <div className="w-px h-8 sm:h-10 bg-gradient-to-b from-gold-500 to-transparent" />
-          </motion.div>
-        </div>
+        {/* Status badges */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.2, duration: 0.8 }}
+        >
+          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-gold-500/20 text-gold-400 bg-gold-500/5 backdrop-blur-sm">
+            AI Engineer
+          </span>
+          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-emerald-500/20 text-emerald-400 bg-emerald-500/5 backdrop-blur-sm">
+            UAE Based
+          </span>
+        </motion.div>
       </div>
+
+      {/* Scroll indicator - bottom center */}
+      <motion.div
+        className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 0.8 }}
+        style={{ animation: "scrollBounce 2s ease-in-out infinite" }}
+      >
+        <span className="text-[10px] text-gold-500 tracking-[0.2em] uppercase">Scroll</span>
+        <div className="w-px h-8 sm:h-10 bg-gradient-to-b from-gold-500 to-transparent" />
+      </motion.div>
     </section>
   );
 }
