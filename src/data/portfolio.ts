@@ -213,6 +213,12 @@ export const projects: Project[] = [
     ],
     icon: "🫀",
     image: "/images/projects/medcon.png",
+    images: [
+      "/images/projects/Medcon/7.png",
+      "/images/projects/Medcon/8.png",
+      "/images/projects/Medcon/9.png",
+      "/images/projects/Medcon/10.png",
+    ],
   },
   {
     id: "teacup",

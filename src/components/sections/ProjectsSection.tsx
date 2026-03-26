@@ -138,7 +138,7 @@ export function ProjectsSection() {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-2xl w-full max-h-[85vh] sm:max-h-[80vh] overflow-y-auto p-5 sm:p-8"
+              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-y-auto p-5 sm:p-8"
               initial={{ scale: 0.95, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 30 }}
@@ -152,15 +152,15 @@ export function ProjectsSection() {
               </button>
 
               {selectedProject.images && selectedProject.images.length > 0 && (
-                <div className="flex gap-2 sm:gap-3 mb-4 overflow-x-auto pb-2 -mx-1 px-1 snap-x snap-mandatory">
+                <div className="flex gap-3 sm:gap-4 mb-5 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory">
                   {selectedProject.images.map((img, idx) => (
                     <Image
                       key={idx}
                       src={img}
                       alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                      width={300}
-                      height={170}
-                      className="rounded-lg object-cover flex-shrink-0 border border-navy-600 w-[200px] sm:w-[300px] h-auto snap-center"
+                      width={600}
+                      height={340}
+                      className="rounded-xl object-cover flex-shrink-0 border border-navy-600 w-[280px] sm:w-[400px] md:w-[500px] h-auto snap-center"
                     />
                   ))}
                 </div>
