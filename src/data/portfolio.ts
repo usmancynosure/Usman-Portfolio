@@ -361,6 +361,7 @@ export const certifications: Certification[] = [
     logo: "A",
     topic: "AI & Large Language Models",
     skills: "Claude AI, Prompt Engineering, LLM Applications",
+    image: "/images/certifications/claude 101.PNG",
   },
 ];
 
