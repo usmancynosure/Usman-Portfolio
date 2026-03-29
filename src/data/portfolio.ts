@@ -11,7 +11,7 @@ export const personalInfo = {
   githubUsername: "usmancynosure",
   linkedin: "https://www.linkedin.com/in/usman-waris-0a9b8c7d/",
   location: "Pakistan — Open to GULF relocation",
-  profileImage: "/images/profile/usmanphoto.jpeg",
+  profileImage: "/images/profile/usmanphoto-removebg-preview.png",
   bio: `AI Engineer specializing in LLM systems, agentic workflows, and scalable backend architectures. Experienced in designing production-grade AI systems using LangGraph, FastAPI, and microservices. Strong background in RAG pipelines, AI automation platforms, computer vision, and ML classification systems.`,
   bioParagraph2: `Proven ability to design memory-efficient AI agents, anti-automation systems, and human-in-the-loop workflows. Passionate about system design, scalable architectures, and AI-powered product development.`,
   availability: "Available for full-time positions in GULF countries (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman). Open to remote and on-site roles.",
