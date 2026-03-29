@@ -13,10 +13,12 @@ export async function POST(req: NextRequest) {
     // Option 1: Gmail (enable App Passwords in Google Account)
     // Option 2: Any SMTP provider
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER || "imosmanwaris.tech@gmail.com",
-        pass: process.env.EMAIL_PASS || "", // Set in .env.local
+        pass: process.env.EMAIL_PASS || "",
       },
     });
 
@@ -70,10 +72,11 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true, message: "Message sent successfully!" });
-  } catch (error) {
-    console.error("Contact form error:", error);
+  } catch (error: unknown) {
+    const errMsg = error instanceof Error ? error.message : String(error);
+    console.error("Contact form error:", errMsg);
     return NextResponse.json(
-      { error: "Failed to send message. Please email directly at imosmanwaris.tech@gmail.com" },
+      { error: `Failed to send message: ${errMsg}. Please email directly at imosmanwaris.tech@gmail.com` },
       { status: 500 }
     );
   }
