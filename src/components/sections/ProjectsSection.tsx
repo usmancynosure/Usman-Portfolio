@@ -4,6 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { projects, Project } from "@/data/portfolio";
+import { TiltCard } from "@/components/3d/TiltCard";
+import dynamic from "next/dynamic";
+
+const FloatingOrbs = dynamic(
+  () => import("@/components/3d/FloatingOrbs").then((m) => ({ default: m.FloatingOrbs })),
+  { ssr: false }
+);
 
 const filters = [
   { label: "All", value: "all" },
@@ -20,6 +27,8 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="py-14 md:py-20 lg:py-28 relative overflow-hidden">
+      {/* 3D Floating orbs background */}
+      <FloatingOrbs className="absolute inset-0 opacity-30" />
       {/* Ambient background glow */}
       <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-gold-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6">
@@ -75,6 +84,9 @@ export function ProjectsSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+              <TiltCard className="relative">
+              <div
                 onClick={() => setSelectedProject(project)}
                 className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_8px_40px_rgba(206,17,38,0.2)] hover:-translate-y-2 transition-all duration-500 relative"
               >
@@ -118,6 +130,8 @@ export function ProjectsSection() {
                     <span className="text-[8px]">&#9670;</span> View Details
                   </span>
                 </div>
+              </div>
+              </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>

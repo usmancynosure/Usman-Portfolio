@@ -35,7 +35,7 @@ Single-page app — all sections render from `src/app/page.tsx` (a client compon
 
 ### Design system (defined in `src/app/globals.css` `@theme` block)
 
-- Colors: `navy-{950..400}` (deep blacks/charcoals), `gold-{700..100}` (UAE reds), `emerald-{700..300}` (UAE greens), `parchment`, `text-{primary,secondary,muted}`
+- Colors: `navy-{950..400}` (deep blacks/charcoals), `gold-{700..100}` (**named "gold" but actually UAE reds** — e.g. `gold-500` is `#CE1126`), `emerald-{700..300}` (UAE greens), `parchment`, `text-{primary,secondary,muted}`
 - Fonts: `--font-heading` (Playfair Display), `--font-body` (Inter), `--font-arabic` (Amiri), `--font-mono` (Fira Code)
 
 ### Path alias
@@ -65,4 +65,6 @@ Reusable classes beyond Tailwind: `.glass-card` (glassmorphism), `.gold-shimmer`
 - `next.config.ts` allows images from `avatars.githubusercontent.com` (for GitHub section).
 - All portfolio content is centralized in `src/data/portfolio.ts` — edit there to update site content.
 - No test framework is configured — there are no test files in this project.
-- Fonts are loaded via `@import url()` in `globals.css` (Playfair Display, Inter, Amiri, Fira Code) and referenced as CSS variables in the `@theme` block.
+- Fonts are loaded via `@import url()` in `globals.css` (Playfair Display, Inter, Amiri) and referenced as CSS variables in the `@theme` block. Fira Code is referenced in the theme but not imported — it relies on system availability or browser fallback.
+- The entire app is client-rendered: `page.tsx` has `"use client"` at the top, so all section and UI components are client components. There are no React Server Components except `layout.tsx` (which exports metadata).
+- `globals.css` includes `@media (prefers-reduced-motion)` and `@media print` rules — respect these when adding new animations or UI elements.

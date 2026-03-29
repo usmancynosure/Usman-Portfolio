@@ -3,6 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { skillCategories } from "@/data/portfolio";
+import { TiltCard } from "@/components/3d/TiltCard";
+import dynamic from "next/dynamic";
+
+const SkillsGlobe = dynamic(
+  () => import("@/components/3d/SkillsGlobe").then((m) => ({ default: m.SkillsGlobe })),
+  { ssr: false }
+);
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const ref = useRef(null);
@@ -32,8 +39,10 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-14 md:py-20 lg:py-28 geo-pattern">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="skills" className="py-14 md:py-20 lg:py-28 geo-pattern relative overflow-hidden">
+      {/* 3D Globe background */}
+      <SkillsGlobe className="absolute inset-0 opacity-40" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -56,11 +65,14 @@ export function SkillsSection() {
           {skillCategories.map((cat, catIdx) => (
             <motion.div
               key={cat.name}
-              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] transition-all duration-500 hover:-translate-y-1"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: catIdx * 0.1, duration: 0.6 }}
+            >
+            <TiltCard className="relative" glareColor={`${cat.color}25`}>
+            <div
+              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] transition-all duration-500 hover:-translate-y-1"
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">{cat.icon}</span>
@@ -71,6 +83,8 @@ export function SkillsSection() {
                   <SkillBar key={skill.name} name={skill.name} level={skill.level} delay={i * 0.08} />
                 ))}
               </div>
+            </div>
+            </TiltCard>
             </motion.div>
           ))}
         </div>

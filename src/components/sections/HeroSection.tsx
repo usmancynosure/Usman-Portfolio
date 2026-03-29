@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { personalInfo, heroTypingPhrases } from "@/data/portfolio";
+import dynamic from "next/dynamic";
+
+const HeroScene = dynamic(
+  () => import("@/components/3d/HeroScene").then((m) => ({ default: m.HeroScene })),
+  { ssr: false }
+);
 
 export function HeroSection() {
   const [typedText, setTypedText] = useState("");
@@ -74,8 +80,11 @@ export function HeroSection() {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
+      {/* 3D Scene overlay */}
+      <HeroScene />
+
       {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(7,9,12,0.5)_70%,rgba(7,9,12,0.85)_100%)]" />
+      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(7,9,12,0.5)_70%,rgba(7,9,12,0.85)_100%)]" />
 
       {/* Scattered decorative elements */}
       <motion.div

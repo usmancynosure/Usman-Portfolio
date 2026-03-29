@@ -5,6 +5,12 @@ import { useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { personalInfo, stats } from "@/data/portfolio";
+import dynamic from "next/dynamic";
+
+const FloatingOrbs = dynamic(
+  () => import("@/components/3d/FloatingOrbs").then((m) => ({ default: m.FloatingOrbs })),
+  { ssr: false }
+);
 
 function CountUp({ target, suffix = "", isDecimal = false }: { target: number; suffix: string; isDecimal?: boolean }) {
   const [count, setCount] = useState(0);
@@ -37,8 +43,9 @@ export function AboutSection() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-14 md:py-20 lg:py-28" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-14 md:py-20 lg:py-28 relative overflow-hidden" ref={ref}>
+      <FloatingOrbs className="absolute inset-0 opacity-20" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}

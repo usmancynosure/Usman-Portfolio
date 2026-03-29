@@ -3,6 +3,7 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { experiences } from "@/data/portfolio";
+import { TiltCard } from "@/components/3d/TiltCard";
 
 export function ExperienceSection() {
   const timelineRef = useRef(null);
@@ -78,6 +79,7 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
       />
 
       {/* Card */}
+      <TiltCard className="relative">
       <motion.div
         className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.15)] transition-all duration-500"
         initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
@@ -101,6 +103,7 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
           ))}
         </ul>
       </motion.div>
+      </TiltCard>
     </div>
   );
 }

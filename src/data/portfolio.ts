@@ -195,7 +195,7 @@ export const projects: Project[] = [
       "Real-time WebSocket execution tracking",
     ],
     icon: "🤖",
-    image: "/images/projects/sophia.png",
+    image: "/images/projects/Medcon/9.png",
   },
   {
     id: "medcon",
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "Fully containerized with Docker",
     ],
     icon: "🫀",
-    image: "/images/projects/medcon.png",
+    image: "/images/projects/Medcon/7.png",
     images: [
       "/images/projects/Medcon/7.png",
       "/images/projects/Medcon/8.png",
