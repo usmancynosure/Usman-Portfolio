@@ -73,7 +73,7 @@ export function DesignShowcaseSection() {
                   poster=""
                   onClick={togglePlay}
                 >
-                  <source src="/designs recording/designdreamsay.mp4" type="video/mp4" />
+                  <source src="/design video/designdreamsay.mp4" type="video/mp4" />
                 </video>
 
                 {/* Play/Pause overlay */}
