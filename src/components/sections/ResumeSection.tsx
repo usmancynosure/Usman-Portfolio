@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function ResumeSection() {
   return (
     <section id="resume" className="py-14 md:py-20 lg:py-28">
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -35,7 +35,7 @@ export function ResumeSection() {
           <div className="border-2 border-gold-500 rounded-2xl overflow-hidden relative bg-[linear-gradient(135deg,rgba(245,240,232,0.03),rgba(245,240,232,0.01))]"
             style={{
               backgroundImage: "linear-gradient(135deg, #CE1126 6px, transparent 6px), linear-gradient(225deg, #CE1126 6px, transparent 6px), linear-gradient(315deg, #CE1126 6px, transparent 6px), linear-gradient(45deg, #CE1126 6px, transparent 6px)",
-              backgroundSize: "20px 20px",
+              backgroundSize: "14px 14px",
               backgroundPosition: "top left, top right, bottom right, bottom left",
               backgroundRepeat: "no-repeat",
             }}

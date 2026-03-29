@@ -8,7 +8,7 @@ import { certifications } from "@/data/portfolio";
 export function CertificationsSection() {
   return (
     <section id="certifications" className="py-14 md:py-20 lg:py-28 geo-pattern">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           className="text-center mb-8 sm:mb-14"
           initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ function CertCard({ cert, delay }: { cert: typeof certifications[0]; delay: numb
 
   return (
     <motion.div
-      className="h-[260px] sm:h-[300px] cursor-pointer group"
+      className="h-[230px] sm:h-[260px] md:h-[300px] cursor-pointer group"
       style={{ perspective: 1200 }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}

@@ -30,8 +30,8 @@ export function ProjectsSection() {
       {/* 3D Floating orbs background */}
       <FloatingOrbs className="absolute inset-0 opacity-30" />
       {/* Ambient background glow */}
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-gold-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="absolute top-1/3 right-0 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-gold-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -96,7 +96,7 @@ export function ProjectsSection() {
                 }} />
 
                 {/* Project image */}
-                <div className="relative h-48 bg-navy-800 overflow-hidden">
+                <div className="relative h-40 sm:h-48 bg-navy-800 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -112,7 +112,7 @@ export function ProjectsSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent" />
                 </div>
 
-                <div className="p-5 relative z-[2]">
+                <div className="p-4 sm:p-5 relative z-[2]">
                   <div className="w-10 h-0.5 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-full mb-3" />
                   <h3 className="font-heading text-lg font-bold text-white mb-1">{project.title}</h3>
                   <p className="text-sm text-text-secondary mb-3">{project.subtitle}</p>
@@ -152,7 +152,7 @@ export function ProjectsSection() {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-y-auto p-5 sm:p-8"
+              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto p-4 sm:p-8"
               initial={{ scale: 0.95, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 30 }}
@@ -174,7 +174,7 @@ export function ProjectsSection() {
                       alt={`${selectedProject.title} screenshot ${idx + 1}`}
                       width={600}
                       height={340}
-                      className="rounded-xl object-cover flex-shrink-0 border border-navy-600 w-[280px] sm:w-[400px] md:w-[500px] h-auto snap-center"
+                      className="rounded-xl object-cover flex-shrink-0 border border-navy-600 w-[220px] sm:w-[350px] md:w-[500px] h-auto snap-center"
                     />
                   ))}
                 </div>

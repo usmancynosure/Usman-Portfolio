@@ -6,7 +6,7 @@ import { blogPosts } from "@/data/portfolio";
 export function BlogSection() {
   return (
     <section id="blog" className="py-14 md:py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -25,7 +25,7 @@ export function BlogSection() {
           Thoughts on AI & Engineering
         </motion.p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {blogPosts.map((post, i) => (
             <motion.article
               key={post.id}
@@ -35,7 +35,7 @@ export function BlogSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6 }}
             >
-              <div className="relative h-44 bg-gradient-to-br from-navy-800 to-navy-900 overflow-hidden">
+              <div className="relative h-36 sm:h-44 bg-gradient-to-br from-navy-800 to-navy-900 overflow-hidden">
                 <div className="w-full h-full flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-700">
                   {post.icon}
                 </div>

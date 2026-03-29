@@ -12,6 +12,7 @@ import { CertificationsSection } from "@/components/sections/CertificationsSecti
 import { ResumeSection } from "@/components/sections/ResumeSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { BlogSection } from "@/components/sections/BlogSection";
+import { DesignShowcaseSection } from "@/components/sections/DesignShowcaseSection";
 import { GitHubSection } from "@/components/sections/GitHubSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
@@ -43,6 +44,8 @@ export default function Home() {
         <TestimonialsSection />
         <SectionDivider />
         <BlogSection />
+        <SectionDivider />
+        <DesignShowcaseSection />
         <SectionDivider />
         <GitHubSection />
         <SectionDivider />

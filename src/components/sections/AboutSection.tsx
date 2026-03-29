@@ -45,7 +45,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-14 md:py-20 lg:py-28 relative overflow-hidden" ref={ref}>
       <FloatingOrbs className="absolute inset-0 opacity-20" />
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -74,7 +74,7 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative w-[220px] h-[300px] sm:w-[260px] sm:h-[350px] md:w-[280px] md:h-[380px]">
+            <div className="relative w-[180px] h-[250px] sm:w-[240px] sm:h-[330px] md:w-[280px] md:h-[380px]">
               {/* Ambient glow behind photo */}
               <div className="absolute -inset-8 bg-gold-500/[0.06] rounded-full blur-[60px] pointer-events-none" />
               {/* Arch SVG frame */}
@@ -149,7 +149,7 @@ export function AboutSection() {
 
             {/* Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 py-5 sm:py-6 border-y border-navy-600 mb-5 sm:mb-6"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 py-5 sm:py-6 border-y border-navy-600 mb-5 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

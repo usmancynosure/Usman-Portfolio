@@ -40,7 +40,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-14 md:py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -158,8 +158,8 @@ export function ContactSection() {
                 value: "Pakistan — Open to GULF relocation",
               },
             ].map((item) => (
-              <div key={item.title} className="glass-card rounded-xl p-4 flex items-center gap-4 hover:border-gold-500/30 hover:translate-x-1 transition-all duration-300">
-                <div className="w-12 h-12 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
+              <div key={item.title} className="glass-card rounded-xl p-3 sm:p-4 flex items-center gap-3 sm:gap-4 hover:border-gold-500/30 hover:translate-x-1 transition-all duration-300">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
                   {item.icon}
                 </div>
                 <div>

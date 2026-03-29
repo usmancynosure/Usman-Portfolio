@@ -17,7 +17,7 @@ export function ExperienceSection() {
     <section id="experience" className="py-14 md:py-20 lg:py-28 relative overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] bg-gold-500/[0.02] rounded-full blur-[100px] pointer-events-none" />
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export function ExperienceSection() {
 
         <div ref={timelineRef} className="relative max-w-4xl mx-auto py-6">
           {/* Center line */}
-          <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-navy-600 md:-translate-x-px">
+          <div className="absolute left-3 sm:left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-navy-600 md:-translate-x-px">
             <motion.div
               className="w-full bg-gradient-to-b from-gold-500 to-gold-700 rounded-full"
               style={{ height: lineHeight }}
@@ -68,14 +68,17 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
       ref={ref}
       className={`relative mb-8 md:mb-12 ${
         isLeft ? "md:pr-[calc(50%+2rem)] md:text-right" : "md:pl-[calc(50%+2rem)]"
-      } pl-12 md:pl-0`}
+      } pl-10 sm:pl-12 md:pl-0`}
     >
       {/* Diamond node */}
       <div
-        className={`absolute top-6 w-4 h-4 border-2 border-gold-500 rotate-45 z-10 left-[13px] md:left-1/2 md:-translate-x-1/2 transition-all duration-500 ${
+        className={`absolute top-6 w-3 h-3 sm:w-4 sm:h-4 border-2 border-gold-500 rotate-45 z-10 left-[5px] sm:left-[13px] md:left-1/2 md:-translate-x-1/2 transition-all duration-500 ${
           inView ? "bg-gold-500 shadow-[0_0_15px_rgba(206,17,38,0.6)]" : "bg-navy-950"
         }`}
-        style={inView ? { animation: "diamondPulse 2s ease-in-out infinite" } : {}}
+        style={{
+          left: undefined,
+          ...(inView ? { animation: "diamondPulse 2s ease-in-out infinite" } : {}),
+        }}
       />
 
       {/* Card */}

@@ -42,7 +42,7 @@ export function SkillsSection() {
     <section id="skills" className="py-14 md:py-20 lg:py-28 geo-pattern relative overflow-hidden">
       {/* 3D Globe background */}
       <SkillsGlobe className="absolute inset-0 opacity-40" />
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.h2
           className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
           initial={{ opacity: 0, y: 30 }}

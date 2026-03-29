@@ -204,6 +204,29 @@ body {
   .min-h-screen { min-height: 100dvh; }
 }
 
+/* Safe area padding for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .chatbot-wrapper { padding-bottom: env(safe-area-inset-bottom); }
+  footer { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+/* Small phone optimizations */
+@media (max-width: 374px) {
+  .glass-card { border-radius: 1rem; }
+  .geo-pattern { background-size: 40px 40px; }
+}
+
+/* Mobile landscape */
+@media (orientation: landscape) and (max-height: 500px) {
+  section { padding-top: 2rem; padding-bottom: 2rem; }
+}
+
+/* Prevent horizontal overflow on all mobile */
+@media (max-width: 768px) {
+  body { overflow-x: hidden; }
+  section { overflow-x: hidden; }
+}
+
 /* Print styles */
 @media print {
   nav, .chatbot-wrapper, footer, .section-divider { display: none !important; }

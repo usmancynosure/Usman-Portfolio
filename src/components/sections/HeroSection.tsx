@@ -66,7 +66,7 @@ export function HeroSection() {
 
       {/* Red glow accent - top right */}
       <motion.div
-        className="absolute -top-20 -right-20 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full pointer-events-none"
+        className="absolute -top-20 -right-20 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(206,17,38,0.12) 0%, transparent 60%)" }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -74,7 +74,7 @@ export function HeroSection() {
 
       {/* Green glow accent - bottom left */}
       <motion.div
-        className="absolute -bottom-20 -left-20 w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full pointer-events-none"
+        className="absolute -bottom-20 -left-20 w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] md:w-[500px] md:h-[500px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(0,150,57,0.08) 0%, transparent 60%)" }}
         animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
@@ -115,7 +115,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* === Content === */}
-      <div className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-center text-center px-5 sm:px-8 py-20">
+      <div className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-center text-center px-4 sm:px-8 py-16 sm:py-20">
 
         {/* Arabic greeting */}
         <motion.p
@@ -152,7 +152,7 @@ export function HeroSection() {
 
         {/* Name */}
         <motion.h1
-          className="font-heading text-[2.8rem] leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold tracking-wider mb-5 sm:mb-6"
+          className="font-heading text-[2rem] leading-[0.95] sm:text-5xl md:text-7xl lg:text-8xl xl:text-[7rem] font-extrabold tracking-wider mb-5 sm:mb-6"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
