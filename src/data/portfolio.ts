@@ -28,7 +28,7 @@ export const heroTypingPhrases = [
 export const stats = [
   { number: 6, suffix: "+", label: "Projects Delivered" },
   { number: 2, suffix: "+", label: "Companies" },
-  { number: 5, suffix: "", label: "Certifications" },
+  { number: 6, suffix: "", label: "Certifications" },
   { number: 3.06, suffix: "", label: "GPA", isDecimal: true },
 ];
 
@@ -354,6 +354,14 @@ export const certifications: Certification[] = [
     skills: "Problem Solving, Algorithms, Data Structures",
     image: "/images/certifications/5.PNG",
   },
+  {
+    id: "claude-101",
+    title: "Claude 101",
+    issuer: "Anthropic",
+    logo: "A",
+    topic: "AI & Large Language Models",
+    skills: "Claude AI, Prompt Engineering, LLM Applications",
+  },
 ];
 
 export interface Testimonial {
@@ -451,7 +459,7 @@ Projects:
 
 Key Skills: Python, FastAPI, LangChain, LangGraph, RAG Pipelines, Agentic Workflows, Docker, MongoDB, PostgreSQL, Redis, AWS, OpenCV, PyTorch, Transformers
 
-Certifications: Attract and Engage Customers with Digital Marketing (Google), Foundations of Digital Marketing and E-commerce (Google), Introduction to Front-End Development (Meta), Material Components for Flutter Basics (Google Cloud), Problem Solving Basic (HackerRank)
+Certifications: Attract and Engage Customers with Digital Marketing (Google), Foundations of Digital Marketing and E-commerce (Google), Introduction to Front-End Development (Meta), Material Components for Flutter Basics (Google Cloud), Problem Solving Basic (HackerRank), Claude 101 (Anthropic)
 
 Availability: ${personalInfo.availability}
 
