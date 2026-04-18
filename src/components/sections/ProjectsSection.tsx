@@ -74,7 +74,7 @@ export function ProjectsSection() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-fr">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.div
@@ -85,50 +85,85 @@ export function ProjectsSection() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
               >
-              <TiltCard className="relative">
+              <TiltCard className="relative h-full">
               <div
                 onClick={() => setSelectedProject(project)}
-                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_8px_40px_rgba(206,17,38,0.2)] hover:-translate-y-2 transition-all duration-500 relative"
+                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_12px_50px_rgba(206,17,38,0.25)] hover:-translate-y-2 transition-all duration-500 relative h-full flex flex-col"
               >
+                {/* Animated gradient border on hover */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
+                  background: "linear-gradient(135deg, transparent, rgba(206,17,38,0.15), transparent)",
+                  backgroundSize: "200% 200%",
+                  animation: "shimmer 4s ease-in-out infinite",
+                }} />
+
                 {/* Geo pattern overlay on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23CE1126' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
                 }} />
 
                 {/* Project image */}
-                <div className="relative h-40 sm:h-48 bg-navy-800 overflow-hidden">
+                <div className="relative h-44 sm:h-52 bg-navy-800 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={400}
                     height={200}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out"
                     onError={(e) => {
                       const t = e.target as HTMLImageElement;
                       t.style.display = "none";
                       t.parentElement!.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center"><span class="text-5xl">${project.icon}</span></div>`;
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent" />
+                  {/* Bottom gradient for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent" />
+                  {/* Top dark fade */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 to-transparent h-16" />
+
+                  {/* Category badge */}
+                  <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white bg-gold-500/90 rounded-md backdrop-blur-sm shadow-lg">
+                    {project.category === "ai" ? "AI / LLM" : project.category === "ml" ? "ML / CV" : project.category === "mobile" ? "Mobile" : "Backend"}
+                  </span>
+
+                  {/* Icon emoji floating */}
+                  <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-navy-900/70 backdrop-blur-sm border border-gold-500/30 flex items-center justify-center text-base shadow-lg">
+                    {project.icon}
+                  </span>
+
+                  {/* Title overlay on image */}
+                  <div className="absolute bottom-3 left-4 right-4 z-[2]">
+                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-white drop-shadow-lg leading-tight">{project.title}</h3>
+                  </div>
                 </div>
 
-                <div className="p-4 sm:p-5 relative z-[2]">
+                <div className="p-4 sm:p-5 relative z-[2] flex-1 flex flex-col">
                   <div className="w-10 h-0.5 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-full mb-3" />
-                  <h3 className="font-heading text-lg font-bold text-white mb-1">{project.title}</h3>
-                  <p className="text-sm text-text-secondary mb-3">{project.subtitle}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <p className="text-sm text-text-secondary mb-4 leading-relaxed">{project.subtitle}</p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5"
+                        className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5 group-hover:bg-gold-500/10 group-hover:border-gold-500/50 transition-colors"
                       >
                         {tag}
                       </span>
                     ))}
+                    {project.tags.length > 4 && (
+                      <span className="px-2 py-1 text-[11px] font-medium text-text-muted">
+                        +{project.tags.length - 4}
+                      </span>
+                    )}
                   </div>
-                  <span className="text-sm font-semibold text-gold-500 flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
-                    <span className="text-[8px]">&#9670;</span> View Details
-                  </span>
+                  <div className="mt-auto pt-3 flex items-center justify-between border-t border-navy-700/50">
+                    <span className="text-sm font-semibold text-gold-500 flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
+                      <span className="text-[8px]">&#9670;</span> View Details
+                    </span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CE1126" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </div>
                 </div>
               </div>
               </TiltCard>
@@ -152,41 +187,67 @@ export function ProjectsSection() {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              className="relative bg-navy-800 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto p-4 sm:p-8"
+              className="relative bg-gradient-to-br from-navy-800 to-navy-900 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto shadow-[0_25px_80px_rgba(206,17,38,0.15)]"
               initial={{ scale: 0.95, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 30 }}
               transition={{ type: "spring", damping: 25 }}
             >
+              {/* Decorative top accent */}
+              <div className="h-1 bg-gradient-to-r from-gold-700 via-gold-400 to-gold-700" />
+
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-2xl text-text-secondary hover:text-gold-500 hover:bg-gold-500/10 transition-all"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-xl text-text-secondary hover:text-gold-500 hover:bg-gold-500/10 transition-all z-10 bg-navy-950/50 backdrop-blur-sm border border-navy-600 hover:border-gold-500"
+                aria-label="Close"
               >
-                &times;
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
               </button>
 
+              <div className="p-4 sm:p-8">
               {selectedProject.images && selectedProject.images.length > 0 && (
-                <div className="flex gap-3 sm:gap-4 mb-5 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory">
+                <div className="flex gap-3 sm:gap-4 mb-6 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory [scrollbar-width:thin] [scrollbar-color:var(--color-gold-500)_transparent]">
                   {selectedProject.images.map((img, idx) => (
-                    <Image
-                      key={idx}
-                      src={img}
-                      alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                      width={600}
-                      height={340}
-                      className="rounded-xl object-cover flex-shrink-0 border border-navy-600 w-[220px] sm:w-[350px] md:w-[500px] h-auto snap-center"
-                    />
+                    <div key={idx} className="relative group flex-shrink-0 snap-center">
+                      <Image
+                        src={img}
+                        alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                        width={600}
+                        height={340}
+                        className="rounded-xl object-cover border border-navy-600 w-[220px] sm:w-[350px] md:w-[500px] h-auto group-hover:border-gold-500/50 transition-colors"
+                      />
+                      <span className="absolute bottom-2 right-2 px-2 py-0.5 text-[10px] font-semibold text-white bg-navy-950/70 backdrop-blur-sm rounded-md">
+                        {idx + 1} / {selectedProject.images!.length}
+                      </span>
+                    </div>
                   ))}
                 </div>
               )}
               {(!selectedProject.images || selectedProject.images.length === 0) && (
-                <span className="text-4xl mb-3 block">{selectedProject.icon}</span>
+                <div className="h-40 rounded-xl bg-gradient-to-br from-navy-700 to-navy-900 border border-navy-600 flex items-center justify-center mb-6">
+                  <span className="text-7xl">{selectedProject.icon}</span>
+                </div>
               )}
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-gold-500 mb-1">{selectedProject.title}</h3>
-              <p className="text-xs sm:text-sm text-text-secondary mb-3 sm:mb-4">{selectedProject.subtitle}</p>
-              <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-4 sm:mb-6">{selectedProject.description}</p>
 
-              <h4 className="text-gold-400 font-semibold mb-3">Key Highlights</h4>
+              {/* Category badge */}
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-2xl">{selectedProject.icon}</span>
+                <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-400 bg-gold-500/10 border border-gold-500/30 rounded-md">
+                  {selectedProject.category === "ai" ? "AI / LLM" : selectedProject.category === "ml" ? "ML / CV" : selectedProject.category === "mobile" ? "Mobile" : "Backend"}
+                </span>
+              </div>
+
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-gold-gradient mb-1">{selectedProject.title}</h3>
+              <p className="text-sm sm:text-base text-gold-400 font-medium mb-4 sm:mb-5">{selectedProject.subtitle}</p>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-gold-500 to-transparent rounded-full mb-5" />
+              <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-6">{selectedProject.description}</p>
+
+              <h4 className="text-gold-400 font-semibold mb-3 flex items-center gap-2">
+                <span className="text-[10px]">&#9670;</span> Key Highlights
+              </h4>
               <ul className="space-y-2 mb-6">
                 {selectedProject.highlights.map((h) => (
                   <li key={h} className="text-sm text-text-secondary pl-5 relative before:content-['◆'] before:absolute before:left-0 before:text-gold-500 before:text-[8px] before:top-1.5">
@@ -195,12 +256,18 @@ export function ProjectsSection() {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-navy-600">
-                {selectedProject.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5">
-                    {tag}
-                  </span>
-                ))}
+              <div className="pt-4 border-t border-navy-600">
+                <h4 className="text-gold-400 font-semibold mb-2 text-sm flex items-center gap-2">
+                  <span className="text-[10px]">&#9670;</span> Tech Stack
+                </h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedProject.tags.map((tag) => (
+                    <span key={tag} className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5 hover:bg-gold-500/10 hover:border-gold-500/50 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
               </div>
             </motion.div>
           </motion.div>

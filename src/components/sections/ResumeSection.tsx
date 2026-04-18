@@ -108,7 +108,7 @@ export function ResumeSection() {
 
           {/* Download button */}
           <a
-            href="/resume/usman-waris-resume.pdf"
+            href="/resume/usmanwarisCV.pdf"
             download
             className="btn-primary px-8 py-3 rounded-lg text-sm inline-flex items-center gap-2 mt-6"
           >

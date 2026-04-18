@@ -26,8 +26,8 @@ export const heroTypingPhrases = [
 ];
 
 export const stats = [
-  { number: 6, suffix: "+", label: "Projects Delivered" },
-  { number: 2, suffix: "+", label: "Companies" },
+  { number: 7, suffix: "+", label: "Projects Delivered" },
+  { number: 3, suffix: "+", label: "Companies" },
   { number: 6, suffix: "", label: "Certifications" },
   { number: 3.06, suffix: "", label: "GPA", isDecimal: true },
 ];
@@ -221,26 +221,50 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "teacup",
-    title: "Teacup",
-    subtitle: "Anonymous Relationship Advice & Community Verdict Platform",
+    id: "lumasleep",
+    title: "LumaSleep",
+    subtitle: "AI-Powered Sleep Tracking & Wellness Mobile App",
     description:
-      "Teacup solves the problem of having no safe, anonymous place to get honest relationship advice. People in messy relationship situations — cheating, red flags, breakups, situationships — often can't talk openly to friends or family without judgment, gossip, or bias. Teacup lets users share their situation anonymously, get a community verdict from unbiased strangers (Red Flag, Green Flag, Dump Them, Work It Out), and feel safe doing it with built-in rules against callouts, name-dropping, and screenshots. A crowdsourced relationship reality check without social consequences.",
-    tags: ["Mobile App", "Community", "Anonymous", "Social Platform", "UI/UX"],
+      "A modern sleep wellness mobile application combining AI-driven sleep analysis with a beautifully crafted user experience. LumaSleep tracks sleep cycles, provides personalized insights, ambient soundscapes, guided meditations, and bedtime routines to help users achieve deeper, more restorative sleep. Features intuitive sleep dashboards, smart alarms that wake users during light sleep phases, and AI-powered recommendations based on sleep patterns and lifestyle data.",
+    tags: ["Mobile App", "AI/ML", "Health & Wellness", "Sleep Tech", "UI/UX", "Cross-Platform"],
     category: "mobile",
     highlights: [
-      "Fully anonymous posting — no real names, photos, or identity",
-      "Community verdict system (Red Flag, Green Flag, Dump Them, Work It Out)",
-      "Built-in safety rules against callouts and screenshots",
-      "Crowdsourced unbiased relationship advice from strangers",
+      "AI-driven sleep cycle tracking and analysis",
+      "Personalized sleep insights and recommendations",
+      "Smart alarm system based on sleep phase detection",
+      "Curated ambient soundscapes and guided meditations",
+      "Beautiful, calming UI designed for nighttime usage",
+    ],
+    icon: "🌙",
+    image: "/images/projects/lumasleep/1.png",
+    images: [
+      "/images/projects/lumasleep/1.png",
+      "/images/projects/lumasleep/2.png",
+      "/images/projects/lumasleep/3.png",
+      "/images/projects/lumasleep/4.png",
+    ],
+  },
+  {
+    id: "teacup",
+    title: "Teacup",
+    subtitle: "Anonymous Social Platform with Community Verdict System",
+    description:
+      "Built a full-stack anonymous social platform where users share relationship stories and the community votes Red Flag, Green Flag, or Same. Developed the Flutter mobile app with a personalized recommendation engine (5-signal scoring: recency, follow graph, topic affinity, verdict velocity, controversy detection), real-time poll system, illustrated avatar selection, and optimistic UI updates. Backend powered by Supabase with 40+ PostgreSQL RPC functions, Row Level Security, verdict-twin discovery for user recommendations, and automated content seeding pipeline using Claude AI. Implemented Design B card system inspired by Twitter/X, smooth feed scrolling with lazy rendering, and profile verification system.",
+    tags: ["Flutter", "Dart", "Supabase", "PostgreSQL", "Riverpod", "GoRouter", "Claude API", "Python"],
+    category: "mobile",
+    highlights: [
+      "5-signal personalized recommendation engine (recency, follow graph, topic affinity, verdict velocity, controversy detection)",
+      "40+ PostgreSQL RPC functions with Row Level Security on Supabase",
+      "Verdict-twin discovery for user recommendations",
+      "Automated content seeding pipeline powered by Claude AI",
+      "Real-time poll system with optimistic UI updates",
+      "Design B card system inspired by Twitter/X with lazy rendering",
     ],
     icon: "🍵",
-    image: "/images/projects/teacup/8.png",
+    image: "/images/projects/teacup/1.png",
     images: [
-      "/images/projects/teacup/8.png",
-      "/images/projects/teacup/9.png",
-      "/images/projects/teacup/10.png",
-      "/images/projects/teacup/11.png",
+      "/images/projects/teacup/1.png",
+      "/images/projects/teacup/2.png",
     ],
   },
 ];
@@ -457,6 +481,11 @@ Projects:
 - Health Passport - AI-Powered Healthcare SaaS for UAE Clinics (FastAPI, MongoDB, Flutter, LangChain)
 - Sophia - AI-Powered Twitter/X Automation Platform (FastAPI, LangGraph, Microservices)
 - MedCon AI Systems - ECG Intelligence & Doctor Verification (OpenCV, Scikit-Learn, Docker)
+- LumaSleep - AI-powered sleep tracking & wellness mobile app (Mobile, AI/ML, Health)
+- Teacup - Anonymous social platform with community verdict system (Flutter, Supabase, Claude API)
+
+Resume: Available at /resume/usmanwarisCV.pdf — when a user asks for the resume, CV, or to download it, ALWAYS respond with this exact HTML link so it renders as a download button:
+<a href="/resume/usmanwarisCV.pdf" download="Usman-Waris-CV.pdf" target="_blank" class="text-gold-400 underline">Download Usman's Resume (PDF)</a>
 
 Key Skills: Python, FastAPI, LangChain, LangGraph, RAG Pipelines, Agentic Workflows, Docker, MongoDB, PostgreSQL, Redis, AWS, OpenCV, PyTorch, Transformers
 

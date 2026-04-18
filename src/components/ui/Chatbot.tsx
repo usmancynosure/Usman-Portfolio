@@ -65,7 +65,12 @@ function getFallback(q: string): string {
 
   // Resume
   if (l.includes("resume") || l.includes("cv") || l.includes("download")) {
-    return `You can download Usman's resume from the <strong>Resume section</strong> on this page, or <a href="/resume/usman-waris-resume.pdf" target="_blank" class="text-gold-400 underline">click here to download directly</a>.`;
+    return `Sure! Here's Usman's latest resume:<br/><br/>` +
+      `<a href="/resume/usmanwarisCV.pdf" download="Usman-Waris-CV.pdf" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 mt-1 mb-2 rounded-lg bg-gradient-to-br from-gold-600 to-gold-500 text-white font-semibold no-underline hover:from-gold-500 hover:to-gold-400 transition-all">` +
+      `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>` +
+      `Download Resume (PDF)` +
+      `</a><br/>` +
+      `<span class="text-xs text-text-muted">You can also <a href="#resume" class="text-gold-400 underline">view it in the Resume section</a> on this page.</span>`;
   }
 
   // Certifications
