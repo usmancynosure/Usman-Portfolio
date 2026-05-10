@@ -57,7 +57,7 @@ export function DesignShowcaseSection() {
             <div className="absolute -inset-4 sm:-inset-6 md:-inset-8 bg-gold-500/[0.06] rounded-[3rem] blur-[40px] pointer-events-none" />
 
             {/* Device frame */}
-            <div className="relative bg-navy-800 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] border-2 border-navy-600 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.5),0_0_40px_rgba(206,17,38,0.08)]">
+            <div className="relative bg-navy-800 rounded-[2rem] sm:rounded-[2.5rem] md:rounded-[3rem] border-2 border-navy-600 overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.5),0_0_40px_rgba(59, 130, 246,0.08)]">
               {/* Notch */}
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-28 h-5 sm:h-6 bg-navy-800 rounded-b-2xl z-20 border-b border-x border-navy-600" />
 
@@ -86,7 +86,7 @@ export function DesignShowcaseSection() {
                     className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center transition-all duration-300 ${
                       isPlaying
                         ? "bg-navy-950/0 group-hover:bg-navy-950/60"
-                        : "bg-navy-950/70 border-2 border-gold-500 shadow-[0_0_30px_rgba(206,17,38,0.3)]"
+                        : "bg-navy-950/70 border-2 border-gold-500 shadow-[0_0_30px_rgba(59, 130, 246,0.3)]"
                     }`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -96,14 +96,14 @@ export function DesignShowcaseSection() {
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
-                        fill="#CE1126"
+                        fill="#3B82F6"
                         className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                       >
                         <rect x="6" y="4" width="4" height="16" rx="1" />
                         <rect x="14" y="4" width="4" height="16" rx="1" />
                       </svg>
                     ) : (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#CE1126">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#3B82F6">
                         <polygon points="8,5 20,12 8,19" />
                       </svg>
                     )}

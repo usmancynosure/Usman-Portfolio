@@ -79,14 +79,14 @@ function Scene() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <pointLight position={[5, 5, 5]} intensity={0.4} color="#CE1126" />
+      <pointLight position={[5, 5, 5]} intensity={0.4} color="#3B82F6" />
 
-      <Orb position={[-2, 1, -2]} color="#CE1126" size={0.4} speed={1} />
-      <Orb position={[2, -1, -3]} color="#F05060" size={0.3} speed={1.3} />
-      <Orb position={[0, 2, -4]} color="#009639" size={0.35} speed={0.8} />
+      <Orb position={[-2, 1, -2]} color="#3B82F6" size={0.4} speed={1} />
+      <Orb position={[2, -1, -3]} color="#60A5FA" size={0.3} speed={1.3} />
+      <Orb position={[0, 2, -4]} color="#06B6D4" size={0.35} speed={0.8} />
 
-      <GlowRing position={[-1.5, 0, -3]} color="#CE1126" size={0.8} speed={0.7} />
-      <GlowRing position={[1.5, 1, -4]} color="#009639" size={0.6} speed={0.9} />
+      <GlowRing position={[-1.5, 0, -3]} color="#3B82F6" size={0.8} speed={0.7} />
+      <GlowRing position={[1.5, 1, -4]} color="#06B6D4" size={0.6} speed={0.9} />
     </>
   );
 }

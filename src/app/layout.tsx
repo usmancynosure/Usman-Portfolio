@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Usman Waris | AI Engineer — LLM Systems & Agentic Architect",
+  title: "Usman Waris | Product & AI Engineer — End-to-End Production Systems",
   description:
-    "Portfolio of Usman Waris, AI Engineer specializing in LLM systems, agentic workflows, and scalable backend architectures. Available for opportunities in the Gulf region.",
+    "Portfolio of Usman Waris, Product & AI Engineer who ships production-ready apps end-to-end. Specialized in LLM systems, agentic workflows, and scalable backends with LangGraph, FastAPI, Claude Code, and Cursor.",
   keywords: [
+    "Product Engineer",
     "AI Engineer",
     "Machine Learning",
     "LLM",
     "LangGraph",
     "FastAPI",
+    "Claude Code",
+    "Cursor",
+    "Agentic Development",
     "Gulf",
     "Saudi Arabia",
     "UAE",
@@ -19,13 +23,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Usman Waris" }],
   openGraph: {
-    title: "Usman Waris | AI Engineer",
-    description: "AI Engineer specializing in LLM systems, agentic workflows, and scalable backend architectures.",
+    title: "Usman Waris | Product & AI Engineer",
+    description: "Product & AI Engineer who ships production-ready apps end-to-end with agentic dev tools.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Usman Waris | AI Engineer",
+    title: "Usman Waris | Product & AI Engineer",
   },
 };
 
@@ -34,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#0d1117" />
+        <meta name="theme-color" content="#0A0E1A" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -42,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Usman Waris",
-              jobTitle: "AI Engineer",
+              jobTitle: "Product & AI Engineer",
               email: "imosmanwaris.tech@gmail.com",
               sameAs: [
                 "https://github.com/usmancynosure",

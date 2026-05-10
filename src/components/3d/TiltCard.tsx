@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export function TiltCard({
   children,
   className = "",
-  glareColor = "rgba(206, 17, 38, 0.15)",
+  glareColor = "rgba(59, 130, 246, 0.15)",
 }: {
   children: ReactNode;
   className?: string;

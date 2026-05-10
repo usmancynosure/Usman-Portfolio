@@ -73,7 +73,7 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
       {/* Diamond node */}
       <div
         className={`absolute top-6 w-3 h-3 sm:w-4 sm:h-4 border-2 border-gold-500 rotate-45 z-10 left-[5px] sm:left-[13px] md:left-1/2 md:-translate-x-1/2 transition-all duration-500 ${
-          inView ? "bg-gold-500 shadow-[0_0_15px_rgba(206,17,38,0.6)]" : "bg-navy-950"
+          inView ? "bg-gold-500 shadow-[0_0_15px_rgba(59, 130, 246,0.6)]" : "bg-navy-950"
         }`}
         style={{
           left: undefined,
@@ -84,7 +84,7 @@ function TimelineItem({ experience: exp, index, isLeft }: { experience: typeof e
       {/* Card */}
       <TiltCard className="relative">
       <motion.div
-        className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.15)] transition-all duration-500"
+        className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(59, 130, 246,0.15)] transition-all duration-500"
         initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}

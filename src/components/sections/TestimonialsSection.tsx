@@ -47,7 +47,7 @@ export function TestimonialsSection() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Quotation mark */}
-              <span className="absolute top-2 left-3 sm:top-4 sm:left-6 font-arabic text-[36px] sm:text-[50px] md:text-[80px] text-gold-500/20 leading-none select-none">&ldquo;</span>
+              <span className="absolute top-2 left-3 sm:top-4 sm:left-6 font-heading text-[48px] sm:text-[64px] md:text-[96px] text-gold-500/20 leading-none select-none">&ldquo;</span>
 
               <p className="text-base sm:text-lg md:text-xl text-text-primary italic leading-relaxed mb-6 sm:mb-8 relative z-10 pt-4 sm:pt-6">
                 {testimonials[active].text}
@@ -72,7 +72,7 @@ export function TestimonialsSection() {
               onClick={() => setActive(i)}
               className={`w-3 h-3 sm:w-2.5 sm:h-2.5 rotate-45 transition-all duration-300 touch-manipulation ${
                 i === active
-                  ? "bg-gold-500 shadow-[0_0_10px_rgba(206,17,38,0.5)]"
+                  ? "bg-gold-500 shadow-[0_0_10px_rgba(59, 130, 246,0.5)]"
                   : "bg-navy-600 hover:bg-gold-400"
               }`}
               aria-label={`Go to testimonial ${i + 1}`}

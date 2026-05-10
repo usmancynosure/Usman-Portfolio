@@ -88,18 +88,18 @@ export function ProjectsSection() {
               <TiltCard className="relative h-full">
               <div
                 onClick={() => setSelectedProject(project)}
-                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_12px_50px_rgba(206,17,38,0.25)] hover:-translate-y-2 transition-all duration-500 relative h-full flex flex-col"
+                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_12px_50px_rgba(59, 130, 246,0.25)] hover:-translate-y-2 transition-all duration-500 relative h-full flex flex-col"
               >
                 {/* Animated gradient border on hover */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
-                  background: "linear-gradient(135deg, transparent, rgba(206,17,38,0.15), transparent)",
+                  background: "linear-gradient(135deg, transparent, rgba(59, 130, 246,0.15), transparent)",
                   backgroundSize: "200% 200%",
                   animation: "shimmer 4s ease-in-out infinite",
                 }} />
 
                 {/* Geo pattern overlay on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%23CE1126' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%233B82F6' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
                 }} />
 
                 {/* Project image */}
@@ -159,7 +159,7 @@ export function ProjectsSection() {
                     <span className="text-sm font-semibold text-gold-500 flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
                       <span className="text-[8px]">&#9670;</span> View Details
                     </span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CE1126" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
@@ -187,7 +187,7 @@ export function ProjectsSection() {
               onClick={() => setSelectedProject(null)}
             />
             <motion.div
-              className="relative bg-gradient-to-br from-navy-800 to-navy-900 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto shadow-[0_25px_80px_rgba(206,17,38,0.15)]"
+              className="relative bg-gradient-to-br from-navy-800 to-navy-900 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto shadow-[0_25px_80px_rgba(59, 130, 246,0.15)]"
               initial={{ scale: 0.95, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 30 }}

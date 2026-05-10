@@ -14,7 +14,7 @@ export function Preloader() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       sessionStorage.setItem("visited", "true");
-    }, 2800);
+    }, 2200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,58 +22,73 @@ export function Preloader() {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-navy-950"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-navy-900"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
-          <div className="flex flex-col items-center gap-6">
-            {/* 8-point Islamic Star */}
-            <motion.svg
-              viewBox="0 0 200 200"
-              width="120"
-              height="120"
-              initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <motion.polygon
-                points="100,10 120,80 190,80 135,120 155,190 100,150 45,190 65,120 10,80 80,80"
-                fill="none"
-                stroke="#CE1126"
-                strokeWidth="1.5"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, fill: "rgba(206,17,38,0.2)" }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-              <motion.polygon
-                points="100,30 115,80 170,80 125,110 140,170 100,140 60,170 75,110 30,80 85,80"
-                fill="none"
-                stroke="#F05060"
-                strokeWidth="1"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1, fill: "rgba(240,80,96,0.15)" }}
-                transition={{ duration: 2, delay: 0.3, ease: "easeInOut" }}
-              />
-            </motion.svg>
+          <div className="flex flex-col items-center gap-8">
+            {/* Monogram with animated ring */}
+            <div className="relative w-28 h-28 flex items-center justify-center">
+              {/* Outer rotating ring */}
+              <motion.svg
+                viewBox="0 0 120 120"
+                className="absolute inset-0 w-full h-full"
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, ease: "linear", repeat: Infinity }}
+              >
+                <defs>
+                  <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="1" />
+                    <stop offset="50%" stopColor="#06B6D4" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  fill="none"
+                  stroke="url(#ringGrad)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeDasharray="220 120"
+                />
+              </motion.svg>
 
-            <motion.p
-              className="font-arabic text-gold-500 text-2xl"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 0.6, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              بسم الله
-            </motion.p>
+              {/* Inner static ring */}
+              <div className="absolute inset-3 rounded-full border border-navy-700" />
+
+              {/* Monogram */}
+              <motion.span
+                className="font-heading text-3xl font-extrabold gold-shimmer relative z-10"
+                initial={{ opacity: 0, scale: 0.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              >
+                UW
+              </motion.span>
+            </div>
 
             {/* Loading bar */}
             <div className="w-48 h-0.5 bg-navy-700 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-gold-700 via-gold-500 to-gold-300 rounded-full"
+                className="h-full bg-gradient-to-r from-gold-600 via-gold-400 to-emerald-500 rounded-full"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
               />
             </div>
+
+            {/* Subtle label */}
+            <motion.p
+              className="text-text-muted text-[10px] tracking-[0.3em] uppercase"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Loading Portfolio
+            </motion.p>
           </div>
         </motion.div>
       )}

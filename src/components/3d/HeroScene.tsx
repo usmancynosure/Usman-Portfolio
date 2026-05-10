@@ -84,7 +84,7 @@ function ParticleField() {
     <points ref={pointsRef} geometry={bufferGeo}>
       <pointsMaterial
         size={0.03}
-        color="#CE1126"
+        color="#3B82F6"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -123,17 +123,17 @@ function IslamicStar({ position, scale }: { position: [number, number, number]; 
       <mesh>
         <shapeGeometry args={[starShape]} />
         <meshStandardMaterial
-          color="#CE1126"
+          color="#3B82F6"
           transparent
           opacity={0.12}
-          emissive="#CE1126"
+          emissive="#3B82F6"
           emissiveIntensity={0.3}
           side={THREE.DoubleSide}
         />
       </mesh>
       <lineSegments>
         <edgesGeometry args={[new THREE.ShapeGeometry(starShape)]} />
-        <lineBasicMaterial color="#CE1126" transparent opacity={0.3} />
+        <lineBasicMaterial color="#3B82F6" transparent opacity={0.3} />
       </lineSegments>
     </group>
   );
@@ -143,8 +143,8 @@ function Scene() {
   return (
     <>
       <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={0.5} color="#CE1126" />
-      <pointLight position={[-10, -10, -5]} intensity={0.3} color="#009639" />
+      <pointLight position={[10, 10, 10]} intensity={0.5} color="#3B82F6" />
+      <pointLight position={[-10, -10, -5]} intensity={0.3} color="#06B6D4" />
 
       <Stars
         radius={50}
@@ -158,13 +158,13 @@ function Scene() {
 
       <ParticleField />
 
-      <FloatingGeometry position={[-4, 2, -3]} geometry="icosahedron" speed={1.2} color="#CE1126" />
-      <FloatingGeometry position={[4, -1, -4]} geometry="octahedron" speed={0.8} color="#F05060" />
-      <FloatingGeometry position={[-3, -2, -5]} geometry="dodecahedron" speed={1} color="#009639" />
-      <FloatingGeometry position={[3, 3, -6]} geometry="torus" speed={0.6} color="#CE1126" />
-      <FloatingGeometry position={[0, -3, -4]} geometry="icosahedron" speed={0.9} color="#F05060" />
-      <FloatingGeometry position={[-5, 0, -7]} geometry="octahedron" speed={0.7} color="#009639" />
-      <FloatingGeometry position={[5, 1, -5]} geometry="dodecahedron" speed={1.1} color="#CE1126" />
+      <FloatingGeometry position={[-4, 2, -3]} geometry="icosahedron" speed={1.2} color="#3B82F6" />
+      <FloatingGeometry position={[4, -1, -4]} geometry="octahedron" speed={0.8} color="#60A5FA" />
+      <FloatingGeometry position={[-3, -2, -5]} geometry="dodecahedron" speed={1} color="#06B6D4" />
+      <FloatingGeometry position={[3, 3, -6]} geometry="torus" speed={0.6} color="#3B82F6" />
+      <FloatingGeometry position={[0, -3, -4]} geometry="icosahedron" speed={0.9} color="#60A5FA" />
+      <FloatingGeometry position={[-5, 0, -7]} geometry="octahedron" speed={0.7} color="#06B6D4" />
+      <FloatingGeometry position={[5, 1, -5]} geometry="dodecahedron" speed={1.1} color="#3B82F6" />
 
       <IslamicStar position={[-2, 1, -8]} scale={0.8} />
       <IslamicStar position={[3, -2, -10]} scale={1.2} />

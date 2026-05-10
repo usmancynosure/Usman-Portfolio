@@ -97,8 +97,8 @@ function getFallback(q: string): string {
   }
 
   // Greeting
-  if (l.match(/^(hi|hello|hey|assalam|salam|greet|good\s)/)) {
-    return `Wa Alaikum Assalam! Welcome to <strong class="text-gold-400">The Digital Majlis</strong>. I'm here to help you learn about Usman's work. What would you like to know?`;
+  if (l.match(/^(hi|hello|hey|greet|good\s)/)) {
+    return `Hi there! I'm here to help you learn about <strong class="text-gold-400">Usman's work</strong> — projects, skills, experience, or how to reach him. What would you like to know?`;
   }
 
   // Default
@@ -123,7 +123,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Assalamu Alaikum! I'm the <strong class='text-gold-400'>Digital Majlis</strong> AI assistant. Ask me anything about Usman's skills, projects, or experience!",
+      content: "Hi! I'm Usman's <strong class='text-gold-400'>portfolio assistant</strong>. Ask me anything about his skills, projects, or experience.",
       timestamp: new Date(),
     },
   ]);
@@ -220,14 +220,18 @@ export function Chatbot() {
           <span className="absolute inset-0 rounded-full bg-gold-500/20 animate-ping" style={{ animationDuration: "3s" }} />
           {/* Button bg */}
           <span className="absolute inset-0 rounded-full bg-gradient-to-br from-navy-800 to-navy-900 border-2 border-gold-500 group-hover:border-gold-400 transition-colors" />
-          {/* Icon */}
-          <svg className="relative z-10" viewBox="0 0 40 40" width="28" height="28">
-            <path d="M20 4 L26 12 L26 28 Q26 34 20 36 Q14 34 14 28 L14 12 Z" fill="none" stroke="#CE1126" strokeWidth="2" />
-            <circle cx="20" cy="20" r="4" fill="#CE1126" opacity="0.6">
-              <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite" />
+          {/* Icon — modern chat bubble */}
+          <svg className="relative z-10" viewBox="0 0 40 40" width="26" height="26" fill="none" stroke="#60A5FA" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 12 Q8 8 12 8 L28 8 Q32 8 32 12 L32 24 Q32 28 28 28 L18 28 L12 33 L12 28 Q8 28 8 24 Z" />
+            <circle cx="15" cy="18" r="1.4" fill="#60A5FA" stroke="none">
+              <animate attributeName="opacity" values="0.4;1;0.4" dur="1.4s" repeatCount="indefinite" />
             </circle>
-            <line x1="17" y1="4" x2="23" y2="4" stroke="#CE1126" strokeWidth="2" />
-            <line x1="20" y1="1" x2="20" y2="4" stroke="#CE1126" strokeWidth="1.5" />
+            <circle cx="20" cy="18" r="1.4" fill="#60A5FA" stroke="none">
+              <animate attributeName="opacity" values="0.4;1;0.4" dur="1.4s" begin="0.2s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="25" cy="18" r="1.4" fill="#60A5FA" stroke="none">
+              <animate attributeName="opacity" values="0.4;1;0.4" dur="1.4s" begin="0.4s" repeatCount="indefinite" />
+            </circle>
           </svg>
           {/* Unread badge */}
           {unread > 0 && (
@@ -246,7 +250,7 @@ export function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[400px] sm:max-w-[calc(100vw-32px)] sm:h-[600px] sm:max-h-[calc(100vh-120px)] bg-navy-900 border-0 sm:border border-navy-600 sm:rounded-2xl flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(206,17,38,0.1)]"
+            className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[400px] sm:max-w-[calc(100vw-32px)] sm:h-[600px] sm:max-h-[calc(100vh-120px)] bg-navy-900 border-0 sm:border border-navy-600 sm:rounded-2xl flex flex-col overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.6),0_0_40px_rgba(59, 130, 246,0.1)]"
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -267,7 +271,7 @@ export function Chatbot() {
                     <span className="text-sm font-bold text-white">UW</span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-heading text-lg text-gold-500 leading-tight">Digital Majlis</h3>
+                    <h3 className="font-heading text-lg text-gold-400 leading-tight">Portfolio Assistant</h3>
                     <div className="flex items-center gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       <span className="text-[11px] text-emerald-400">Online</span>

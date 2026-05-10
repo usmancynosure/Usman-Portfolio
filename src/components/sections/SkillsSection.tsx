@@ -25,7 +25,7 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
         <motion.div
           className="h-full rounded-full relative"
           style={{
-            background: "linear-gradient(135deg, #9B0D1E, #CE1126, #F05060, #CE1126, #9B0D1E)",
+            background: "linear-gradient(135deg, #1D4ED8, #3B82F6, #60A5FA, #3B82F6, #1D4ED8)",
             backgroundSize: "200% 100%",
           }}
           initial={{ width: 0 }}
@@ -72,7 +72,7 @@ export function SkillsSection() {
             >
             <TiltCard className="relative" glareColor={`${cat.color}25`}>
             <div
-              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(206,17,38,0.2)] transition-all duration-500 hover:-translate-y-1"
+              className="glass-card rounded-2xl p-4 sm:p-6 hover:border-gold-500 hover:shadow-[0_4px_20px_rgba(59, 130, 246,0.2)] transition-all duration-500 hover:-translate-y-1"
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-2xl">{cat.icon}</span>

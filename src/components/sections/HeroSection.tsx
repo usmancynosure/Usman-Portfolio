@@ -64,18 +64,18 @@ export function HeroSection() {
       {/* Dark gradient overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950/70 via-navy-950/50 to-navy-950/90" />
 
-      {/* Red glow accent - top right */}
+      {/* Blue glow accent - top right */}
       <motion.div
         className="absolute -top-20 -right-20 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(206,17,38,0.12) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 60%)" }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Green glow accent - bottom left */}
+      {/* Cyan glow accent - bottom left */}
       <motion.div
         className="absolute -bottom-20 -left-20 w-[150px] h-[150px] sm:w-[300px] sm:h-[300px] md:w-[500px] md:h-[500px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(0,150,57,0.08) 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 60%)" }}
         animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
@@ -117,19 +117,19 @@ export function HeroSection() {
       {/* === Content === */}
       <div className="relative z-10 min-h-[100dvh] flex flex-col items-center justify-center text-center px-4 sm:px-8 py-16 sm:py-20">
 
-        {/* Arabic greeting */}
+        {/* Eyebrow tag */}
         <motion.p
-          className="font-arabic text-gold-400 text-base sm:text-lg md:text-2xl tracking-wide mb-4 sm:mb-5"
+          className="text-gold-400 text-[10px] sm:text-xs tracking-[0.4em] uppercase mb-4 sm:mb-5"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          السلام عليكم
+          Product · AI · Engineering
         </motion.p>
 
         {/* Profile photo */}
         <motion.div
-          className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full border-2 border-gold-500/50 overflow-hidden shadow-[0_0_50px_rgba(206,17,38,0.2)] mb-6 sm:mb-8"
+          className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full border-2 border-gold-500/50 overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.3)] mb-6 sm:mb-8"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -177,12 +177,12 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          className="text-text-secondary text-sm sm:text-base md:text-lg italic max-w-xs sm:max-w-sm md:max-w-md mx-auto mb-7 sm:mb-8"
+          className="text-text-secondary text-sm sm:text-base md:text-lg italic max-w-xs sm:max-w-sm md:max-w-lg mx-auto mb-7 sm:mb-8"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8 }}
         >
-          Building the future with AI — from the legacy of innovation
+          I ship production-ready apps end-to-end — built with LLMs, agentic workflows, and AI coding tools like Claude Code & Cursor.
         </motion.p>
 
         {/* CTA buttons */}
@@ -207,11 +207,14 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2.2, duration: 0.8 }}
         >
-          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-gold-500/20 text-gold-400 bg-gold-500/5 backdrop-blur-sm">
-            AI Engineer
+          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-gold-500/30 text-gold-300 bg-gold-500/5 backdrop-blur-sm">
+            Product & AI Engineer
           </span>
-          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-emerald-500/20 text-emerald-400 bg-emerald-500/5 backdrop-blur-sm">
-            UAE Based
+          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-emerald-500/30 text-emerald-300 bg-emerald-500/5 backdrop-blur-sm">
+            Open to Gulf · Remote
+          </span>
+          <span className="px-3 py-1.5 text-[10px] sm:text-xs tracking-wider uppercase rounded-full border border-gold-400/30 text-gold-200 bg-gold-400/5 backdrop-blur-sm">
+            Claude Code · Cursor
           </span>
         </motion.div>
       </div>

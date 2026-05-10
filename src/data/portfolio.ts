@@ -4,7 +4,7 @@
 
 export const personalInfo = {
   name: "Usman Waris",
-  title: "AI Engineer | LLM Systems | Backend & Agentic Architect",
+  title: "Product & AI Engineer | End-to-End Production Systems",
   email: "imosmanwaris.tech@gmail.com",
   phone: "+923200787777",
   github: "https://github.com/usmancynosure",
@@ -12,17 +12,17 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/usman-waris-0a9b8c7d/",
   location: "Pakistan — Open to GULF relocation",
   profileImage: "/images/profile/usmanphoto-removebg-preview.png",
-  bio: `AI Engineer specializing in LLM systems, agentic workflows, and scalable backend architectures. Experienced in designing production-grade AI systems using LangGraph, FastAPI, and microservices. Strong background in RAG pipelines, AI automation platforms, computer vision, and ML classification systems.`,
-  bioParagraph2: `Proven ability to design memory-efficient AI agents, anti-automation systems, and human-in-the-loop workflows. Passionate about system design, scalable architectures, and AI-powered product development.`,
+  bio: `Product & AI Engineer who ships production-ready applications end-to-end — from product discovery and system design to deployment and iteration. Specialized in LLM systems, agentic workflows, and scalable backend architectures using LangGraph, FastAPI, and microservices, with deep experience in RAG pipelines, computer vision, and ML classification systems.`,
+  bioParagraph2: `Day-to-day I work hands-on with agentic coding tools — Claude Code, Cursor, GitHub Copilot, Windsurf — to compress build cycles and ship faster without compromising quality. Proven ability to design memory-efficient AI agents, human-in-the-loop workflows, and scalable architectures that survive real production load.`,
   availability: "Available for full-time positions in GULF countries (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman). Open to remote and on-site roles.",
 };
 
 export const heroTypingPhrases = [
-  "AI Engineer",
+  "Product & AI Engineer",
+  "End-to-End Production Apps",
   "LLM Systems Architect",
-  "Backend & Agentic Developer",
-  "Building the Future with AI",
   "Agentic Workflow Designer",
+  "Shipping with Claude Code & Cursor",
 ];
 
 export const stats = [
@@ -48,7 +48,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Programming",
     icon: "💻",
-    color: "#CE1126",
+    color: "#3B82F6",
     skills: [
       { name: "Python", level: 95 },
       { name: "FastAPI", level: 90 },
@@ -61,7 +61,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "AI & Data Science",
     icon: "🧠",
-    color: "#F05060",
+    color: "#60A5FA",
     skills: [
       { name: "LangChain / LangGraph", level: 92 },
       { name: "RAG Pipelines", level: 88 },
@@ -73,9 +73,22 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
+    name: "Agentic Dev Tools",
+    icon: "⚡",
+    color: "#06B6D4",
+    skills: [
+      { name: "Claude Code", level: 95 },
+      { name: "Cursor", level: 92 },
+      { name: "GitHub Copilot", level: 88 },
+      { name: "Windsurf", level: 80 },
+      { name: "Anthropic Claude API", level: 90 },
+      { name: "Prompt Engineering", level: 90 },
+    ],
+  },
+  {
     name: "Databases & Cloud",
     icon: "☁️",
-    color: "#E8384F",
+    color: "#22D3EE",
     skills: [
       { name: "MongoDB", level: 88 },
       { name: "PostgreSQL", level: 82 },
@@ -88,7 +101,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "DevOps & Tools",
     icon: "🔧",
-    color: "#9B0D1E",
+    color: "#1D4ED8",
     skills: [
       { name: "Docker", level: 85 },
       { name: "Kubernetes", level: 65 },
@@ -282,16 +295,18 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: "snippet",
-    role: "AI Engineer",
+    role: "Product & AI Engineer",
     company: "Snippet.co",
     period: "2025 — Present",
     type: "current",
     badge: "Current",
     responsibilities: [
+      "Shipping production-ready apps end-to-end — from product spec and system design to deployment, monitoring, and iteration",
       "Designing and implementing AI-powered automation systems using LangGraph and LLM orchestration",
       "Building scalable FastAPI backend services with async architecture",
       "Developing agentic workflows with memory management and tool-based reasoning",
       "Architecting microservices-based systems for AI execution and backend orchestration",
+      "Using agentic coding tools (Claude Code, Cursor, GitHub Copilot, Windsurf) to compress build cycles without compromising quality",
       "Implementing rate-limiting, retry strategies, and production-grade monitoring",
       "Working on system design decisions rather than only feature implementation",
     ],
@@ -457,7 +472,7 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export const chatbotSystemPrompt = `You are the AI assistant on Usman Waris's portfolio website - "The Digital Majlis".
+export const chatbotSystemPrompt = `You are the AI assistant on Usman Waris's portfolio website.
 Your role is to help recruiters and visitors learn about Usman.
 Be professional, friendly, and concise.
 
@@ -472,7 +487,7 @@ Location: ${personalInfo.location}
 Education: BS Computer Science from COMSATS University Islamabad (2022-2025, GPA: 3.06)
 
 Experience:
-- AI Engineer at Snippet.co (2025 - Present): Designing AI-powered automation systems using LangGraph and LLM orchestration. Building scalable FastAPI services.
+- Product & AI Engineer at Snippet.co (2025 - Present): Designing AI-powered automation systems using LangGraph and LLM orchestration. Building scalable FastAPI services. Ships production apps end-to-end using agentic dev tools (Claude Code, Cursor).
 - Backend & Security Contributor at SNSKIES Ltd (2025): Implemented ZTNA frameworks, authentication APIs.
 
 Projects:
@@ -488,6 +503,7 @@ Resume: Available at /resume/usmanwarisCV.pdf — when a user asks for the resum
 <a href="/resume/usmanwarisCV.pdf" download="Usman-Waris-CV.pdf" target="_blank" class="text-gold-400 underline">Download Usman's Resume (PDF)</a>
 
 Key Skills: Python, FastAPI, LangChain, LangGraph, RAG Pipelines, Agentic Workflows, Docker, MongoDB, PostgreSQL, Redis, AWS, OpenCV, PyTorch, Transformers
+Agentic Dev Tools: Claude Code, Cursor, GitHub Copilot, Windsurf, Anthropic Claude API — uses these daily to ship production apps end-to-end.
 
 Certifications: Attract and Engage Customers with Digital Marketing (Google), Foundations of Digital Marketing and E-commerce (Google), Introduction to Front-End Development (Meta), Material Components for Flutter Basics (Google Cloud), Problem Solving Basic (HackerRank), Claude 101 (Anthropic)
 

@@ -18,11 +18,11 @@ function WireframeGlobe() {
       <mesh>
         <sphereGeometry args={[1.5, 24, 24]} />
         <meshStandardMaterial
-          color="#CE1126"
+          color="#3B82F6"
           wireframe
           transparent
           opacity={0.08}
-          emissive="#CE1126"
+          emissive="#3B82F6"
           emissiveIntensity={0.1}
         />
       </mesh>
@@ -30,11 +30,11 @@ function WireframeGlobe() {
       <mesh>
         <sphereGeometry args={[1.2, 16, 16]} />
         <meshStandardMaterial
-          color="#F05060"
+          color="#60A5FA"
           wireframe
           transparent
           opacity={0.05}
-          emissive="#F05060"
+          emissive="#60A5FA"
           emissiveIntensity={0.1}
         />
       </mesh>
@@ -43,10 +43,10 @@ function WireframeGlobe() {
         <mesh key={i} rotation={[Math.PI / (3 + i), i * 0.8, 0]}>
           <torusGeometry args={[1.6 + i * 0.15, 0.008, 16, 100]} />
           <meshStandardMaterial
-            color={i === 1 ? "#009639" : "#CE1126"}
+            color={i === 1 ? "#06B6D4" : "#3B82F6"}
             transparent
             opacity={0.2}
-            emissive={i === 1 ? "#009639" : "#CE1126"}
+            emissive={i === 1 ? "#06B6D4" : "#3B82F6"}
             emissiveIntensity={0.3}
           />
         </mesh>
@@ -60,7 +60,7 @@ function DataNodes() {
 
   const nodes = useMemo(() => {
     const result: { position: THREE.Vector3; color: string }[] = [];
-    const colors = ["#CE1126", "#F05060", "#009639", "#E8384F", "#00B344"];
+    const colors = ["#3B82F6", "#60A5FA", "#06B6D4", "#06B6D4", "#22D3EE"];
     for (let i = 0; i < 30; i++) {
       const phi = Math.acos(-1 + (2 * i) / 30);
       const theta = Math.sqrt(30 * Math.PI) * phi;
@@ -101,8 +101,8 @@ function Scene() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <pointLight position={[5, 5, 5]} intensity={0.4} color="#CE1126" />
-      <pointLight position={[-5, -5, -5]} intensity={0.2} color="#009639" />
+      <pointLight position={[5, 5, 5]} intensity={0.4} color="#3B82F6" />
+      <pointLight position={[-5, -5, -5]} intensity={0.2} color="#06B6D4" />
       <WireframeGlobe />
       <DataNodes />
     </>
