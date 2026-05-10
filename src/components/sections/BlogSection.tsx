@@ -22,7 +22,7 @@ export function BlogSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          Thoughts on AI & Engineering
+          Notes on Products, AI-Powered Products & Agentic AI
         </motion.p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
