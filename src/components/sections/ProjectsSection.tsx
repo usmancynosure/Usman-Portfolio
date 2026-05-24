@@ -1,278 +1,194 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { projects, Project } from "@/data/portfolio";
-import { TiltCard } from "@/components/3d/TiltCard";
-import dynamic from "next/dynamic";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { FadeIn } from "@/components/ui/FadeIn";
 
-const FloatingOrbs = dynamic(
-  () => import("@/components/3d/FloatingOrbs").then((m) => ({ default: m.FloatingOrbs })),
-  { ssr: false }
-);
+interface Project {
+  num: string;
+  category: string;
+  name: string;
+  col1: [string, string];
+  col2: string;
+}
 
-const filters = [
-  { label: "All", value: "all" },
-  { label: "AI / LLM", value: "ai" },
-  { label: "ML / CV", value: "ml" },
-  { label: "Mobile", value: "mobile" },
+const PROJECTS: Project[] = [
+  {
+    num: "01",
+    category: "AI · Healthcare",
+    name: "Health Passport",
+    col1: [
+      "/images/projects/Healthpassport/Clean and Modern App Portfolio Mockup Presentation.png",
+      "/images/projects/Healthpassport/Clean and Modern App Portfolio Mockup Presentation.png",
+    ],
+    col2: "/images/projects/Healthpassport/Clean and Modern App Portfolio Mockup Presentation.png",
+  },
+  {
+    num: "02",
+    category: "AI · Mobile",
+    name: "SpaceAI",
+    col1: ["/images/projects/SpaceAi/1.png", "/images/projects/SpaceAi/2.png"],
+    col2: "/images/projects/SpaceAi/3.png",
+  },
+  {
+    num: "03",
+    category: "AI · Mobile",
+    name: "Optify",
+    col1: ["/images/projects/Optify/4.png", "/images/projects/Optify/5.png"],
+    col2: "/images/projects/Optify/6.png",
+  },
+  {
+    num: "04",
+    category: "Social · Flutter",
+    name: "Teacup",
+    col1: ["/images/projects/teacup/1.png", "/images/projects/teacup/2.png"],
+    col2: "/images/projects/teacup/1.png",
+  },
+  {
+    num: "05",
+    category: "ML · Healthcare",
+    name: "MedCon AI",
+    col1: ["/images/projects/Medcon/9.png", "/images/projects/Medcon/10.png"],
+    col2: "/images/projects/Medcon/7.png",
+  },
+  {
+    num: "06",
+    category: "AI · Wellness",
+    name: "LumaSleep",
+    col1: ["/images/projects/lumasleep/1.png", "/images/projects/lumasleep/2.png"],
+    col2: "/images/projects/lumasleep/3.png",
+  },
 ];
 
-export function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+const RADIUS = "rounded-[40px] sm:rounded-[50px] md:rounded-[60px]";
 
-  const filtered = activeFilter === "all" ? projects : projects.filter((p) => p.category === activeFilter);
+function ProjectCard({
+  project,
+  index,
+  total,
+  progress,
+}: {
+  project: Project;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+}) {
+  const targetScale = 1 - (total - 1 - index) * 0.03;
+  const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   return (
-    <section id="projects" className="py-14 md:py-20 lg:py-28 relative overflow-hidden">
-      {/* 3D Floating orbs background */}
-      <FloatingOrbs className="absolute inset-0 opacity-30" />
-      {/* Ambient background glow */}
-      <div className="absolute top-1/3 right-0 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] bg-gold-500/[0.02] rounded-full blur-[120px] pointer-events-none" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <motion.h2
-          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Projects
-        </motion.h2>
-        <motion.p
-          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-10 tracking-wide"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          The Exhibition Hall
-        </motion.p>
-
-        {/* Filters */}
-        <motion.div
-          className="flex justify-center gap-2 sm:gap-3 mb-8 md:mb-10 flex-wrap px-2"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          {filters.map((f) => (
-            <button
-              key={f.value}
-              onClick={() => setActiveFilter(f.value)}
-              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium tracking-wide transition-all duration-300 ${
-                activeFilter === f.value
-                  ? "bg-gold-500 text-navy-950 font-semibold"
-                  : "border border-navy-600 text-text-secondary hover:border-gold-500 hover:text-gold-400"
-              }`}
+    <div className="h-[85vh] flex items-start justify-center sticky top-24 md:top-32">
+      <motion.div
+        style={{ scale, top: `${index * 28}px` }}
+        className={`group relative w-full max-w-6xl ${RADIUS} border-2 border-[#F5F5F7] bg-[#0A0A0B] p-4 sm:p-6 md:p-8 origin-top transition-colors duration-300 hover:border-[#CCFF00]`}
+      >
+        {/* Top row */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-5 sm:mb-7 md:mb-8">
+          <div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+            <span
+              className="text-[#F5F5F7] font-display font-bold leading-none"
+              style={{ fontSize: "clamp(3rem, 10vw, 140px)" }}
             >
-              {f.label}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 auto-rows-fr">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
+              {project.num}
+            </span>
+            <div className="flex flex-col gap-1.5">
+              <span className="font-mono text-[#CCFF00] uppercase tracking-widest text-[0.7rem] sm:text-xs">
+                {project.category}
+              </span>
+              <span
+                className="text-[#F5F5F7] font-display font-medium uppercase leading-tight"
+                style={{ fontSize: "clamp(1rem, 2.2vw, 2.1rem)" }}
               >
-              <TiltCard className="relative h-full">
-              <div
-                onClick={() => setSelectedProject(project)}
-                className="glass-card rounded-2xl overflow-hidden cursor-pointer group hover:border-gold-500 hover:shadow-[0_12px_50px_rgba(59, 130, 246,0.25)] hover:-translate-y-2 transition-all duration-500 relative h-full flex flex-col"
-              >
-                {/* Animated gradient border on hover */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
-                  background: "linear-gradient(135deg, transparent, rgba(59, 130, 246,0.15), transparent)",
-                  backgroundSize: "200% 200%",
-                  animation: "shimmer 4s ease-in-out infinite",
-                }} />
+                {project.name}
+              </span>
+            </div>
+          </div>
 
-                {/* Geo pattern overlay on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-[1]" style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z' fill='none' stroke='%233B82F6' stroke-width='0.3' opacity='0.1'/%3E%3C/svg%3E")`,
-                }} />
-
-                {/* Project image */}
-                <div className="relative h-44 sm:h-52 bg-navy-800 overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={400}
-                    height={200}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out"
-                    onError={(e) => {
-                      const t = e.target as HTMLImageElement;
-                      t.style.display = "none";
-                      t.parentElement!.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center"><span class="text-5xl">${project.icon}</span></div>`;
-                    }}
-                  />
-                  {/* Bottom gradient for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent" />
-                  {/* Top dark fade */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 to-transparent h-16" />
-
-                  {/* Category badge */}
-                  <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white bg-gold-500/90 rounded-md backdrop-blur-sm shadow-lg">
-                    {project.category === "ai" ? "AI / LLM" : project.category === "ml" ? "ML / CV" : project.category === "mobile" ? "Mobile" : "Backend"}
-                  </span>
-
-                  {/* Icon emoji floating */}
-                  <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-navy-900/70 backdrop-blur-sm border border-gold-500/30 flex items-center justify-center text-base shadow-lg">
-                    {project.icon}
-                  </span>
-
-                  {/* Title overlay on image */}
-                  <div className="absolute bottom-3 left-4 right-4 z-[2]">
-                    <h3 className="font-heading text-xl sm:text-2xl font-bold text-white drop-shadow-lg leading-tight">{project.title}</h3>
-                  </div>
-                </div>
-
-                <div className="p-4 sm:p-5 relative z-[2] flex-1 flex flex-col">
-                  <div className="w-10 h-0.5 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-full mb-3" />
-                  <p className="text-sm text-text-secondary mb-4 leading-relaxed">{project.subtitle}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.tags.slice(0, 4).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5 group-hover:bg-gold-500/10 group-hover:border-gold-500/50 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 4 && (
-                      <span className="px-2 py-1 text-[11px] font-medium text-text-muted">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
-                  <div className="mt-auto pt-3 flex items-center justify-between border-t border-navy-700/50">
-                    <span className="text-sm font-semibold text-gold-500 flex items-center gap-1.5 group-hover:gap-3 transition-all duration-300">
-                      <span className="text-[8px]">&#9670;</span> View Details
-                    </span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" strokeWidth="2" className="group-hover:translate-x-1 transition-transform">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              </TiltCard>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          {/* animated arrow accent */}
+          <div className="flex flex-shrink-0 items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#F5F5F7]/30 text-[#F5F5F7] transition-all duration-300 ease-out group-hover:border-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#0A0A0B] group-hover:-rotate-45">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
         </div>
-      </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className="fixed inset-0 z-[1000] flex items-end sm:items-center justify-center p-0 sm:p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div
-              className="absolute inset-0 bg-navy-950/90 backdrop-blur-md"
-              onClick={() => setSelectedProject(null)}
+        {/* Bottom row: image grid */}
+        <div className="flex gap-3 sm:gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4 basis-2/5 shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.col1[0]}
+              alt={`${project.name} preview 1`}
+              loading="lazy"
+              className={`w-full object-cover ${RADIUS}`}
+              style={{ height: "clamp(130px, 16vw, 230px)" }}
             />
-            <motion.div
-              className="relative bg-gradient-to-br from-navy-800 to-navy-900 border border-gold-500 rounded-t-3xl sm:rounded-3xl max-w-4xl w-full max-h-[92vh] sm:max-h-[85vh] overflow-y-auto shadow-[0_25px_80px_rgba(59, 130, 246,0.15)]"
-              initial={{ scale: 0.95, y: 30 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 30 }}
-              transition={{ type: "spring", damping: 25 }}
-            >
-              {/* Decorative top accent */}
-              <div className="h-1 bg-gradient-to-r from-gold-700 via-gold-400 to-gold-700" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.col1[1]}
+              alt={`${project.name} preview 2`}
+              loading="lazy"
+              className={`w-full object-cover ${RADIUS}`}
+              style={{ height: "clamp(160px, 22vw, 340px)" }}
+            />
+          </div>
+          <div className="basis-3/5 grow">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.col2}
+              alt={`${project.name} preview 3`}
+              loading="lazy"
+              className={`w-full h-full object-cover ${RADIUS}`}
+            />
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
 
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-xl text-text-secondary hover:text-gold-500 hover:bg-gold-500/10 transition-all z-10 bg-navy-950/50 backdrop-blur-sm border border-navy-600 hover:border-gold-500"
-                aria-label="Close"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
+export function ProjectsSection() {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
 
-              <div className="p-4 sm:p-8">
-              {selectedProject.images && selectedProject.images.length > 0 && (
-                <div className="flex gap-3 sm:gap-4 mb-6 overflow-x-auto pb-3 -mx-1 px-1 snap-x snap-mandatory [scrollbar-width:thin] [scrollbar-color:var(--color-gold-500)_transparent]">
-                  {selectedProject.images.map((img, idx) => (
-                    <div key={idx} className="relative group flex-shrink-0 snap-center">
-                      <Image
-                        src={img}
-                        alt={`${selectedProject.title} screenshot ${idx + 1}`}
-                        width={600}
-                        height={340}
-                        className="rounded-xl object-cover border border-navy-600 w-[220px] sm:w-[350px] md:w-[500px] h-auto group-hover:border-gold-500/50 transition-colors"
-                      />
-                      <span className="absolute bottom-2 right-2 px-2 py-0.5 text-[10px] font-semibold text-white bg-navy-950/70 backdrop-blur-sm rounded-md">
-                        {idx + 1} / {selectedProject.images!.length}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {(!selectedProject.images || selectedProject.images.length === 0) && (
-                <div className="h-40 rounded-xl bg-gradient-to-br from-navy-700 to-navy-900 border border-navy-600 flex items-center justify-center mb-6">
-                  <span className="text-7xl">{selectedProject.icon}</span>
-                </div>
-              )}
+  return (
+    <section
+      id="projects"
+      ref={containerRef}
+      className="relative z-10 bg-[#0A0A0B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-28 pb-20"
+    >
+      <FadeIn
+        as="h2"
+        y={40}
+        className="hero-heading font-display font-bold uppercase text-center leading-none tracking-tight mb-12 sm:mb-16 md:mb-20"
+        style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
+      >
+        Project
+      </FadeIn>
 
-              {/* Category badge */}
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">{selectedProject.icon}</span>
-                <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-400 bg-gold-500/10 border border-gold-500/30 rounded-md">
-                  {selectedProject.category === "ai" ? "AI / LLM" : selectedProject.category === "ml" ? "ML / CV" : selectedProject.category === "mobile" ? "Mobile" : "Backend"}
-                </span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-gold-gradient mb-1">{selectedProject.title}</h3>
-              <p className="text-sm sm:text-base text-gold-400 font-medium mb-4 sm:mb-5">{selectedProject.subtitle}</p>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-gold-500 to-transparent rounded-full mb-5" />
-              <p className="text-sm sm:text-base text-text-secondary leading-relaxed mb-6">{selectedProject.description}</p>
-
-              <h4 className="text-gold-400 font-semibold mb-3 flex items-center gap-2">
-                <span className="text-[10px]">&#9670;</span> Key Highlights
-              </h4>
-              <ul className="space-y-2 mb-6">
-                {selectedProject.highlights.map((h) => (
-                  <li key={h} className="text-sm text-text-secondary pl-5 relative before:content-['◆'] before:absolute before:left-0 before:text-gold-500 before:text-[8px] before:top-1.5">
-                    {h}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pt-4 border-t border-navy-600">
-                <h4 className="text-gold-400 font-semibold mb-2 text-sm flex items-center gap-2">
-                  <span className="text-[10px]">&#9670;</span> Tech Stack
-                </h4>
-                <div className="flex flex-wrap gap-1.5">
-                  {selectedProject.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 text-[11px] font-medium text-gold-400 border border-gold-500/30 rounded-full bg-gold-500/5 hover:bg-gold-500/10 hover:border-gold-500/50 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {PROJECTS.map((project, i) => (
+        <ProjectCard
+          key={project.num}
+          project={project}
+          index={i}
+          total={PROJECTS.length}
+          progress={scrollYProgress}
+        />
+      ))}
     </section>
   );
 }
