@@ -1,183 +1,89 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
-import { personalInfo, stats } from "@/data/portfolio";
-import dynamic from "next/dynamic";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { AnimatedText } from "@/components/ui/AnimatedText";
+import { ContactButton } from "@/components/ui/ContactButton";
 
-const FloatingOrbs = dynamic(
-  () => import("@/components/3d/FloatingOrbs").then((m) => ({ default: m.FloatingOrbs })),
-  { ssr: false }
-);
+const BASE =
+  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7";
 
-function CountUp({ target, suffix = "", isDecimal = false }: { target: number; suffix: string; isDecimal?: boolean }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    if (!inView) return;
-    const duration = 1500;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 4);
-      setCount(isDecimal ? parseFloat((target * eased).toFixed(2)) : Math.round(target * eased));
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, [inView, target, isDecimal]);
-
-  return (
-    <span ref={ref} className="font-heading text-3xl md:text-4xl font-bold text-gold-500">
-      {isDecimal ? count.toFixed(2) : count}
-      <span className="text-gold-400 text-2xl">{suffix}</span>
-    </span>
-  );
-}
+const ABOUT_TEXT =
+  "I'm a Product & AI Engineer who ships production-ready applications end-to-end — from system design to deployment and iteration. I specialize in LLM systems, agentic workflows, and scalable backends with LangGraph, FastAPI, and microservices, working hands-on with agentic dev tools to compress build cycles. Let's build something incredible together!";
 
 export function AboutSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section id="about" className="py-14 md:py-20 lg:py-28 relative overflow-hidden" ref={ref}>
-      <FloatingOrbs className="absolute inset-0 opacity-20" />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
-        <motion.h2
-          className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-gold-gradient"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          About Me
-        </motion.h2>
-        <motion.p
-          className="text-text-secondary text-center text-base sm:text-lg mb-8 md:mb-12 tracking-wide"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          The mind behind the machine
-        </motion.p>
+    <section
+      id="about"
+      className="relative bg-[#0A0A0B] min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 overflow-hidden"
+    >
+      {/* Decorative corner images */}
+      <FadeIn
+        delay={0.1}
+        x={-80}
+        y={0}
+        duration={0.9}
+        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/moon_icon.11395d36.png`} alt="" className="w-full h-auto" />
+      </FadeIn>
 
-        <div className="grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-center">
-          {/* Photo with Islamic arch */}
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      <FadeIn
+        delay={0.15}
+        x={80}
+        y={0}
+        duration={0.9}
+        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/lego_icon-1.703bb594.png`} alt="" className="w-full h-auto" />
+      </FadeIn>
+
+      <FadeIn
+        delay={0.25}
+        x={-80}
+        y={0}
+        duration={0.9}
+        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px] pointer-events-none"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/p59_1.4659672e.png`} alt="" className="w-full h-auto" />
+      </FadeIn>
+
+      <FadeIn
+        delay={0.3}
+        x={80}
+        y={0}
+        duration={0.9}
+        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px] pointer-events-none"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={`${BASE}/Group_134-1.2e04f3ce.png`} alt="" className="w-full h-auto" />
+      </FadeIn>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center text-center gap-16 sm:gap-20 md:gap-24">
+        <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
+          <FadeIn
+            as="h2"
+            delay={0}
+            y={40}
+            className="hero-heading font-display font-bold uppercase leading-none tracking-tight"
+            style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
           >
-            <div className="relative w-[180px] h-[250px] sm:w-[240px] sm:h-[330px] md:w-[280px] md:h-[380px]">
-              {/* Ambient glow behind photo */}
-              <div className="absolute -inset-8 bg-gold-500/[0.06] rounded-full blur-[60px] pointer-events-none" />
-              {/* Arch SVG frame */}
-              <svg className="absolute inset-0 w-full h-full z-10" viewBox="0 0 300 400" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="archGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1D4ED8" />
-                    <stop offset="50%" stopColor="#60A5FA" />
-                    <stop offset="100%" stopColor="#3B82F6" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M10,400 L10,180 Q10,10 150,10 Q290,10 290,180 L290,400"
-                  fill="none"
-                  stroke="url(#archGold)"
-                  strokeWidth="3"
-                  initial={{ pathLength: 0 }}
-                  animate={inView ? { pathLength: 1 } : {}}
-                  transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </svg>
+            About me
+          </FadeIn>
 
-              {/* Photo */}
-              <div className="absolute top-4 left-4 right-4 bottom-1 overflow-hidden" style={{ clipPath: "path('M5,385 L5,170 Q5,5 130,5 Q255,5 255,170 L255,385 Z')" }}>
-                <Image
-                  src={personalInfo.profileImage}
-                  alt={personalInfo.name}
-                  width={280}
-                  height={380}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const t = e.target as HTMLImageElement;
-                    t.style.display = "none";
-                    t.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-b from-navy-800 to-navy-900 flex items-center justify-center border border-navy-600"><span class="font-heading text-6xl font-extrabold gold-shimmer">UW</span></div>';
-                  }}
-                />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Bio text */}
-          <div>
-            <motion.h3
-              className="font-heading text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-center md:text-left"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              I&apos;m <span className="text-gold-500">Usman Waris</span>
-            </motion.h3>
-
-            <motion.p
-              className="text-sm sm:text-base text-text-secondary leading-relaxed mb-3 md:mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              {personalInfo.bio}
-            </motion.p>
-
-            <motion.p
-              className="text-sm sm:text-base text-text-secondary leading-relaxed mb-6 md:mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              {personalInfo.bioParagraph2}
-            </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 py-5 sm:py-6 border-y border-navy-600 mb-5 sm:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <CountUp target={stat.number} suffix={stat.suffix} isDecimal={stat.isDecimal} />
-                  <span className="block text-sm text-text-secondary mt-1">{stat.label}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            <motion.a
-              href="#resume"
-              className="btn-primary px-8 py-3 rounded-lg text-sm inline-flex items-center gap-2"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Download Resume
-            </motion.a>
-          </div>
+          <AnimatedText
+            text={ABOUT_TEXT}
+            className="text-[#F5F5F7] font-serif italic text-center leading-relaxed max-w-[640px]"
+            style={{ fontSize: "clamp(1.25rem, 2.6vw, 2rem)" }}
+          />
         </div>
+
+        <FadeIn delay={0.1} y={20}>
+          <ContactButton />
+        </FadeIn>
       </div>
     </section>
   );

@@ -2,61 +2,33 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Usman Waris | Product & AI Engineer — End-to-End Production Systems",
+  title: "Usman · Builds with AI",
   description:
-    "Portfolio of Usman Waris, Product & AI Engineer who ships production-ready apps end-to-end. Specialized in LLM systems, agentic workflows, and scalable backends with LangGraph, FastAPI, Claude Code, and Cursor.",
-  keywords: [
-    "Product Engineer",
-    "AI Engineer",
-    "Machine Learning",
-    "LLM",
-    "LangGraph",
-    "FastAPI",
-    "Claude Code",
-    "Cursor",
-    "Agentic Development",
-    "Gulf",
-    "Saudi Arabia",
-    "UAE",
-    "Qatar",
-    "Portfolio",
-  ],
+    "Usman · Builds with AI shipping production-ready apps end-to-end. LLM systems, agentic workflows, RAG pipelines, and scalable FastAPI backends with LangGraph.",
   authors: [{ name: "Usman Waris" }],
   openGraph: {
-    title: "Usman Waris | Product & AI Engineer",
-    description: "Product & AI Engineer who ships production-ready apps end-to-end with agentic dev tools.",
+    title: "Usman · Builds with AI",
+    description:
+      "Product & AI Engineer who ships production-ready AI systems end-to-end.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Usman Waris | Product & AI Engineer",
+    title: "Usman · Builds with AI",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#0A0E1A" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Usman Waris",
-              jobTitle: "Product & AI Engineer",
-              email: "imosmanwaris.tech@gmail.com",
-              sameAs: [
-                "https://github.com/usmancynosure",
-                "https://www.linkedin.com/in/usman-waris-0a9b8c7d/",
-              ],
-            }),
-          }}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
+        <meta name="theme-color" content="#0A0A0B" />
       </head>
-      <body className="bg-navy-950 text-text-primary antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
