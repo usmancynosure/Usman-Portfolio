@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Usman · Builds with AI",
+  title: "Usman Waris · AI Product Engineer",
   description:
-    "Usman · Builds with AI shipping production-ready apps end-to-end. LLM systems, agentic workflows, RAG pipelines, and scalable FastAPI backends with LangGraph.",
+    "Usman Waris — AI Product Engineer shipping production-grade AI end to end: agentic systems (LangGraph), LLM backends (FastAPI, RAG), and native iOS/Flutter apps live on the App Store.",
   authors: [{ name: "Usman Waris" }],
   openGraph: {
-    title: "Usman · Builds with AI",
+    title: "Usman Waris · AI Product Engineer",
     description:
-      "Product & AI Engineer who ships production-ready AI systems end-to-end.",
+      "Ships production-grade AI end to end — LLM backends to native apps live on the App Store. Open to roles across KSA & UAE.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Usman · Builds with AI",
+    title: "Usman Waris · AI Product Engineer",
   },
 };
 

@@ -2,7 +2,7 @@
 
 import { motion, type HTMLMotionProps } from "framer-motion";
 
-type Tag = "div" | "section" | "h1" | "h2" | "p" | "span" | "li" | "nav";
+type Tag = "div" | "section" | "h1" | "h2" | "h3" | "p" | "span" | "li" | "nav";
 
 interface FadeInProps {
   as?: Tag;

@@ -1,90 +1,60 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { FadeIn } from "@/components/ui/FadeIn";
+import { STATS, STACK } from "@/lib/content";
 
-const IMAGES = [
-  "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
-  "https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif",
-  "https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif",
-  "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
-  "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif",
-  "https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif",
-  "https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif",
-  "https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif",
-  "https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif",
-  "https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif",
-  "https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif",
-  "https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif",
-  "https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif",
-  "https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif",
-  "https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif",
-  "https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif",
-  "https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif",
-  "https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif",
-  "https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif",
-  "https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif",
-];
-
-const ROW_ONE = [...IMAGES.slice(0, 11), ...IMAGES.slice(0, 11), ...IMAGES.slice(0, 11)];
-const ROW_TWO = [...IMAGES.slice(11), ...IMAGES.slice(11), ...IMAGES.slice(11)];
-
-function Tile({ src }: { src: string }) {
+function Pill({ label }: { label: string }) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt=""
-      loading="lazy"
-      className="rounded-2xl object-cover flex-shrink-0"
-      style={{ width: 420, height: 270 }}
-    />
+    <span className="mx-2 inline-flex items-center rounded-full border border-[#F5F5F7]/12 bg-[#F5F5F7]/[0.03] px-5 py-2.5 font-mono text-xs sm:text-sm uppercase tracking-wider text-[#F5F5F7]/70 whitespace-nowrap">
+      {label}
+    </span>
   );
 }
 
 export function MarqueeSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sectionTop = sectionRef.current?.offsetTop ?? 0;
-      const value =
-        (window.scrollY - sectionTop + window.innerHeight) * 0.3;
-      setOffset(value);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-[#0A0A0B] pt-24 sm:pt-32 md:pt-40 pb-10 overflow-hidden"
-    >
-      <div className="flex flex-col gap-3">
-        <div
-          className="flex gap-3"
-          style={{
-            transform: `translateX(${offset - 200}px)`,
-            willChange: "transform",
-          }}
-        >
-          {ROW_ONE.map((src, i) => (
-            <Tile key={`r1-${i}`} src={src} />
+    <section className="relative bg-[#0A0A0B] pt-16 sm:pt-20 md:pt-24 pb-14 overflow-hidden">
+      {/* Stats strip */}
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 md:px-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-[#F5F5F7]/10 bg-[#F5F5F7]/[0.06]">
+          {STATS.map((s, i) => (
+            <FadeIn
+              key={s.label}
+              delay={i * 0.08}
+              y={20}
+              className="bg-[#0A0A0B] px-6 py-8 sm:py-10 flex flex-col gap-2"
+            >
+              <span
+                className="accent-gradient font-display font-bold leading-none"
+                style={{ fontSize: "clamp(1.8rem, 3.2vw, 2.8rem)" }}
+              >
+                {s.value}
+              </span>
+              <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-widest text-[#F5F5F7]/45 leading-snug">
+                {s.label}
+              </span>
+            </FadeIn>
           ))}
         </div>
-        <div
-          className="flex gap-3"
-          style={{
-            transform: `translateX(${-(offset - 200)}px)`,
-            willChange: "transform",
-          }}
-        >
-          {ROW_TWO.map((src, i) => (
-            <Tile key={`r2-${i}`} src={src} />
-          ))}
+      </div>
+
+      {/* Tech-stack ticker */}
+      <div className="mt-14 sm:mt-16">
+        <p className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/35 mb-6">
+          The stack I ship with
+        </p>
+
+        <div className="marquee-mask flex flex-col gap-3">
+          <div className="marquee-track marquee-left">
+            {[...STACK, ...STACK].map((t, i) => (
+              <Pill key={`a-${i}`} label={t} />
+            ))}
+          </div>
+          <div className="marquee-track marquee-right">
+            {[...[...STACK].reverse(), ...[...STACK].reverse()].map((t, i) => (
+              <Pill key={`b-${i}`} label={t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -2,87 +2,76 @@
 
 import { FadeIn } from "@/components/ui/FadeIn";
 import { AnimatedText } from "@/components/ui/AnimatedText";
-import { ContactButton } from "@/components/ui/ContactButton";
-
-const BASE =
-  "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7";
+import { PROFILE } from "@/lib/content";
 
 const ABOUT_TEXT =
-  "I'm a Product & AI Engineer who ships production-ready applications end-to-end — from system design to deployment and iteration. I specialize in LLM systems, agentic workflows, and scalable backends with LangGraph, FastAPI, and microservices, working hands-on with agentic dev tools to compress build cycles. Let's build something incredible together!";
+  "I'm an AI Product Engineer who ships production-grade AI end to end — agentic systems and LLM backends on one side, native iOS and Flutter apps on the other. I've put multiple apps live on the App Store with real paying users, so I've felt the whole arc: system design, real-time backends, mobile polish, and the release that follows. I care about products that survive real load — not demos.";
+
+const FACTS = [
+  { k: "Based in", v: "Islamabad, PK" },
+  { k: "Open to", v: "KSA · UAE" },
+  { k: "Education", v: "BSc CS — COMSATS" },
+  { k: "Currently", v: "GetSnippet (Dubai)" },
+];
 
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative bg-[#0A0A0B] min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20 overflow-hidden"
+      className="relative bg-[#0A0A0B] dot-grid px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-36 overflow-hidden"
     >
-      {/* Decorative corner images */}
-      <FadeIn
-        delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${BASE}/moon_icon.11395d36.png`} alt="" className="w-full h-auto" />
-      </FadeIn>
+      <div className="relative z-10 mx-auto max-w-6xl">
+        <FadeIn
+          as="h2"
+          y={40}
+          className="hero-heading font-display font-bold uppercase leading-none tracking-tight text-center"
+          style={{ fontSize: "clamp(3rem, 12vw, 150px)" }}
+        >
+          About me
+        </FadeIn>
 
-      <FadeIn
-        delay={0.15}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px] pointer-events-none"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${BASE}/lego_icon-1.703bb594.png`} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px] pointer-events-none"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${BASE}/p59_1.4659672e.png`} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px] pointer-events-none"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`${BASE}/Group_134-1.2e04f3ce.png`} alt="" className="w-full h-auto" />
-      </FadeIn>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center gap-16 sm:gap-20 md:gap-24">
-        <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
-          <FadeIn
-            as="h2"
-            delay={0}
-            y={40}
-            className="hero-heading font-display font-bold uppercase leading-none tracking-tight"
-            style={{ fontSize: "clamp(3rem, 12vw, 160px)" }}
-          >
-            About me
-          </FadeIn>
-
+        <div className="mt-14 sm:mt-20 max-w-4xl mx-auto">
           <AnimatedText
             text={ABOUT_TEXT}
-            className="text-[#F5F5F7] font-serif italic text-center leading-relaxed max-w-[640px]"
-            style={{ fontSize: "clamp(1.25rem, 2.6vw, 2rem)" }}
+            className="text-[#F5F5F7] font-serif italic text-center leading-relaxed"
+            style={{ fontSize: "clamp(1.35rem, 2.8vw, 2.15rem)" }}
           />
         </div>
 
-        <FadeIn delay={0.1} y={20}>
-          <ContactButton />
+        {/* Quick facts */}
+        <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          {FACTS.map((f, i) => (
+            <FadeIn
+              key={f.k}
+              delay={i * 0.08}
+              y={24}
+              className="rounded-2xl border border-[#F5F5F7]/10 bg-[#F5F5F7]/[0.02] px-5 py-6 text-center"
+            >
+              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#F5F5F7]/40 mb-2">
+                {f.k}
+              </p>
+              <p className="text-[#F5F5F7] font-display font-medium text-sm sm:text-base">
+                {f.v}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+
+        <FadeIn delay={0.2} y={20} className="mt-14 flex justify-center">
+          <a
+            href={`mailto:${PROFILE.email}`}
+            className="group inline-flex items-center gap-3 rounded-full border border-[#F5F5F7]/25 text-[#F5F5F7] font-mono uppercase tracking-widest text-xs px-8 py-4 transition-colors duration-300 hover:border-[#CCFF00] hover:text-[#CCFF00]"
+          >
+            Let&apos;s work together
+            <svg
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </FadeIn>
       </div>
     </section>
