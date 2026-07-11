@@ -39,7 +39,7 @@ function ProjectCard({
   const scale = useTransform(progress, [index / total, 1], [1, targetScale]);
 
   return (
-    <div className="h-[88vh] flex items-start justify-center sticky top-20 md:top-28">
+    <div className="min-h-[86vh] md:h-[88vh] flex items-start justify-center sticky top-20 md:top-28 pb-6 md:pb-0">
       <motion.div
         style={{ scale, top: `${index * 26}px` }}
         className={`group relative w-full max-w-6xl ${RADIUS} border border-[#F5F5F7]/15 bg-[#0C0C0D] p-4 sm:p-6 md:p-8 origin-top overflow-hidden transition-colors duration-300 hover:border-[#CCFF00]/60`}
@@ -103,7 +103,7 @@ function ProjectCard({
 
           <div
             className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] border border-[#F5F5F7]/8 p-3 sm:p-5 grid place-items-center`}
-            style={{ height: "clamp(260px, 42vh, 460px)" }}
+            style={{ height: "clamp(190px, 34vh, 460px)" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

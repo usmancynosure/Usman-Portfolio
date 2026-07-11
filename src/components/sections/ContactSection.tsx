@@ -113,7 +113,7 @@ export function ContactSection() {
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : undefined}
                 rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-[#F5F5F7] font-medium text-sm sm:text-base transition-colors duration-200 hover:text-[#CCFF00] break-words"
+                className="inline-block py-1.5 text-[#F5F5F7] font-medium text-sm sm:text-base transition-colors duration-200 hover:text-[#CCFF00] break-words"
               >
                 {link.value}
               </a>

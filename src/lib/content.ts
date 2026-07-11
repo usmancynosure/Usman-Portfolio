@@ -225,9 +225,9 @@ export const MORE_WORK: Project[] = [
     name: "Optify",
     category: "AI Photo Editor · iOS",
     blurb:
-      "An AI photo-editing app integrating generative image models for automated enhancement and creative edits. Published live to the App Store.",
+      "An AI photo-editing app integrating generative image models for automated enhancement, virtual try-on, and creative edits — privacy-first. Published live to the App Store.",
     tags: ["SwiftUI", "Generative Vision", "StoreKit"],
-    images: [],
+    images: ["/images/projects/optify/1.png"],
     live: true,
   },
 ];

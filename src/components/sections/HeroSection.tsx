@@ -20,8 +20,8 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-8 items-center">
-          {/* Left: copy */}
-          <div className="order-2 lg:order-1">
+          {/* Left: copy (name-first on mobile) */}
+          <div className="order-1 lg:order-1">
             {/* Eyebrow */}
             <FadeIn as="div" delay={0.05} y={-10} className="flex flex-wrap items-center gap-3 mb-6">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/40 px-3.5 py-1.5">
@@ -102,11 +102,11 @@ export function HeroSection() {
             </FadeIn>
           </div>
 
-          {/* Right: portrait */}
+          {/* Right: portrait (below copy on mobile) */}
           <FadeIn
             delay={0.35}
             y={30}
-            className="order-1 lg:order-2 flex justify-center lg:justify-end"
+            className="order-2 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative">
               {/* halo ring */}

@@ -164,7 +164,7 @@ export function AskSection() {
                 <button
                   key={s}
                   onClick={() => ask(s)}
-                  className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-wider text-[#F5F5F7]/70 border border-[#F5F5F7]/20 rounded-full px-3 py-1.5 transition-colors duration-200 hover:border-[#CCFF00] hover:text-[#CCFF00]"
+                  className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-wider text-[#F5F5F7]/70 border border-[#F5F5F7]/20 rounded-full px-4 py-2.5 min-h-[40px] transition-colors duration-200 hover:border-[#CCFF00] hover:text-[#CCFF00] active:scale-95"
                 >
                   {s}
                 </button>

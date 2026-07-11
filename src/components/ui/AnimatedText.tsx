@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 
 interface AnimatedTextProps {
   text: string;
@@ -16,12 +22,22 @@ interface AnimatedTextProps {
  */
 export function AnimatedText({ text, className, style }: AnimatedTextProps) {
   const ref = useRef<HTMLParagraphElement>(null);
+  const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.8", "end 0.2"],
   });
 
   const chars = text.split("");
+
+  // Respect prefers-reduced-motion: show the full paragraph, no scrub reveal.
+  if (reduce) {
+    return (
+      <p ref={ref} className={className} style={style}>
+        {text}
+      </p>
+    );
+  }
 
   return (
     <p ref={ref} className={className} style={style}>

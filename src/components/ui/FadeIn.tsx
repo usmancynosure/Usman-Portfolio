@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 
 type Tag = "div" | "section" | "h1" | "h2" | "h3" | "p" | "span" | "li" | "nav";
 
@@ -32,6 +32,16 @@ export function FadeIn({
   children,
 }: FadeInProps) {
   const Motion = motion[as] as React.ComponentType<HTMLMotionProps<"div">>;
+  const reduce = useReducedMotion();
+
+  // Respect prefers-reduced-motion: render fully visible, no entrance motion.
+  if (reduce) {
+    return (
+      <Motion className={className} style={style}>
+        {children}
+      </Motion>
+    );
+  }
 
   return (
     <Motion

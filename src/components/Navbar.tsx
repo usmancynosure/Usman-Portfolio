@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { NAV_LINKS, RESUMES } from "@/lib/content";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false); // mobile menu
   const [resumeOpen, setResumeOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,9 +31,9 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={reduce ? false : { y: -24, opacity: 0 }}
+      animate={reduce ? undefined : { y: 0, opacity: 1 }}
+      transition={reduce ? undefined : { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className="fixed inset-x-0 top-0 z-50"
     >
       <div
