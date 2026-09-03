@@ -102,16 +102,19 @@ function ProjectCard({
           </p>
 
           <div
-            className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] border border-[#F5F5F7]/8 p-3 sm:p-5 grid place-items-center`}
+            className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] border border-[#F5F5F7]/8 p-3 sm:p-5 flex items-center justify-center gap-3 sm:gap-4`}
             style={{ height: "clamp(190px, 34vh, 460px)" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={project.images[0]}
-              alt={`${project.name} — app screens`}
-              loading="lazy"
-              className="max-w-full max-h-full object-contain rounded-2xl"
-            />
+            {project.images.map((src, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={src}
+                src={src}
+                alt={`${project.name} — ${i === 0 ? "app screens" : "screen " + (i + 1)}`}
+                loading="lazy"
+                className="max-w-full max-h-full object-contain rounded-2xl"
+              />
+            ))}
           </div>
         </div>
       </motion.div>
