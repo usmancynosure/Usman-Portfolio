@@ -130,19 +130,40 @@ export interface Project {
  */
 export const PROJECTS: Project[] = [
   {
-    slug: "freespaces",
+    slug: "tea-admin",
     num: "01",
+    name: "Tea",
+    category: "Anonymous Social App + Moderation Console",
+    blurb:
+      "An anonymous social community — share your story, connect, and spill the tea — shipped end to end: the iOS app (topics, stories, profiles, safety controls) plus a full web moderation & operations console. The console runs a real-time reports queue with 24-hour SLA tracking, review workflows and verdicts, account suspensions, audience analytics, push health, broadcasts, and an audit log.",
+    tags: ["SwiftUI", "Next.js", "Moderation", "Analytics"],
+    images: ["/images/projects/tea/app.png", "/images/projects/tea/1.png"],
+  },
+  {
+    slug: "guestlist",
+    num: "02",
+    name: "Guestlist",
+    category: "Nightlife & Events · iOS",
+    blurb:
+      "An invite-only nightlife app — discover what's hot tonight, apply to curated events, and get on the list in one tap. Every guest is identity-verified before approval, so hosts curate the crowd in minutes. Includes 'The Clipboard' host tooling, member profiles, and golden-ticket confirmations. Live on the App Store.",
+    tags: ["SwiftUI", "Events", "Identity Verification", "StoreKit"],
+    images: ["/images/projects/guestlist/store.png"],
+    live: true,
+  },
+  {
+    slug: "freespaces",
+    num: "03",
     name: "FreeSpaces",
     category: "iOS Utility · Swipe to Clean",
     blurb:
       "A swipe-to-clean photo utility — swipe left to delete, right to keep. Gesture-driven batch photo-library operations, review queues, storage analytics, and a referral-based free-usage flow. Shipped to real users.",
     tags: ["SwiftUI", "Photos", "StoreKit", "Batch Ops"],
-    images: ["/images/projects/freespaces/1.png"],
+    images: ["/images/projects/freespaces/store.png"],
     live: true,
   },
   {
     slug: "spaceflip",
-    num: "02",
+    num: "04",
     name: "SpaceFlip",
     category: "Interior AI Design · iOS",
     blurb:
@@ -153,18 +174,18 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "voicetale",
-    num: "03",
+    num: "05",
     name: "VoiceTale",
     category: "AI Bedtime Stories · iOS",
     blurb:
       "Generates personalized narrated bedtime stories — LLM story generation fused with text-to-speech voice models, so any tale can sound like it's read just for you.",
     tags: ["LLM", "Text-to-Speech", "SwiftUI", "RAG"],
-    images: ["/images/projects/voicetale/1.png"],
+    images: ["/images/projects/voicetale/store.png"],
     live: true,
   },
   {
     slug: "daycalc",
-    num: "04",
+    num: "06",
     name: "DayCalc",
     category: "Budgeting · iPhone · Watch · Widgets",
     blurb:
@@ -177,7 +198,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "medcon",
-    num: "05",
+    num: "07",
     name: "MedCon AI",
     category: "ECG Intelligence · ML Platform",
     blurb:
@@ -187,7 +208,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "healthpassport",
-    num: "06",
+    num: "08",
     name: "Health Passport",
     category: "AI Health Platform · Web + Mobile",
     blurb:
@@ -197,7 +218,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "anchor",
-    num: "07",
+    num: "09",
     name: "Anchor",
     category: "BLE Wearable · Stay Connected",
     blurb:
@@ -211,7 +232,7 @@ export const PROJECTS: Project[] = [
 export const MORE_WORK: Project[] = [
   {
     slug: "lumasleep",
-    num: "08",
+    num: "10",
     name: "LumaSleep",
     category: "Sleep & Wellness AI · iOS",
     blurb:
@@ -221,7 +242,7 @@ export const MORE_WORK: Project[] = [
   },
   {
     slug: "optify",
-    num: "09",
+    num: "11",
     name: "Optify",
     category: "AI Photo Editor · iOS",
     blurb:

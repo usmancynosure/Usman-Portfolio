@@ -31,8 +31,10 @@ Certifications: Introduction to Generative AI (Google), Agentic AI Bootcamp (Ude
 - SpaceFlip — AI interior design; redesigns a room from a single photo via a generative image pipeline, with subscription monetization.
 - VoiceTale — AI bedtime stories; LLM story generation + text-to-speech voice models, personalized narrated stories.
 - Optify — AI photo editor integrating generative image models for automated enhancement and creative edits.
+- Guestlist — invite-only nightlife & events app; discover what's hot tonight, apply to curated events, one-tap list entry, identity-verified guests, and "The Clipboard" host tooling for curating the crowd.
 
 # Key projects
+- Tea — an anonymous social community app (iOS: topics, stories, profiles, safety controls) shipped end to end alongside a full web moderation & operations console. The console has a real-time reports queue with 24-hour SLA tracking, review workflows and verdicts, user/post/comment management, account suspensions, audience-growth analytics, push health, broadcasts, and an audit log; light/dark themes. SwiftUI app + Next.js/TypeScript console.
 - DayCalc — native SwiftUI budgeting app across iPhone, Apple Watch, and home-screen widgets; SwiftData + App Group shared architecture; on-device speech entry and receipt scanning; full unit-test suite.
 - MedCon AI — end-to-end ECG classification (OpenCV, PCA + KNN) with automated clinician-ready PDF reporting; real-time Playwright-based PMDC doctor verification that cut manual effort ~90%; Dockerized.
 - Anchor — companion app for a BLE "anchor" bracelet that lets you stay connected with a loved one (tap to drop an anchor, they feel it in real time). Flutter: resilient pairing/auto-reconnect, write-command queue, background connectivity, offline history with Hive, timezone-aware notifications.
