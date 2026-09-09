@@ -34,6 +34,7 @@ Certifications: Introduction to Generative AI (Google), Agentic AI Bootcamp (Ude
 - Guestlist — invite-only nightlife & events app; discover what's hot tonight, apply to curated events, one-tap list entry, identity-verified guests, and "The Clipboard" host tooling for curating the crowd.
 
 # Key projects
+- voxa — a B2B creator marketplace (web platform, live) where brands discover and book vetted creators across LinkedIn, X, Instagram and TikTok. AI-generated campaign briefs, end-to-end collaboration management, click-to-pipeline attribution (reach/clicks/leads), and automated creator payouts; self-serve and managed tiers. Next.js/TypeScript.
 - Tea — an anonymous social community app (iOS: topics, stories, profiles, safety controls) shipped end to end alongside a full web moderation & operations console. The console has a real-time reports queue with 24-hour SLA tracking, review workflows and verdicts, user/post/comment management, account suspensions, audience-growth analytics, push health, broadcasts, and an audit log; light/dark themes. SwiftUI app + Next.js/TypeScript console.
 - DayCalc — native SwiftUI budgeting app across iPhone, Apple Watch, and home-screen widgets; SwiftData + App Group shared architecture; on-device speech entry and receipt scanning; full unit-test suite.
 - MedCon AI — end-to-end ECG classification (OpenCV, PCA + KNN) with automated clinician-ready PDF reporting; real-time Playwright-based PMDC doctor verification that cut manual effort ~90%; Dockerized.

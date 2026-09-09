@@ -117,9 +117,11 @@ export interface Project {
   blurb: string;
   tags: string[];
   images: string[];
-  /** Badge shown when the app is live on the App Store. */
+  /** Badge shown when the app/platform is live. */
   live?: boolean;
-  /** Optional real URL — leave undefined until the App Store link is known. */
+  /** Overrides the default "On the App Store" live-badge text (e.g. for web platforms). */
+  liveLabel?: string;
+  /** Optional real URL — leave undefined until the live link is known. */
   url?: string;
 }
 
@@ -225,6 +227,19 @@ export const PROJECTS: Project[] = [
       "A companion app for an 'anchor' bracelet: tap to drop an anchor and a loved one feels it in real time. Built on a resilient BLE service (pairing, auto-reconnect, write-command queue), background connectivity across the app lifecycle, and offline history with timezone-aware notifications.",
     tags: ["Flutter", "BLE / CoreBluetooth", "Hive", "Background Tasks"],
     images: ["/images/projects/anchor/1.png"],
+  },
+  {
+    slug: "voxa",
+    num: "10",
+    name: "voxa",
+    category: "B2B Creator Marketplace · Web Platform",
+    blurb:
+      "A B2B creator marketplace where brands discover and book vetted creators across LinkedIn, X, Instagram and TikTok. Audience-fit matching scores rank creators by buyer relevance, AI generates campaign briefs in minutes, collaborations are managed end to end, and every post is traced from click to lead to attributed pipeline — with automated creator payouts and self-serve + managed tiers.",
+    tags: ["Next.js", "AI Briefs", "Attribution", "Marketplace"],
+    images: ["/images/projects/voxa/2.png", "/images/projects/voxa/1.png"],
+    live: true,
+    liveLabel: "Live · Web Platform",
+    url: "https://naano-rebuild-omega.vercel.app/",
   },
 ];
 

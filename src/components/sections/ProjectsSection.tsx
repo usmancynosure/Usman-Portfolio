@@ -7,11 +7,11 @@ import { PROJECTS, MORE_WORK, type Project } from "@/lib/content";
 
 const RADIUS = "rounded-[32px] sm:rounded-[44px] md:rounded-[52px]";
 
-function LiveBadge() {
+function LiveBadge({ label = "On the App Store" }: { label?: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-[#CCFF00]/40 bg-[#CCFF00]/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-widest text-[#CCFF00] whitespace-nowrap">
       <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#CCFF00]" />
-      On the App Store
+      {label}
     </span>
   );
 }
@@ -51,6 +51,17 @@ function ProjectCard({
           style={{ background: "radial-gradient(circle,#CCFF00 0%,transparent 70%)" }}
         />
 
+        {/* Whole-card link (web platforms with a live URL) */}
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.name} in a new tab`}
+            className="absolute inset-0 z-20"
+          />
+        )}
+
         {/* Header */}
         <div className="relative flex flex-wrap items-start justify-between gap-4 mb-5 sm:mb-6">
           <div className="flex items-start gap-4 sm:gap-6 min-w-0">
@@ -79,7 +90,7 @@ function ProjectCard({
           </div>
 
           <div className="flex flex-col items-end gap-3">
-            {project.live && <LiveBadge />}
+            {project.live && <LiveBadge label={project.liveLabel} />}
             <div className="flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border border-[#F5F5F7]/25 text-[#F5F5F7] transition-all duration-300 ease-out group-hover:border-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#0A0A0B] group-hover:-rotate-45">
               <svg
                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -130,6 +141,15 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
       y={30}
       className={`group relative flex flex-col rounded-3xl border border-[#F5F5F7]/12 bg-[#0C0C0D] overflow-hidden transition-colors duration-300 hover:border-[#CCFF00]/50`}
     >
+      {project.url && (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${project.name} in a new tab`}
+          className="absolute inset-0 z-20"
+        />
+      )}
       <div className="relative h-52 grid place-items-center overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] p-4">
         {hasImage ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -148,7 +168,7 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
               {project.name}
             </span>
             <span className="font-mono text-[0.6rem] uppercase tracking-widest">
-              App Store
+              {project.category}
             </span>
           </div>
         )}
@@ -159,8 +179,8 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
             {project.category}
           </span>
           {project.live && (
-            <span className="font-mono text-[0.55rem] uppercase tracking-widest text-[#CCFF00]/80">
-              ● Live
+            <span className="inline-flex items-center gap-1 font-mono text-[0.55rem] uppercase tracking-widest text-[#CCFF00]/80">
+              ● Live{project.url && " ↗"}
             </span>
           )}
         </div>
