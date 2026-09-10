@@ -311,6 +311,7 @@ export const EXPERIENCE: ExperienceItem[] = [
 ];
 
 export const NAV_LINKS: { label: string; href: string }[] = [
+  { label: "Reel", href: "#showreel" },
   { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experience" },

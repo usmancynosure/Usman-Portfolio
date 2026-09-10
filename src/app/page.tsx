@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ShowreelSection } from "@/components/sections/ShowreelSection";
 import { MarqueeSection } from "@/components/sections/MarqueeSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <Navbar />
       <main style={{ overflowX: "clip", background: "#0A0A0B" }}>
         <HeroSection />
+        <ShowreelSection />
         <MarqueeSection />
         <AboutSection />
         <ServicesSection />
