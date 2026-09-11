@@ -47,7 +47,7 @@ export function HeroSection() {
                 className="hero-heading font-display font-bold tracking-tight leading-[0.92]"
                 style={{ fontSize: "clamp(3rem, 8.5vw, 8.5rem)" }}
               >
-                Hi, I&apos;m Usman
+                Hi, I&apos;m Usman Waris
               </FadeIn>
             </div>
 
