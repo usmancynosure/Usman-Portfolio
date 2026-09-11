@@ -1,7 +1,7 @@
 "use client";
 
 import { FadeIn } from "@/components/ui/FadeIn";
-import { EXPERIENCE } from "@/lib/content";
+import { EXPERIENCE, WHAT_I_BUILD } from "@/lib/content";
 
 export function ExperienceSection() {
   return (
@@ -21,6 +21,22 @@ export function ExperienceSection() {
           style={{ fontSize: "clamp(2.6rem, 11vw, 140px)" }}
         >
           Experience
+        </FadeIn>
+
+        {/* What I build — capability headline */}
+        <FadeIn as="p" delay={0.1} y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/40 mb-5">
+          What I build
+        </FadeIn>
+        <FadeIn delay={0.15} y={20} className="mx-auto mb-16 flex max-w-3xl flex-wrap items-center justify-center gap-2.5 sm:mb-20">
+          {WHAT_I_BUILD.map((item) => (
+            <span
+              key={item}
+              className="inline-flex items-center gap-2 rounded-full border border-[#F5F5F7]/15 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#F5F5F7]/70 transition-colors duration-300 hover:border-[#CCFF00]/50 hover:text-[#F5F5F7]"
+            >
+              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#CCFF00]" />
+              {item}
+            </span>
+          ))}
         </FadeIn>
 
         <div className="relative">

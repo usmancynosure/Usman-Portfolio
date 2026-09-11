@@ -117,6 +117,8 @@ export interface Project {
   blurb: string;
   tags: string[];
   images: string[];
+  /** Optional looping showcase clip (landscape web recording), shown in place of images on the card. */
+  video?: string;
   /** Badge shown when the app/platform is live. */
   live?: boolean;
   /** Overrides the default "On the App Store" live-badge text (e.g. for web platforms). */
@@ -237,6 +239,7 @@ export const PROJECTS: Project[] = [
       "A B2B creator marketplace where brands discover and book vetted creators across LinkedIn, X, Instagram and TikTok. Audience-fit matching scores rank creators by buyer relevance, AI generates campaign briefs in minutes, collaborations are managed end to end, and every post is traced from click to lead to attributed pipeline — with automated creator payouts and self-serve + managed tiers.",
     tags: ["Next.js", "AI Briefs", "Attribution", "Marketplace"],
     images: ["/images/projects/voxa/2.png", "/images/projects/voxa/1.png"],
+    video: "/videos/voxa.mp4",
     live: true,
     liveLabel: "Live · Web Platform",
     url: "https://naano-rebuild-omega.vercel.app/",
@@ -276,6 +279,16 @@ export interface ExperienceItem {
   points: string[];
 }
 
+/** Headline of what he builds — short capability tags. */
+export const WHAT_I_BUILD: string[] = [
+  "AI-powered products & systems",
+  "Full-stack mobile & web applications",
+  "Backend APIs & platforms",
+  "AI infrastructure & agent systems",
+  "GCP & Docker",
+  "Distributed systems & integrations",
+];
+
 export const EXPERIENCE: ExperienceItem[] = [
   {
     role: "AI Product Engineer",
@@ -286,6 +299,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       "Own and ship production AI systems end to end — agentic platforms, voice assistants, and automated trading — used by real, paying users.",
       "Build high-performance async FastAPI backends handling real-time streams, concurrent workloads, and latency-sensitive operations.",
       "Engineer agentic systems with LangGraph: memory, tool orchestration, and human-in-the-loop controls for reliable automation.",
+      "Deliver full-stack mobile & web applications on top of backend APIs & platforms, AI infrastructure & agent systems, and distributed systems & integrations — deployed on GCP & Docker.",
       "Ship four apps live on the App Store (FreeSpaces, Optify, SpaceFlip, VoiceTale) with subscription monetization and paywall optimization.",
     ],
   },

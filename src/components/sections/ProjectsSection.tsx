@@ -116,7 +116,18 @@ function ProjectCard({
             className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] border border-[#F5F5F7]/8 p-3 sm:p-5 flex items-center justify-center gap-3 sm:gap-4`}
             style={{ height: "clamp(190px, 34vh, 460px)" }}
           >
-            {project.images.map((src, i) => (
+            {project.video ? (
+              <video
+                className="h-full w-full rounded-2xl object-contain select-none"
+                src={project.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              project.images.map((src, i) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={src}
@@ -125,7 +136,8 @@ function ProjectCard({
                 loading="lazy"
                 className="min-w-0 flex-1 h-full object-contain rounded-2xl"
               />
-            ))}
+              ))
+            )}
           </div>
         </div>
       </motion.div>
