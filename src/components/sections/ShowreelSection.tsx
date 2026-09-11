@@ -16,6 +16,12 @@ const REELS = [
     lift: "lg:translate-y-4",
   },
   {
+    src: "/videos/Ripple.mp4",
+    label: "Ripple",
+    caption: "Realtime social app",
+    lift: "lg:translate-y-4",
+  },
+  {
     src: "/videos/optify.mp4",
     label: "Optify",
     caption: "Optimization product",

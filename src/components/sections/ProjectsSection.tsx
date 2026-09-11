@@ -123,7 +123,7 @@ function ProjectCard({
                 src={src}
                 alt={`${project.name} — ${i === 0 ? "app screens" : "screen " + (i + 1)}`}
                 loading="lazy"
-                className="max-w-full max-h-full object-contain rounded-2xl"
+                className="min-w-0 flex-1 h-full object-contain rounded-2xl"
               />
             ))}
           </div>
