@@ -119,6 +119,8 @@ export interface Project {
   images: string[];
   /** Optional looping showcase clip (landscape web recording), shown in place of images on the card. */
   video?: string;
+  /** Poster frame shown instantly while `video` streams in — avoids a blank/loading card. */
+  poster?: string;
   /** Badge shown when the app/platform is live. */
   live?: boolean;
   /** Overrides the default "On the App Store" live-badge text (e.g. for web platforms). */
@@ -134,8 +136,23 @@ export interface Project {
  */
 export const PROJECTS: Project[] = [
   {
-    slug: "tea-admin",
+    slug: "taxcore",
     num: "01",
+    name: "Taxcore",
+    category: "AI E-Invoicing Compliance · Web Platform",
+    blurb:
+      "An AI compliance agent for UAE e-invoicing — connects to the accounting tools businesses already use (Zoho Books, QuickBooks, Xero, Excel/CSV), picks up new invoices automatically, validates them against the PINT AE standard, and delivers them over Peppol. A live dashboard tracks receivables, outstanding and overdue balances, and invoicing trends at a glance.",
+    tags: ["AI Agent", "E-Invoicing", "PINT AE", "Peppol"],
+    images: ["/images/projects/Taxcore/poster.jpg"],
+    video: "/videos/taxcore.mp4",
+    poster: "/images/projects/Taxcore/poster.jpg",
+    live: true,
+    liveLabel: "Live · Web Platform",
+    url: "https://taxcore.io",
+  },
+  {
+    slug: "tea-admin",
+    num: "02",
     name: "Tea",
     category: "Anonymous Social App + Moderation Console",
     blurb:
@@ -145,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "guestlist",
-    num: "02",
+    num: "03",
     name: "Guestlist",
     category: "Nightlife & Events · iOS",
     blurb:
@@ -156,7 +173,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "freespaces",
-    num: "03",
+    num: "04",
     name: "FreeSpaces",
     category: "iOS Utility · Swipe to Clean",
     blurb:
@@ -167,7 +184,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "spaceflip",
-    num: "04",
+    num: "05",
     name: "SpaceFlip",
     category: "Interior AI Design · iOS",
     blurb:
@@ -178,7 +195,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "voicetale",
-    num: "05",
+    num: "06",
     name: "VoiceTale",
     category: "AI Bedtime Stories · iOS",
     blurb:
@@ -189,7 +206,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "daycalc",
-    num: "06",
+    num: "07",
     name: "DayCalc",
     category: "Budgeting · iPhone · Watch · Widgets",
     blurb:
@@ -202,7 +219,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "medcon",
-    num: "07",
+    num: "08",
     name: "MedCon AI",
     category: "ECG Intelligence · ML Platform",
     blurb:
@@ -212,7 +229,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "healthpassport",
-    num: "08",
+    num: "09",
     name: "Health Passport",
     category: "AI Health Platform · Web + Mobile",
     blurb:
@@ -222,7 +239,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "anchor",
-    num: "09",
+    num: "10",
     name: "Anchor",
     category: "BLE Wearable · Stay Connected",
     blurb:
@@ -232,7 +249,7 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "voxa",
-    num: "10",
+    num: "11",
     name: "voxa",
     category: "B2B Creator Marketplace · Web Platform",
     blurb:
@@ -250,7 +267,7 @@ export const PROJECTS: Project[] = [
 export const MORE_WORK: Project[] = [
   {
     slug: "lumasleep",
-    num: "10",
+    num: "12",
     name: "LumaSleep",
     category: "Sleep & Wellness AI · iOS",
     blurb:
@@ -260,7 +277,7 @@ export const MORE_WORK: Project[] = [
   },
   {
     slug: "optify",
-    num: "11",
+    num: "13",
     name: "Optify",
     category: "AI Photo Editor · iOS",
     blurb:

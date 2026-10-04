@@ -120,11 +120,12 @@ function ProjectCard({
               <video
                 className="h-full w-full rounded-2xl object-contain select-none"
                 src={project.video}
+                poster={project.poster}
                 autoPlay
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="auto"
               />
             ) : (
               project.images.map((src, i) => (
