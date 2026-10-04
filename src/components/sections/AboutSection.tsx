@@ -18,7 +18,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative bg-[#0A0A0B] dot-grid px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-36 overflow-hidden"
+      className="relative bg-[#FFFFFF] dot-grid px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-36 overflow-hidden"
     >
       <div className="relative z-10 mx-auto max-w-6xl">
         <FadeIn
@@ -33,7 +33,7 @@ export function AboutSection() {
         <div className="mt-14 sm:mt-20 max-w-4xl mx-auto">
           <AnimatedText
             text={ABOUT_TEXT}
-            className="text-[#F5F5F7] font-serif italic text-center leading-relaxed"
+            className="text-[#0A0A0B] font-serif italic text-center leading-relaxed"
             style={{ fontSize: "clamp(1.35rem, 2.8vw, 2.15rem)" }}
           />
         </div>
@@ -45,12 +45,12 @@ export function AboutSection() {
               key={f.k}
               delay={i * 0.08}
               y={24}
-              className="rounded-2xl border border-[#F5F5F7]/10 bg-[#F5F5F7]/[0.02] px-5 py-6 text-center"
+              className="rounded-2xl border border-[#0A0A0B]/10 bg-[#FAFAF7] px-5 py-6 text-center"
             >
-              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#F5F5F7]/40 mb-2">
+              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#0A0A0B]/40 mb-2">
                 {f.k}
               </p>
-              <p className="text-[#F5F5F7] font-display font-medium text-sm sm:text-base">
+              <p className="text-[#0A0A0B] font-display font-medium text-sm sm:text-base">
                 {f.v}
               </p>
             </FadeIn>
@@ -60,7 +60,7 @@ export function AboutSection() {
         <FadeIn delay={0.2} y={20} className="mt-14 flex justify-center">
           <a
             href={`mailto:${PROFILE.email}`}
-            className="group inline-flex items-center gap-3 rounded-full border border-[#F5F5F7]/25 text-[#F5F5F7] font-mono uppercase tracking-widest text-xs px-8 py-4 transition-colors duration-300 hover:border-[#CCFF00] hover:text-[#CCFF00]"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#0A0A0B]/25 text-[#0A0A0B] font-mono uppercase tracking-widest text-xs px-8 py-4 transition-colors duration-300 hover:border-[#2563EB] hover:text-[#2563EB]"
           >
             Let&apos;s work together
             <svg

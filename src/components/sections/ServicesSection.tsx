@@ -55,7 +55,7 @@ export function ServicesSection() {
                 </div>
 
                 {/* animated arrow */}
-                <div className="hidden sm:flex flex-shrink-0 items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#0A0A0B]/20 text-[#0A0A0B] transition-all duration-300 ease-out group-hover:border-[#0A0A0B] group-hover:bg-[#0A0A0B] group-hover:text-[#CCFF00] group-hover:-rotate-45">
+                <div className="hidden sm:flex flex-shrink-0 items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-[#0A0A0B]/20 text-[#0A0A0B] transition-all duration-300 ease-out group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-[#FFFFFF] group-hover:-rotate-45">
                   <svg
                     width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden

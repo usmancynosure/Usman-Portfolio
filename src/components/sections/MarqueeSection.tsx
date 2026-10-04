@@ -5,7 +5,7 @@ import { STATS, STACK } from "@/lib/content";
 
 function Pill({ label }: { label: string }) {
   return (
-    <span className="mx-2 inline-flex items-center rounded-full border border-[#F5F5F7]/12 bg-[#F5F5F7]/[0.03] px-5 py-2.5 font-mono text-xs sm:text-sm uppercase tracking-wider text-[#F5F5F7]/70 whitespace-nowrap">
+    <span className="mx-2 inline-flex items-center rounded-full border border-[#0A0A0B]/12 bg-[#0A0A0B]/[0.03] px-5 py-2.5 font-mono text-xs sm:text-sm uppercase tracking-wider text-[#0A0A0B]/70 whitespace-nowrap">
       {label}
     </span>
   );
@@ -13,16 +13,16 @@ function Pill({ label }: { label: string }) {
 
 export function MarqueeSection() {
   return (
-    <section className="relative bg-[#0A0A0B] pt-16 sm:pt-20 md:pt-24 pb-14 overflow-hidden">
+    <section className="relative bg-[#FFFFFF] pt-16 sm:pt-20 md:pt-24 pb-14 overflow-hidden">
       {/* Stats strip */}
       <div className="mx-auto max-w-7xl px-5 sm:px-8 md:px-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-[#F5F5F7]/10 bg-[#F5F5F7]/[0.06]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-[#0A0A0B]/10 bg-[#0A0A0B]/[0.08]">
           {STATS.map((s, i) => (
             <FadeIn
               key={s.label}
               delay={i * 0.08}
               y={20}
-              className="bg-[#0A0A0B] px-6 py-8 sm:py-10 flex flex-col gap-2"
+              className="bg-[#FFFFFF] px-6 py-8 sm:py-10 flex flex-col gap-2"
             >
               <span
                 className="accent-gradient font-display font-bold leading-none"
@@ -30,7 +30,7 @@ export function MarqueeSection() {
               >
                 {s.value}
               </span>
-              <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-widest text-[#F5F5F7]/45 leading-snug">
+              <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-widest text-[#0A0A0B]/45 leading-snug">
                 {s.label}
               </span>
             </FadeIn>
@@ -40,7 +40,7 @@ export function MarqueeSection() {
 
       {/* Tech-stack ticker */}
       <div className="mt-14 sm:mt-16">
-        <p className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/35 mb-6">
+        <p className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#0A0A0B]/35 mb-6">
           The stack I ship with
         </p>
 

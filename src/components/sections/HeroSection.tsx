@@ -11,11 +11,11 @@ export function HeroSection() {
       className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 md:pt-32"
       style={{ overflowX: "clip" }}
     >
-      {/* Ambient lime glow */}
+      {/* Ambient accent glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-[0.14] blur-[120px]"
-        style={{ background: "radial-gradient(circle, #CCFF00 0%, transparent 60%)" }}
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-[0.10] blur-[120px]"
+        style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 60%)" }}
       />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-10">
@@ -24,16 +24,16 @@ export function HeroSection() {
           <div className="order-1 lg:order-1">
             {/* Eyebrow */}
             <FadeIn as="div" delay={0.05} y={-10} className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/40 px-3.5 py-1.5">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#2563EB]/35 px-3.5 py-1.5">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#CCFF00] opacity-70" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#CCFF00]" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2563EB] opacity-70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2563EB]" />
                 </span>
-                <span className="font-mono uppercase tracking-widest text-[0.65rem] text-[#CCFF00]">
+                <span className="font-mono uppercase tracking-widest text-[0.65rem] text-[#2563EB]">
                   {PROFILE.title}
                 </span>
               </span>
-              <span className="font-mono uppercase tracking-widest text-[0.65rem] text-[#F5F5F7]/45">
+              <span className="font-mono uppercase tracking-widest text-[0.65rem] text-[#0A0A0B]/45">
                 {PROFILE.location}
               </span>
             </FadeIn>
@@ -56,7 +56,7 @@ export function HeroSection() {
               as="p"
               delay={0.25}
               y={20}
-              className="mt-6 max-w-xl text-[#F5F5F7]/75 font-light leading-relaxed"
+              className="mt-6 max-w-xl text-[#0A0A0B]/70 font-light leading-relaxed"
               style={{ fontSize: "clamp(1rem, 1.6vw, 1.3rem)" }}
             >
               {PROFILE.tagline}
@@ -66,12 +66,12 @@ export function HeroSection() {
             <FadeIn delay={0.38} y={20} className="mt-9 flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-3 rounded-full bg-[#CCFF00] text-[#0A0A0B] font-mono font-medium uppercase tracking-widest text-xs sm:text-sm px-8 py-4 transition-transform duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-3 rounded-full bg-[#2563EB] text-[#FFFFFF] font-mono font-medium uppercase tracking-widest text-xs sm:text-sm px-8 py-4 transition-transform duration-300 ease-out hover:scale-[1.04] active:scale-[0.98]"
               >
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ boxShadow: "0 0 36px 4px rgba(204,255,0,0.5)" }}
+                  style={{ boxShadow: "0 0 36px 4px rgba(37,99,235,0.45)" }}
                 />
                 <span className="relative">View my work</span>
                 <svg
@@ -85,7 +85,7 @@ export function HeroSection() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-[#F5F5F7]/25 text-[#F5F5F7] font-mono font-medium uppercase tracking-widest text-xs sm:text-sm px-8 py-4 transition-colors duration-300 hover:border-[#F5F5F7]/60 hover:bg-[#F5F5F7]/[0.04]"
+                className="inline-flex items-center gap-2 rounded-full border border-[#0A0A0B]/20 text-[#0A0A0B] font-mono font-medium uppercase tracking-widest text-xs sm:text-sm px-8 py-4 transition-colors duration-300 hover:border-[#0A0A0B]/50 hover:bg-[#0A0A0B]/[0.04]"
               >
                 Get in touch
               </a>
@@ -96,9 +96,9 @@ export function HeroSection() {
               as="p"
               delay={0.5}
               y={16}
-              className="mt-8 font-mono text-[0.7rem] sm:text-xs uppercase tracking-widest text-[#F5F5F7]/40"
+              className="mt-8 font-mono text-[0.7rem] sm:text-xs uppercase tracking-widest text-[#0A0A0B]/40"
             >
-              <span className="text-[#CCFF00]">◆</span> {PROFILE.availability}
+              <span className="text-[#2563EB]">◆</span> {PROFILE.availability}
             </FadeIn>
           </div>
 
@@ -112,12 +112,12 @@ export function HeroSection() {
               {/* halo ring */}
               <div
                 aria-hidden
-                className="absolute inset-0 -m-6 rounded-full border border-[#F5F5F7]/10"
+                className="absolute inset-0 -m-6 rounded-full border border-[#0A0A0B]/10"
               />
               <div
                 aria-hidden
-                className="absolute inset-x-6 bottom-0 h-40 rounded-full opacity-30 blur-3xl"
-                style={{ background: "radial-gradient(circle, #CCFF00 0%, transparent 70%)" }}
+                className="absolute inset-x-6 bottom-0 h-40 rounded-full opacity-25 blur-3xl"
+                style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 70%)" }}
               />
               <Magnet
                 padding={120}
@@ -143,9 +143,9 @@ export function HeroSection() {
         delay={0.7}
         className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-10 mt-12 lg:mt-16"
       >
-        <div className="flex items-center gap-3 text-[#F5F5F7]/30">
+        <div className="flex items-center gap-3 text-[#0A0A0B]/30">
           <span className="font-mono text-[0.65rem] uppercase tracking-widest">Scroll</span>
-          <span className="h-px w-16 bg-gradient-to-r from-[#F5F5F7]/30 to-transparent" />
+          <span className="h-px w-16 bg-gradient-to-r from-[#0A0A0B]/30 to-transparent" />
         </div>
       </FadeIn>
     </section>

@@ -87,7 +87,7 @@ export function AskSection() {
   return (
     <section
       id="ask"
-      className="bg-[#0A0A0B] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32 flex flex-col items-center"
+      className="bg-[#FFFFFF] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32 flex flex-col items-center"
     >
       <FadeIn
         as="h2"
@@ -102,9 +102,9 @@ export function AskSection() {
         as="p"
         delay={0.1}
         y={20}
-        className="font-mono text-[#F5F5F7]/60 uppercase tracking-widest text-[0.7rem] sm:text-xs mt-5 text-center"
+        className="font-mono text-[#0A0A0B]/60 uppercase tracking-widest text-[0.7rem] sm:text-xs mt-5 text-center"
       >
-        <span className="inline-block w-2 h-2 rounded-full bg-[#CCFF00] mr-2 align-middle" />
+        <span className="inline-block w-2 h-2 rounded-full bg-[#2563EB] mr-2 align-middle" />
         Powered by Claude — ask anything about Usman
       </FadeIn>
 
@@ -113,14 +113,14 @@ export function AskSection() {
         y={30}
         className="w-full max-w-2xl mt-10 sm:mt-12"
       >
-        <div className="rounded-[28px] sm:rounded-[34px] border-2 border-[#F5F5F7]/15 bg-[#0F0F10] overflow-hidden">
+        <div className="rounded-[28px] sm:rounded-[34px] border border-[#0A0A0B]/10 bg-[#FFFFFF] shadow-xl shadow-black/[0.04] overflow-hidden">
           {/* Messages */}
           <div
             ref={scrollRef}
             className="px-4 sm:px-6 py-6 flex flex-col gap-4 min-h-[220px] max-h-[440px] overflow-y-auto scroll-smooth"
           >
             {!started && (
-              <div className="m-auto text-center text-[#F5F5F7]/35 font-light text-sm sm:text-base max-w-sm">
+              <div className="m-auto text-center text-[#0A0A0B]/35 font-light text-sm sm:text-base max-w-sm">
                 Ask me about Usman&apos;s work, projects, stack, or how to hire
                 him. I&apos;ll answer in real time.
               </div>
@@ -140,8 +140,8 @@ export function AskSection() {
                   <div
                     className={
                       m.role === "user"
-                        ? "max-w-[85%] rounded-2xl rounded-br-md bg-[#CCFF00] text-[#0A0A0B] px-4 py-2.5 text-sm sm:text-base font-medium"
-                        : "max-w-[90%] rounded-2xl rounded-bl-md bg-[#1A1A1C] text-[#F5F5F7] px-4 py-2.5 text-sm sm:text-base font-light leading-relaxed whitespace-pre-wrap"
+                        ? "max-w-[85%] rounded-2xl rounded-br-md bg-[#2563EB] text-[#FFFFFF] px-4 py-2.5 text-sm sm:text-base font-medium"
+                        : "max-w-[90%] rounded-2xl rounded-bl-md bg-[#F5F5F4] text-[#0A0A0B] px-4 py-2.5 text-sm sm:text-base font-light leading-relaxed whitespace-pre-wrap"
                     }
                   >
                     {m.content || (
@@ -164,7 +164,7 @@ export function AskSection() {
                 <button
                   key={s}
                   onClick={() => ask(s)}
-                  className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-wider text-[#F5F5F7]/70 border border-[#F5F5F7]/20 rounded-full px-4 py-2.5 min-h-[40px] transition-colors duration-200 hover:border-[#CCFF00] hover:text-[#CCFF00] active:scale-95"
+                  className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-wider text-[#0A0A0B]/70 border border-[#0A0A0B]/15 rounded-full px-4 py-2.5 min-h-[40px] transition-colors duration-200 hover:border-[#2563EB] hover:text-[#2563EB] active:scale-95"
                 >
                   {s}
                 </button>
@@ -178,19 +178,19 @@ export function AskSection() {
               e.preventDefault();
               ask(input);
             }}
-            className="flex items-center gap-3 border-t border-[#F5F5F7]/10 px-4 sm:px-5 py-3"
+            className="flex items-center gap-3 border-t border-[#0A0A0B]/10 px-4 sm:px-5 py-3"
           >
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask anything about Usman…"
-              className="flex-1 bg-transparent text-[#F5F5F7] placeholder:text-[#F5F5F7]/30 text-sm sm:text-base outline-none"
+              className="flex-1 bg-transparent text-[#0A0A0B] placeholder:text-[#0A0A0B]/30 text-sm sm:text-base outline-none"
               aria-label="Ask the AI a question about Usman"
             />
             <button
               type="submit"
               disabled={loading || !input.trim()}
-              className="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-[#CCFF00] text-[#0A0A0B] transition-all duration-200 hover:scale-105 disabled:opacity-30 disabled:hover:scale-100"
+              className="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-[#2563EB] text-[#FFFFFF] transition-all duration-200 hover:scale-105 disabled:opacity-30 disabled:hover:scale-100"
               aria-label="Send"
             >
               <svg
@@ -218,7 +218,7 @@ export function AskSection() {
 function Dot({ delay }: { delay: number }) {
   return (
     <motion.span
-      className="inline-block w-1.5 h-1.5 rounded-full bg-[#CCFF00]"
+      className="inline-block w-1.5 h-1.5 rounded-full bg-[#2563EB]"
       animate={{ opacity: [0.3, 1, 0.3], y: [0, -3, 0] }}
       transition={{ duration: 0.9, repeat: Infinity, delay, ease: "easeInOut" }}
     />

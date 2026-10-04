@@ -9,8 +9,8 @@ const RADIUS = "rounded-[32px] sm:rounded-[44px] md:rounded-[52px]";
 
 function LiveBadge({ label = "On the App Store" }: { label?: string }) {
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#CCFF00]/40 bg-[#CCFF00]/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-widest text-[#CCFF00] whitespace-nowrap">
-      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#CCFF00]" />
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#2563EB]/35 bg-[#2563EB]/10 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-widest text-[#2563EB] whitespace-nowrap">
+      <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
       {label}
     </span>
   );
@@ -18,7 +18,7 @@ function LiveBadge({ label = "On the App Store" }: { label?: string }) {
 
 function Tag({ label }: { label: string }) {
   return (
-    <span className="rounded-full border border-[#F5F5F7]/15 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-wider text-[#F5F5F7]/55 whitespace-nowrap">
+    <span className="rounded-full border border-[#0A0A0B]/12 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-wider text-[#0A0A0B]/55 whitespace-nowrap">
       {label}
     </span>
   );
@@ -42,13 +42,13 @@ function ProjectCard({
     <div className="min-h-[86vh] md:h-[88vh] flex items-start justify-center sticky top-20 md:top-28 pb-6 md:pb-0">
       <motion.div
         style={{ scale, top: `${index * 26}px` }}
-        className={`group relative w-full max-w-6xl ${RADIUS} border border-[#F5F5F7]/15 bg-[#0C0C0D] p-4 sm:p-6 md:p-8 origin-top overflow-hidden transition-colors duration-300 hover:border-[#CCFF00]/60`}
+        className={`group relative w-full max-w-6xl ${RADIUS} border border-[#0A0A0B]/10 bg-[#FFFFFF] shadow-xl shadow-black/[0.04] p-4 sm:p-6 md:p-8 origin-top overflow-hidden transition-colors duration-300 hover:border-[#2563EB]/40`}
       >
         {/* subtle top glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[220px] rounded-full opacity-0 group-hover:opacity-100 blur-[90px] transition-opacity duration-500"
-          style={{ background: "radial-gradient(circle,#CCFF00 0%,transparent 70%)" }}
+          style={{ background: "radial-gradient(circle,#2563EB 0%,transparent 70%)" }}
         />
 
         {/* Whole-card link (web platforms with a live URL) */}
@@ -66,17 +66,17 @@ function ProjectCard({
         <div className="relative flex flex-wrap items-start justify-between gap-4 mb-5 sm:mb-6">
           <div className="flex items-start gap-4 sm:gap-6 min-w-0">
             <span
-              className="text-[#F5F5F7]/15 font-display font-bold leading-none"
+              className="text-[#0A0A0B]/10 font-display font-bold leading-none"
               style={{ fontSize: "clamp(2.5rem, 7vw, 90px)" }}
             >
               {project.num}
             </span>
             <div className="flex flex-col gap-2 min-w-0">
-              <span className="font-mono text-[#CCFF00] uppercase tracking-widest text-[0.65rem] sm:text-xs">
+              <span className="font-mono text-[#2563EB] uppercase tracking-widest text-[0.65rem] sm:text-xs">
                 {project.category}
               </span>
               <span
-                className="text-[#F5F5F7] font-display font-semibold leading-tight"
+                className="text-[#0A0A0B] font-display font-semibold leading-tight"
                 style={{ fontSize: "clamp(1.4rem, 3vw, 2.6rem)" }}
               >
                 {project.name}
@@ -91,7 +91,7 @@ function ProjectCard({
 
           <div className="flex flex-col items-end gap-3">
             {project.live && <LiveBadge label={project.liveLabel} />}
-            <div className="flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border border-[#F5F5F7]/25 text-[#F5F5F7] transition-all duration-300 ease-out group-hover:border-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#0A0A0B] group-hover:-rotate-45">
+            <div className="flex flex-shrink-0 items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full border border-[#0A0A0B]/20 text-[#0A0A0B] transition-all duration-300 ease-out group-hover:border-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-[#FFFFFF] group-hover:-rotate-45">
               <svg
                 width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden
@@ -106,14 +106,14 @@ function ProjectCard({
         {/* Body: blurb + image */}
         <div className="relative grid grid-cols-1 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2.2fr)] gap-5 md:gap-7 items-center">
           <p
-            className="text-[#F5F5F7]/70 font-light leading-relaxed order-2 lg:order-1"
+            className="text-[#0A0A0B]/65 font-light leading-relaxed order-2 lg:order-1"
             style={{ fontSize: "clamp(0.9rem, 1.4vw, 1.1rem)" }}
           >
             {project.blurb}
           </p>
 
           <div
-            className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] border border-[#F5F5F7]/8 p-3 sm:p-5 flex items-center justify-center gap-3 sm:gap-4`}
+            className={`order-1 lg:order-2 ${RADIUS} overflow-hidden bg-gradient-to-b from-[#FAFAF7] to-[#F0F0EE] border border-[#0A0A0B]/8 p-3 sm:p-5 flex items-center justify-center gap-3 sm:gap-4`}
             style={{ height: "clamp(190px, 34vh, 460px)" }}
           >
             {project.video ? (
@@ -152,7 +152,7 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
     <FadeIn
       delay={delay}
       y={30}
-      className={`group relative flex flex-col rounded-3xl border border-[#F5F5F7]/12 bg-[#0C0C0D] overflow-hidden transition-colors duration-300 hover:border-[#CCFF00]/50`}
+      className={`group relative flex flex-col rounded-3xl border border-[#0A0A0B]/10 bg-[#FFFFFF] shadow-lg shadow-black/[0.03] overflow-hidden transition-colors duration-300 hover:border-[#2563EB]/40`}
     >
       {project.url && (
         <a
@@ -163,7 +163,7 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
           className="absolute inset-0 z-20"
         />
       )}
-      <div className="relative h-52 grid place-items-center overflow-hidden bg-gradient-to-b from-[#141416] to-[#0A0A0B] p-4">
+      <div className="relative h-52 grid place-items-center overflow-hidden bg-gradient-to-b from-[#FAFAF7] to-[#F0F0EE] p-4">
         {hasImage ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -173,7 +173,7 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
             className="max-w-full max-h-full object-contain rounded-xl transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
-          <div className="flex flex-col items-center gap-2 text-[#F5F5F7]/30">
+          <div className="flex flex-col items-center gap-2 text-[#0A0A0B]/30">
             <span
               className="accent-gradient font-display font-bold leading-none"
               style={{ fontSize: "clamp(2rem,5vw,3rem)" }}
@@ -188,19 +188,19 @@ function MoreCard({ project, delay }: { project: Project; delay: number }) {
       </div>
       <div className="flex flex-col gap-3 p-6">
         <div className="flex items-center justify-between gap-3">
-          <span className="font-mono text-[#CCFF00] uppercase tracking-widest text-[0.6rem]">
+          <span className="font-mono text-[#2563EB] uppercase tracking-widest text-[0.6rem]">
             {project.category}
           </span>
           {project.live && (
-            <span className="inline-flex items-center gap-1 font-mono text-[0.55rem] uppercase tracking-widest text-[#CCFF00]/80">
+            <span className="inline-flex items-center gap-1 font-mono text-[0.55rem] uppercase tracking-widest text-[#2563EB]/80">
               ● Live{project.url && " ↗"}
             </span>
           )}
         </div>
-        <h3 className="text-[#F5F5F7] font-display font-semibold text-xl">
+        <h3 className="text-[#0A0A0B] font-display font-semibold text-xl">
           {project.name}
         </h3>
-        <p className="text-[#F5F5F7]/55 font-light text-sm leading-relaxed">
+        <p className="text-[#0A0A0B]/55 font-light text-sm leading-relaxed">
           {project.blurb}
         </p>
         <div className="flex flex-wrap gap-1.5 mt-1">
@@ -223,9 +223,9 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative z-10 bg-[#0A0A0B] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-28 pb-20"
+      className="relative z-10 bg-[#FFFFFF] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 px-5 sm:px-8 md:px-10 pt-20 sm:pt-24 md:pt-28 pb-20"
     >
-      <FadeIn as="p" y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/40 mb-4">
+      <FadeIn as="p" y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#0A0A0B]/40 mb-4">
         Selected work
       </FadeIn>
       <FadeIn
@@ -253,7 +253,7 @@ export function ProjectsSection() {
 
       {/* More work */}
       <div className="mx-auto max-w-6xl mt-16 sm:mt-24">
-        <FadeIn as="h3" y={30} className="font-display font-semibold text-[#F5F5F7] text-2xl sm:text-3xl mb-8 text-center">
+        <FadeIn as="h3" y={30} className="font-display font-semibold text-[#0A0A0B] text-2xl sm:text-3xl mb-8 text-center">
           More builds
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">

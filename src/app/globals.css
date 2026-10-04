@@ -3,16 +3,17 @@
 
 /* ============================================
    @buildwithusman.io — portfolio
-   Charcoal world, electric-lime accent (sparingly)
+   Light world, electric-blue accent (sparingly)
    Type: Space Grotesk (display) · Inter (body)
          JetBrains Mono (technical) · Instrument Serif (emotional)
    ============================================ */
 
 @theme {
-  --color-ink: #0A0A0B;       /* charcoal — the world */
-  --color-mist: #F5F5F7;      /* warm off-white — text */
-  --color-cream: #FAFAF7;     /* premium light backgrounds */
-  --color-lime: #CCFF00;      /* the signature accent */
+  --color-ink: #0A0A0B;         /* charcoal — the text */
+  --color-paper: #FFFFFF;       /* clean white — the world */
+  --color-cream: #FAFAF7;       /* warm light — alternating sections, card tint */
+  --color-accent: #2563EB;      /* the signature accent — electric blue */
+  --color-accent-dark: #1D4ED8; /* accent hover/pressed */
 
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
@@ -35,27 +36,27 @@
   html,
   body,
   #root {
-    background: #0A0A0B;
+    background: #FFFFFF;
   }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    color: #F5F5F7;
+    color: #0A0A0B;
     -webkit-font-smoothing: antialiased;
   }
 }
 
-/* Gradient hero text */
+/* Gradient hero text — charcoal fading to slate, legible on white */
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  background: linear-gradient(180deg, #0A0A0B 0%, #3F3F46 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Lime-tinted gradient accent text (used sparingly for emphasis) */
+/* Accent gradient text (used sparingly for emphasis — stat numbers, etc.) */
 .accent-gradient {
-  background: linear-gradient(180deg, #F5F5F7 0%, #CCFF00 160%);
+  background: linear-gradient(180deg, #0A0A0B 0%, #2563EB 160%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -85,21 +86,21 @@
   .marquee-left, .marquee-right { animation: none; }
 }
 
-/* Subtle dotted grid used behind dark sections */
+/* Subtle dotted grid used behind light sections */
 .dot-grid {
-  background-image: radial-gradient(rgba(245,245,247,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(10,10,11,0.07) 1px, transparent 1px);
   background-size: 26px 26px;
 }
 
 ::selection {
-  background: #CCFF00;
-  color: #0A0A0B;
+  background: #2563EB;
+  color: #FFFFFF;
 }
 
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0A0A0B; }
-::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+::-webkit-scrollbar-track { background: #FFFFFF; }
+::-webkit-scrollbar-thumb { background: #D4D4D8; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

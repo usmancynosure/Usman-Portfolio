@@ -7,10 +7,10 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative bg-[#0A0A0B] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32"
+      className="relative bg-[#FFFFFF] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32"
     >
       <div className="mx-auto max-w-5xl">
-        <FadeIn as="p" y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/40 mb-4">
+        <FadeIn as="p" y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#0A0A0B]/40 mb-4">
           The path so far
         </FadeIn>
         <FadeIn
@@ -24,16 +24,16 @@ export function ExperienceSection() {
         </FadeIn>
 
         {/* What I build — capability headline */}
-        <FadeIn as="p" delay={0.1} y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#F5F5F7]/40 mb-5">
+        <FadeIn as="p" delay={0.1} y={20} className="text-center font-mono text-[0.65rem] uppercase tracking-[0.3em] text-[#0A0A0B]/40 mb-5">
           What I build
         </FadeIn>
         <FadeIn delay={0.15} y={20} className="mx-auto mb-16 flex max-w-3xl flex-wrap items-center justify-center gap-2.5 sm:mb-20">
           {WHAT_I_BUILD.map((item) => (
             <span
               key={item}
-              className="inline-flex items-center gap-2 rounded-full border border-[#F5F5F7]/15 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#F5F5F7]/70 transition-colors duration-300 hover:border-[#CCFF00]/50 hover:text-[#F5F5F7]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#0A0A0B]/15 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-widest text-[#0A0A0B]/70 transition-colors duration-300 hover:border-[#2563EB]/50 hover:text-[#0A0A0B]"
             >
-              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#CCFF00]" />
+              <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2563EB]" />
               {item}
             </span>
           ))}
@@ -43,7 +43,7 @@ export function ExperienceSection() {
           {/* vertical line */}
           <div
             aria-hidden
-            className="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[#CCFF00]/50 via-[#F5F5F7]/15 to-transparent"
+            className="absolute left-[7px] sm:left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[#2563EB]/50 via-[#0A0A0B]/15 to-transparent"
           />
 
           <div className="flex flex-col gap-12 sm:gap-16">
@@ -51,26 +51,26 @@ export function ExperienceSection() {
               <FadeIn key={item.org} delay={i * 0.1} y={30} className="relative pl-8 sm:pl-12">
                 {/* node */}
                 <span className="absolute left-0 top-1.5 grid place-items-center">
-                  <span className="w-[15px] h-[15px] sm:w-[19px] sm:h-[19px] rounded-full border-2 border-[#CCFF00] bg-[#0A0A0B]" />
-                  <span className="absolute w-1.5 h-1.5 rounded-full bg-[#CCFF00]" />
+                  <span className="w-[15px] h-[15px] sm:w-[19px] sm:h-[19px] rounded-full border-2 border-[#2563EB] bg-[#FFFFFF]" />
+                  <span className="absolute w-1.5 h-1.5 rounded-full bg-[#2563EB]" />
                 </span>
 
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                  <h3 className="text-[#F5F5F7] font-display font-semibold text-xl sm:text-2xl">
+                  <h3 className="text-[#0A0A0B] font-display font-semibold text-xl sm:text-2xl">
                     {item.role}
                   </h3>
-                  <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-widest text-[#CCFF00]">
+                  <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-widest text-[#2563EB]">
                     {item.period}
                   </span>
                 </div>
-                <p className="mt-1 text-[#F5F5F7]/70 font-medium text-sm sm:text-base">
-                  {item.org} <span className="text-[#F5F5F7]/40">· {item.meta}</span>
+                <p className="mt-1 text-[#0A0A0B]/70 font-medium text-sm sm:text-base">
+                  {item.org} <span className="text-[#0A0A0B]/40">· {item.meta}</span>
                 </p>
 
                 <ul className="mt-4 flex flex-col gap-2.5">
                   {item.points.map((p, j) => (
-                    <li key={j} className="flex gap-3 text-[#F5F5F7]/60 font-light text-sm sm:text-[0.95rem] leading-relaxed">
-                      <span className="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#CCFF00]/50" />
+                    <li key={j} className="flex gap-3 text-[#0A0A0B]/60 font-light text-sm sm:text-[0.95rem] leading-relaxed">
+                      <span className="mt-2 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#2563EB]/50" />
                       <span>{p}</span>
                     </li>
                   ))}

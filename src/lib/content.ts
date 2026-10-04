@@ -11,7 +11,7 @@ export const PROFILE = {
   title: "AI Product Engineer",
   // one-liner used in the hero
   tagline:
-    "I design, build, and ship production-grade AI products end to end — from LLM-powered backends to native apps live on the App Store.",
+    "I design, build, and ship production-grade AI products end to end — agentic automation, LLM-powered cloud backends, apps, and websites, live on the App Store and the web.",
   location: "Islamabad, Pakistan",
   availability: "Open to AI Product Engineer roles across KSA & UAE — remote or on-site.",
   email: "imosmanwaris.tech@gmail.com",
@@ -298,11 +298,11 @@ export interface ExperienceItem {
 
 /** Headline of what he builds — short capability tags. */
 export const WHAT_I_BUILD: string[] = [
+  "Agentic AI & automation",
   "AI-powered products & systems",
-  "Full-stack mobile & web applications",
-  "Backend APIs & platforms",
-  "AI infrastructure & agent systems",
-  "GCP & Docker",
+  "Apps — iOS & Flutter",
+  "Websites & web platforms",
+  "Backend APIs & cloud infrastructure",
   "Distributed systems & integrations",
 ];
 
@@ -346,6 +346,56 @@ export const NAV_LINKS: { label: string; href: string }[] = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experience" },
+  { label: "Certs", href: "#certifications" },
   { label: "Ask AI", href: "#ask" },
   { label: "Contact", href: "#contact" },
+];
+
+export interface Certification {
+  slug: string;
+  name: string;
+  issuer: string;
+  date: string;
+  image: string;
+  verifyUrl?: string;
+}
+
+/** Certifications relevant to automation, agentic AI, and cloud — curated from a larger set. */
+export const CERTIFICATIONS: Certification[] = [
+  {
+    slug: "claude-101",
+    name: "Claude 101",
+    issuer: "Anthropic",
+    date: "2025",
+    image: "/images/certifications/claude-101.png",
+  },
+  {
+    slug: "kodekloud-mcp",
+    name: "Crash Course: MCP for Beginners",
+    issuer: "KodeKloud",
+    date: "Sep 2026",
+    image: "/images/certifications/kodekloud-mcp.png",
+  },
+  {
+    slug: "kodekloud-aiops",
+    name: "Automated Remediation with Python for AIOps",
+    issuer: "KodeKloud",
+    date: "Oct 2026",
+    image: "/images/certifications/kodekloud-aiops.png",
+  },
+  {
+    slug: "cisco-ccna",
+    name: "CCNAv7: Introduction to Networks",
+    issuer: "Cisco Networking Academy",
+    date: "Feb 2024",
+    image: "/images/certifications/cisco-ccna.png",
+  },
+  {
+    slug: "google-cloud-flutter",
+    name: "Material Components for Flutter Basics",
+    issuer: "Google Cloud · Coursera",
+    date: "Jul 2023",
+    image: "/images/certifications/google-cloud-flutter.png",
+    verifyUrl: "https://coursera.org/verify/3UNS4FNEJLG4",
+  },
 ];

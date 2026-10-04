@@ -39,17 +39,17 @@ export function Navbar() {
       <div
         className={`transition-all duration-300 ${
           scrolled
-            ? "backdrop-blur-xl bg-[#0A0A0B]/70 border-b border-[#F5F5F7]/10"
+            ? "backdrop-blur-xl bg-[#FFFFFF]/80 border-b border-[#0A0A0B]/10"
             : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav className="mx-auto max-w-7xl flex items-center justify-between px-5 sm:px-8 md:px-10 py-4">
-          {/* Brand mark: lowercase u + lime dot */}
+          {/* Brand mark: lowercase u + accent dot */}
           <a href="#top" className="flex items-end gap-1 select-none" aria-label="Usman Waris — home">
-            <span className="font-display font-bold lowercase leading-none text-[#F5F5F7] text-2xl md:text-3xl">
+            <span className="font-display font-bold lowercase leading-none text-[#0A0A0B] text-2xl md:text-3xl">
               u
             </span>
-            <span className="mb-1 inline-block w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#CCFF00]" />
+            <span className="mb-1 inline-block w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-[#2563EB]" />
           </a>
 
           {/* Desktop links */}
@@ -58,7 +58,7 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="font-mono text-[#F5F5F7] uppercase tracking-widest text-xs transition-colors duration-200 hover:text-[#CCFF00]"
+                className="font-mono text-[#0A0A0B] uppercase tracking-widest text-xs transition-colors duration-200 hover:text-[#2563EB]"
               >
                 {link.label}
               </a>
@@ -70,7 +70,7 @@ export function Navbar() {
             <button
               onClick={() => setResumeOpen((v) => !v)}
               onBlur={() => setTimeout(() => setResumeOpen(false), 150)}
-              className="group inline-flex items-center gap-2 rounded-full border border-[#CCFF00]/60 text-[#CCFF00] font-mono uppercase tracking-widest text-xs px-5 py-2.5 transition-colors duration-200 hover:bg-[#CCFF00] hover:text-[#0A0A0B]"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#2563EB]/50 text-[#2563EB] font-mono uppercase tracking-widest text-xs px-5 py-2.5 transition-colors duration-200 hover:bg-[#2563EB] hover:text-[#FFFFFF]"
               aria-haspopup="true"
               aria-expanded={resumeOpen}
             >
@@ -98,9 +98,9 @@ export function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 8, scale: 0.98 }}
                   transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="absolute right-0 mt-3 w-72 rounded-2xl border border-[#F5F5F7]/12 bg-[#0F0F10]/95 backdrop-blur-xl p-2 shadow-2xl shadow-black/60"
+                  className="absolute right-0 mt-3 w-72 rounded-2xl border border-[#0A0A0B]/10 bg-[#FFFFFF] backdrop-blur-xl p-2 shadow-2xl shadow-black/10"
                 >
-                  <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#F5F5F7]/40 px-3 pt-2 pb-1">
+                  <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#0A0A0B]/40 px-3 pt-2 pb-1">
                     Download résumé
                   </p>
                   {RESUMES.map((r) => (
@@ -108,16 +108,16 @@ export function Navbar() {
                       key={r.href}
                       href={r.href}
                       download
-                      className="group flex items-center gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-[#F5F5F7]/[0.06]"
+                      className="group flex items-center gap-3 rounded-xl px-3 py-3 transition-colors duration-200 hover:bg-[#0A0A0B]/[0.04]"
                     >
-                      <span className="grid place-items-center w-9 h-9 rounded-lg bg-[#CCFF00]/10 text-[#CCFF00] font-mono text-[0.6rem] font-semibold">
+                      <span className="grid place-items-center w-9 h-9 rounded-lg bg-[#2563EB]/10 text-[#2563EB] font-mono text-[0.6rem] font-semibold">
                         {r.kind}
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-[#F5F5F7] text-sm font-medium group-hover:text-[#CCFF00] transition-colors">
+                        <span className="text-[#0A0A0B] text-sm font-medium group-hover:text-[#2563EB] transition-colors">
                           {r.label}
                         </span>
-                        <span className="text-[#F5F5F7]/45 text-xs">{r.role}</span>
+                        <span className="text-[#0A0A0B]/45 text-xs">{r.role}</span>
                       </span>
                     </a>
                   ))}
@@ -134,17 +134,17 @@ export function Navbar() {
             aria-expanded={open}
           >
             <span
-              className={`block h-0.5 w-6 bg-[#F5F5F7] transition-transform duration-300 ${
+              className={`block h-0.5 w-6 bg-[#0A0A0B] transition-transform duration-300 ${
                 open ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block h-0.5 w-6 bg-[#F5F5F7] transition-opacity duration-300 ${
+              className={`block h-0.5 w-6 bg-[#0A0A0B] transition-opacity duration-300 ${
                 open ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block h-0.5 w-6 bg-[#F5F5F7] transition-transform duration-300 ${
+              className={`block h-0.5 w-6 bg-[#0A0A0B] transition-transform duration-300 ${
                 open ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
@@ -160,7 +160,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
-            className="md:hidden overflow-hidden backdrop-blur-xl bg-[#0A0A0B]/95 border-b border-[#F5F5F7]/10"
+            className="md:hidden overflow-hidden backdrop-blur-xl bg-[#FFFFFF]/95 border-b border-[#0A0A0B]/10"
           >
             <div className="px-6 py-6 flex flex-col gap-5">
               {NAV_LINKS.map((link) => (
@@ -168,13 +168,13 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="font-mono text-[#F5F5F7] uppercase tracking-widest text-sm hover:text-[#CCFF00]"
+                  className="font-mono text-[#0A0A0B] uppercase tracking-widest text-sm hover:text-[#2563EB]"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="h-px bg-[#F5F5F7]/10 my-1" />
-              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#F5F5F7]/40">
+              <div className="h-px bg-[#0A0A0B]/10 my-1" />
+              <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#0A0A0B]/40">
                 Download résumé
               </p>
               {RESUMES.map((r) => (
@@ -185,10 +185,10 @@ export function Navbar() {
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3"
                 >
-                  <span className="grid place-items-center w-8 h-8 rounded-lg bg-[#CCFF00]/10 text-[#CCFF00] font-mono text-[0.55rem] font-semibold">
+                  <span className="grid place-items-center w-8 h-8 rounded-lg bg-[#2563EB]/10 text-[#2563EB] font-mono text-[0.55rem] font-semibold">
                     {r.kind}
                   </span>
-                  <span className="text-[#F5F5F7] text-sm font-medium">{r.label}</span>
+                  <span className="text-[#0A0A0B] text-sm font-medium">{r.label}</span>
                 </a>
               ))}
             </div>

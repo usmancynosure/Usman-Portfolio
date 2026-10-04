@@ -33,13 +33,13 @@ export function ShowreelSection() {
   return (
     <section
       id="showreel"
-      className="relative bg-[#0A0A0B] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32 overflow-hidden"
+      className="relative bg-[#FFFFFF] px-5 sm:px-8 md:px-10 py-24 sm:py-28 md:py-32 overflow-hidden"
     >
-      {/* Ambient lime glow */}
+      {/* Ambient accent glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.09] blur-[150px]"
-        style={{ background: "radial-gradient(circle, #CCFF00 0%, transparent 60%)" }}
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full opacity-[0.07] blur-[150px]"
+        style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 60%)" }}
       />
 
       <div className="relative z-10 mx-auto max-w-6xl">
@@ -48,7 +48,7 @@ export function ShowreelSection() {
           <FadeIn
             as="p"
             y={-10}
-            className="font-mono uppercase tracking-widest text-[0.65rem] text-[#CCFF00] mb-5"
+            className="font-mono uppercase tracking-widest text-[0.65rem] text-[#2563EB] mb-5"
           >
             ◆ Showreel
           </FadeIn>
@@ -65,7 +65,7 @@ export function ShowreelSection() {
             as="p"
             delay={0.18}
             y={20}
-            className="mt-6 max-w-xl mx-auto text-[#F5F5F7]/70 font-light leading-relaxed"
+            className="mt-6 max-w-xl mx-auto text-[#0A0A0B]/65 font-light leading-relaxed"
             style={{ fontSize: "clamp(1rem, 1.5vw, 1.2rem)" }}
           >
             A short reel of the products, interfaces, and systems I&apos;ve been
@@ -86,10 +86,11 @@ export function ShowreelSection() {
                 {/* halo glow behind the phone */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 -m-6 rounded-[3rem] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
-                  style={{ background: "radial-gradient(circle, #CCFF00 0%, transparent 70%)" }}
+                  className="absolute inset-0 -m-6 rounded-[3rem] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30"
+                  style={{ background: "radial-gradient(circle, #2563EB 0%, transparent 70%)" }}
                 />
-                <div className="relative rounded-[2.2rem] border border-[#F5F5F7]/15 bg-[#0A0A0B] p-2 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
+                {/* Phone bezel — intentionally dark (device mockup), independent of page theme */}
+                <div className="relative rounded-[2.2rem] border border-[#F5F5F7]/15 bg-[#0A0A0B] p-2 shadow-2xl shadow-black/20 transition-transform duration-500 group-hover:-translate-y-2">
                   {/* notch */}
                   <div className="absolute top-3 left-1/2 -translate-x-1/2 z-10 h-1.5 w-14 rounded-full bg-[#F5F5F7]/20" />
                   <video
@@ -106,10 +107,10 @@ export function ShowreelSection() {
 
               {/* label */}
               <div className="mt-6 text-center">
-                <p className="font-display font-bold text-[#F5F5F7] text-lg">
+                <p className="font-display font-bold text-[#0A0A0B] text-lg">
                   {reel.label}
                 </p>
-                <p className="font-mono uppercase tracking-widest text-[0.6rem] text-[#F5F5F7]/50 mt-1">
+                <p className="font-mono uppercase tracking-widest text-[0.6rem] text-[#0A0A0B]/50 mt-1">
                   {reel.caption}
                 </p>
               </div>
